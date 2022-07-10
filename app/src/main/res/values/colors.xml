@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary_green">#a4ce2d</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="outline">#33000000</color>
 </resources>

@@ -10,10 +10,10 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 
-abstract class BaseFragment<VM : ViewModel, B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
+abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
     Fragment() {
 
-    protected abstract val viewModel: VM
+    // protected abstract val viewModel: VM
     protected lateinit var binding: B
     //private lateinit var navController: NavController
 

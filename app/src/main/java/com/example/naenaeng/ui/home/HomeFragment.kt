@@ -5,20 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.naenaeng.R
+import com.example.naenaeng.base.BaseFragment
+import com.example.naenaeng.databinding.FragmentHomeBinding
 
-class HomeFragment:Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    override fun initDataBinding() {
+        super.initDataBinding()
     }
 }
