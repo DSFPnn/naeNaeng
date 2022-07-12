@@ -5,7 +5,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/btn_set_ingredient"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/solid_raidus_shpae"
+            android:text="확인"
+            android:textColor="#5f5144"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_ingredient_life" />
 
         <ImageView
             android:id="@+id/img_ingredient"
@@ -21,7 +35,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
-            android:id="@+id/et_id"
+            android:id="@+id/et_ingredient_name"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginStart="16dp"
@@ -43,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/img_ingredient" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_ingredient_life"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginStart="16dp"
@@ -60,7 +74,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_id" />
+            app:layout_constraintTop_toBottomOf="@+id/et_ingredient_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

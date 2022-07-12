@@ -9,9 +9,31 @@
         android:id="@+id/homeFragment"
         android:name="com.example.naenaeng.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_addIngredientFragment"
+            app:destination="@id/addIngredientFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addIngredientFragment"
         android:name="com.example.naenaeng.ui.home.AddIngredientFragment"
-        android:label="AddIngredientFragment" />
+        android:label="AddIngredientFragment"
+        tools:layout="@layout/fragment_add_ingredient">
+        <action
+            android:id="@+id/action_addIngredientFragment_to_ingredientNameFragment"
+            app:destination="@id/ingredientNameFragment" />
+        <action
+            android:id="@+id/action_addIngredientFragment_to_ingredientLifeFragment"
+            app:destination="@id/ingredientLifeFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/ingredientNameFragment"
+        android:name="com.example.naenaeng.ui.home.IngredientNameFragment"
+        android:label="IngredientNameFragment"
+        tools:layout="@layout/fragment_ingredient_name"/>
+    <dialog
+        android:id="@+id/ingredientLifeFragment"
+        android:name="com.example.naenaeng.ui.home.IngredientLifeFragment"
+        android:label="IngredientLifeFragment"
+        tools:layout="@layout/fragment_ingredient_life"/>
 </navigation>

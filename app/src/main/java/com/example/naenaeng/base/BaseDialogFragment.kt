@@ -1,5 +1,7 @@
 package com.example.naenaeng.base
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +9,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 
-abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
-    Fragment() {
+abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
+    DialogFragment() {
 
     // protected abstract val viewModel: VM
     protected lateinit var binding: B
@@ -28,6 +30,9 @@ abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutR
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        // false : 화면 밖 터치 혹은 뒤로가기 버튼 누를 시 dismiss 안됨
+        isCancelable = false
     }
 
     override fun onCreateView(
@@ -36,6 +41,8 @@ abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutR
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutResourceId, container, false)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // 둥근 모서리 적용
+        //dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE) //android version 4.4 이하에서 blue line 생기는거 방지
         return binding.root
     }
 
