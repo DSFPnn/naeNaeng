@@ -11,15 +11,21 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/button_recipe.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/icon.xml" value="0.1475" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/img_button_radius.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/login_shape.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/raidus_shpae.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/search_shape.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/styles.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/activity_splash.xml" value="0.296195652173913" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_add_ingredient.xml" value="0.4580965909090909" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_allergy.xml" value="0.50390625" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_home.xml" value="0.43951612903225806" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_ingredient_life.xml" value="0.50234375" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_ingredient_name.xml" value="0.50234375" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_login.xml" value="0.50390625" />
-        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_register.xml" value="0.296195652173913" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_preference.xml" value="0.251171875" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_register.xml" value="0.50390625" />
       </map>
     </option>
   </component>
