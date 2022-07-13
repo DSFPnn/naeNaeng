@@ -6,7 +6,7 @@ import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentAddIngredientBinding
 
-class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) {
+class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) { //음식 추가 화면
     private lateinit var navController : NavController
 
     override fun initDataBinding() {
