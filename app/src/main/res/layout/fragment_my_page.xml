@@ -6,15 +6,105 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"><![CDATA[
+
+        " />
 
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mypage"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="460dp" />
+
+        ]]>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/bottom_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="168dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="김준서님, 안녕하세요! 필요하신 부분이 있으실까요?"
+                android:textColor="#5f5144"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView3"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="26dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_change_password"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="59dp"
+            android:background="@drawable/bottom_line"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="12dp"
+            android:text="비밀번호 변경"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <Button
+            android:id="@+id/btn_change_preference"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bottom_line"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="12dp"
+            android:text="선호음식 변경"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_password" />
+
+        <Button
+            android:id="@+id/btn_change_allergy"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bottom_line"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="12dp"
+            android:text="알러지 음식 변경"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_preference" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bottom_line"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="12dp"
+            android:text="로그아웃"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_allergy" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

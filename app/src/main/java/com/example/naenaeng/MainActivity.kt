@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.naenaeng.databinding.ActivityMainBinding
 import com.example.naenaeng.ui.home.HomeFragment
 import com.example.naenaeng.ui.mypage.MyPageFragment

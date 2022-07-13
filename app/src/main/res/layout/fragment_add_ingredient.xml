@@ -28,7 +28,7 @@
             android:layout_marginStart="150dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="150dp"
-            android:background="@drawable/img_button_add_ingredient"
+            android:background="@drawable/food_picture_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

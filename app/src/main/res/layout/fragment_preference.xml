@@ -29,7 +29,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="23dp"
-                    android:background="@drawable/expandable_listview">
+                    android:background="@drawable/bottom_line">
 
                     <TextView
                         android:id="@+id/tv_index"
@@ -71,7 +71,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="23dp"
-                    android:background="@drawable/expandable_listview">
+                    android:background="@drawable/bottom_line">
 
                     <TextView
                         android:id="@+id/tv_favor"
@@ -112,7 +112,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="23dp"
-                    android:background="@drawable/expandable_listview">
+                    android:background="@drawable/bottom_line">
 
                     <TextView
                         android:id="@+id/tv_spicy"
