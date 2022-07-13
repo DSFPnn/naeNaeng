@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "822523421660",
+    "project_id": "naenaeng-bebed",
+    "storage_bucket": "naenaeng-bebed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822523421660:android:e16cee1e3e901f2eaf6519",
+        "android_client_info": {
+          "package_name": "com.example.naenaeng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822523421660-vg61p19o6689g6fe034hih1qa0mblu16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.naenaeng",
+            "certificate_hash": "85f3d060f724a153f98a88be7daf777e00c0c182"
+          }
+        },
+        {
+          "client_id": "822523421660-o1eer1mcrkogm6s414jus6im917ltfqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoPppb6Eb3AbcaTp-HWsvaZMJU2qRT-44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822523421660-o1eer1mcrkogm6s414jus6im917ltfqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
