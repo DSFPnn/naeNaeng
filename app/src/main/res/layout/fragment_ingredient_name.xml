@@ -9,7 +9,7 @@
         android:background="#FFFFFF">
 
         <EditText
-            android:id="@+id/et_ingredient_name"
+            android:id="@+id/btn_ingredient_name"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginTop="50dp"
@@ -39,7 +39,7 @@
             android:textColor="#5f5144"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_ingredient_name" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_ingredient_name" />
 
         <ImageView
             android:id="@+id/img_ingredient"

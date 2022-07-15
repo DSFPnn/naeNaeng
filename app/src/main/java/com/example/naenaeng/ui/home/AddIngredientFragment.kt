@@ -1,6 +1,5 @@
 package com.example.naenaeng.ui.home
 
-import android.util.Log
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
@@ -9,10 +8,14 @@ import com.example.naenaeng.databinding.FragmentAddIngredientBinding
 class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) { //음식 추가 화면
     //private lateinit var navController : NavController
 
+    override fun initStartView() {
+        super.initStartView()
+        (activity as MainActivity).setToolbar("재료 추가")
+    }
+
     override fun initDataBinding() {
         super.initDataBinding()
 
-        Log.d("whyyy", "왜안돼")
         binding.imgIngredient.clipToOutline = true
 
     }
@@ -20,12 +23,15 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        Log.d("whyyy", "왜안돼2")
-        binding.btnSetIngredient
+        binding.btnIngredientName.setOnClickListener {
+            navController.navigate(R.id.action_addIngredientFragment_to_ingredientNameFragment)
+        }
+        binding.btnIngredientLife.setOnClickListener {
+            navController.navigate(R.id.action_addIngredientFragment_to_ingredientLifeFragment)
+        }
+        binding.btnSetIngredient.setOnClickListener{
+            navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
+        }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (activity as MainActivity).setToolbarTitle("재료 추가")
-    }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -28,6 +28,11 @@
         <action
             android:id="@+id/action_addIngredientFragment_to_ingredientLifeFragment"
             app:destination="@id/ingredientLifeFragment" />
+        <action
+            android:id="@+id/action_addIngredientFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/ingredientNameFragment"
@@ -53,6 +58,9 @@
         <action
             android:id="@+id/action_myPageFragment_to_allergyFragment"
             app:destination="@id/allergyFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
@@ -79,6 +87,9 @@
         <action
             android:id="@+id/action_registerFragment_to_preferenceFragment"
             app:destination="@id/preferenceFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_allergyFragment"
+            app:destination="@id/allergyFragment" />
     </fragment>
     <fragment
         android:id="@+id/preferenceFragment"
@@ -93,7 +104,13 @@
         android:id="@+id/allergyFragment"
         android:name="com.example.naenaeng.ui.info.AllergyFragment"
         android:label="AllergyFragment"
-        tools:layout="@layout/fragment_allergy"/>
+        tools:layout="@layout/fragment_allergy">
+        <action
+            android:id="@+id/action_allergyFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/recipeFragment"
         android:name="com.example.naenaeng.ui.recipe.RecipeFragment"

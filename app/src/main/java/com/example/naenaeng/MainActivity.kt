@@ -13,10 +13,6 @@ import com.example.naenaeng.ui.mypage.MyPageFragment
 import com.example.naenaeng.ui.recipe.RecipeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-private const val TAG_HOME = "home_fragment"
-private const val TAG_RECIPE = "recipe_fragment"
-private const val TAG_MY_PAGE = "my_page_fragment"
-
 class MainActivity: AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
@@ -38,21 +34,19 @@ class MainActivity: AppCompatActivity() {
             .setupWithNavController(navController)
     }
 
-    fun setToolbarTitle(tag: String){
+    fun setToolbar(tag: String){
         when (tag) {
-            TAG_HOME -> {
-                binding.toolbar.visibility = View.INVISIBLE
+            "none" -> {
+                binding.toolbar.visibility = View.GONE
+                binding.bottomNav.visibility = View.VISIBLE
             }
-            TAG_RECIPE -> {
-                binding.toolbar.visibility = View.VISIBLE
-                binding.tvToolbarName.text = "레시피"
-            }
-            TAG_MY_PAGE -> {
-                binding.toolbar.visibility = View.VISIBLE
-                binding.tvToolbarName.text = "마이"
+            "none2" -> {
+                binding.toolbar.visibility = View.GONE
+                binding.bottomNav.visibility = View.GONE
             }
             else -> {
                 binding.toolbar.visibility=View.VISIBLE
+                binding.bottomNav.visibility = View.VISIBLE
                 binding.tvToolbarName.text = tag
             }
         }
