@@ -10,14 +10,15 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 
 abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
     DialogFragment() {
 
     // protected abstract val viewModel: VM
     protected lateinit var binding: B
-    //private lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     // * 레이아웃을 띄운 직후 호출. * 뷰나 액티비티의 속성 등을 초기화. * ex) 리사이클러뷰, 툴바, 드로어뷰..
     protected open fun initStartView() {}
@@ -49,7 +50,7 @@ abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //navController = findNavController()
+        navController = findNavController()
 
         initStartView()
         initDataBinding()

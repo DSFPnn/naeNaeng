@@ -9,7 +9,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_recipe_menu"
+        android:id="@+id/layout_ingredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">

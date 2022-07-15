@@ -9,7 +9,7 @@
         android:background="#FFFFFF">
 
         <EditText
-            android:id="@+id/et_search_ingredient2"
+            android:id="@+id/et_search_recipe"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -28,11 +28,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:layout_gravity="center"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="6dp"
             android:text="맞춤 메뉴"
             android:textColor="@color/black"
@@ -45,32 +45,49 @@
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="26dp"
             android:layout_marginEnd="13dp"
+            android:divider="@drawable/divider"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search_ingredient2"
             android:showDividers="middle"
-            android:divider="@drawable/divider">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_recipe">
 
-            <Button
-                android:id="@+id/button3"
+            <TextView
+                android:id="@+id/tv_tag1"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:background="@drawable/search_shape"
                 android:paddingLeft="12dp"
+                android:paddingTop="9dp"
                 android:paddingRight="12dp"
+                android:paddingBottom="9dp"
                 android:text="달달한"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
-            <Button
-                android:id="@+id/button4"
+            <TextView
+                android:id="@+id/btn_tag2"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:background="@drawable/search_shape"
                 android:paddingLeft="12dp"
+                android:paddingTop="9dp"
                 android:paddingRight="12dp"
+                android:paddingBottom="9dp"
+                android:text="달달한"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/btn_tag3"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/search_shape"
+                android:paddingLeft="12dp"
+                android:paddingTop="9dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="9dp"
                 android:text="혼자 하기 쉬운"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
@@ -84,6 +101,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="14dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3"

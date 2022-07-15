@@ -4,6 +4,8 @@ import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentMyPageBinding
+import com.example.naenaeng.ui.info.AllergyFragment
+import com.example.naenaeng.ui.info.PreferenceFragment
 
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
     override fun initStartView() {
@@ -18,10 +20,10 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             navController.navigate(R.id.action_myPageFragment_to_changePasswordFragment)
         }
         binding.btnChangePreference.setOnClickListener {
-            navController.navigate(R.id.action_myPageFragment_to_preferenceFragment)
+            PreferenceFragment().show(parentFragmentManager, "preference")
         }
         binding.btnChangeAllergy.setOnClickListener {
-            navController.navigate(R.id.action_myPageFragment_to_allergyFragment)
+            AllergyFragment().show(parentFragmentManager, "preference")
         }
         binding.btnLogout.setOnClickListener {
             navController.navigate(R.id.action_myPageFragment_to_loginFragment)

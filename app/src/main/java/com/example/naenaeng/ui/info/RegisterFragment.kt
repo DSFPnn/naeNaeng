@@ -18,8 +18,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        binding.btnRegister.setOnClickListener {
-            navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
-        }
+//        binding.btnRegister.setOnClickListener {
+//            navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
+//        }
     }
 }

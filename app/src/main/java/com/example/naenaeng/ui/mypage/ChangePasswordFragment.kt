@@ -14,4 +14,12 @@ class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.lay
     override fun initDataBinding() {
         super.initDataBinding()
     }
+
+    override fun initAfterBinding() {
+        super.initAfterBinding()
+
+        binding.btnSetPassword.setOnClickListener {
+            navController.navigate(R.id.action_changePasswordFragment_to_myPageFragment)
+        }
+    }
 }
