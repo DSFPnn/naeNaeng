@@ -5,11 +5,14 @@ import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
 
+
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
+
     override fun initStartView() {
         super.initStartView()
         (activity as MainActivity).setToolbar("none2")
     }
+
     override fun initDataBinding() {
         super.initDataBinding()
     }
@@ -23,5 +26,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         binding.btnMaster.setOnClickListener {
             navController.navigate(R.id.action_loginFragment_to_homeFragment)
         }
+
+
     }
 }
