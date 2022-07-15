@@ -1,97 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    xmlns:tools="http://schemas.android.com/tools" >
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_naenaeng" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
 
-    <EditText
-        android:id="@+id/et_ingredient_name"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="257dp"
-        android:background="@drawable/outline_raidus_shape"
-        android:ems="10"
-        android:foregroundGravity="center"
-        android:hint="id를 입력해주세요."
-        android:includeFontPadding="false"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:paddingLeft="12dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_naenaeng" />
 
-    <EditText
-        android:id="@+id/et_ingredient_life"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/outline_raidus_shape"
-        android:ems="10"
-        android:hint="PW를 입력해주세요."
-        android:inputType="textPassword"
-        android:paddingLeft="12dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ingredient_name" />
+        <EditText
+            android:id="@+id/et_ingredient_name"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="257dp"
+            android:background="@drawable/outline_raidus_shape"
+            android:ems="10"
+            android:foregroundGravity="center"
+            android:hint="id를 입력해주세요."
+            android:includeFontPadding="false"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingLeft="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_change"
-        android:layout_width="328dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/solid_raidus_shpae"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="로그인"
-        android:textColor="#5f5144"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ingredient_life" />
+        <EditText
+            android:id="@+id/et_ingredient_life"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/outline_raidus_shape"
+            android:ems="10"
+            android:hint="PW를 입력해주세요."
+            android:inputType="textPassword"
+            android:paddingLeft="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_ingredient_name" />
 
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="회원가입"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/btn_change"
-        app:layout_constraintTop_toBottomOf="@+id/btn_change" />
+        <Button
+            android:id="@+id/btn_change"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/solid_raidus_shpae"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="로그인"
+            android:textColor="#5f5144"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_ingredient_life" />
 
-    <TextView
-        android:id="@+id/tv_find_id_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="199dp"
-        android:layout_marginTop="12dp"
-        android:text="ID/PW 찾기"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/btn_change"
-        app:layout_constraintStart_toEndOf="@+id/tv_register"
-        app:layout_constraintTop_toBottomOf="@+id/btn_change" />
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="회원가입"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/btn_change"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_find_id_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="199dp"
+            android:layout_marginTop="12dp"
+            android:text="ID/PW 찾기"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/btn_change"
+            app:layout_constraintStart_toEndOf="@+id/tv_register"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

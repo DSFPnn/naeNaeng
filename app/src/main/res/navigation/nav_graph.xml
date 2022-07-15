@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_addIngredientFragment"
             app:destination="@id/addIngredientFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/addIngredientFragment"
@@ -36,4 +39,64 @@
         android:name="com.example.naenaeng.ui.home.IngredientLifeFragment"
         android:label="IngredientLifeFragment"
         tools:layout="@layout/fragment_ingredient_life"/>
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.example.naenaeng.ui.mypage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page">
+        <action
+            android:id="@+id/action_myPageFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_preferenceFragment"
+            app:destination="@id/preferenceFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_allergyFragment"
+            app:destination="@id/allergyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.naenaeng.ui.mypage.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.naenaeng.ui.info.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.naenaeng.ui.info.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_preferenceFragment"
+            app:destination="@id/preferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preferenceFragment"
+        android:name="com.example.naenaeng.ui.info.PreferenceFragment"
+        android:label="PreferenceFragment"
+        tools:layout="@layout/fragment_preference">
+        <action
+            android:id="@+id/action_preferenceFragment_to_allergyFragment"
+            app:destination="@id/allergyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allergyFragment"
+        android:name="com.example.naenaeng.ui.info.AllergyFragment"
+        android:label="AllergyFragment"
+        tools:layout="@layout/fragment_allergy"/>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.naenaeng.ui.recipe.RecipeFragment"
+        android:label="RecipeFragment"
+        tools:layout="@layout/fragment_recipe" />
 </navigation>

@@ -10,9 +10,11 @@
 
         <EditText
             android:id="@+id/et_search_ingredient2"
-            android:layout_width="328dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="41dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/search_shape"
             android:ems="10"
             android:hint="마음에 드는 레시피를 검색해보세요."
@@ -21,9 +23,8 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="14sp"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -31,30 +32,32 @@
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:layout_gravity="center"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="6dp"
             android:text="맞춤 메뉴"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="13dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/et_search_ingredient2">
+            app:layout_constraintTop_toBottomOf="@+id/et_search_ingredient2"
+            android:showDividers="middle"
+            android:divider="@drawable/divider">
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:background="@drawable/outline_raidus_shape"
+                android:background="@drawable/search_shape"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
                 android:text="달달한"
@@ -65,7 +68,7 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:background="@drawable/outline_raidus_shape"
+                android:background="@drawable/search_shape"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
                 android:text="혼자 하기 쉬운"
@@ -77,9 +80,9 @@
             android:id="@+id/recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="14dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

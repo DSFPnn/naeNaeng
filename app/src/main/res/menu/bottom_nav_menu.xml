@@ -9,7 +9,7 @@
         android:title="레시피"
         android:icon="@drawable/recipe"/>
     <item
-        android:id="@+id/mypageFragment"
+        android:id="@+id/myPageFragment"
         android:title="마이"
         android:icon="@drawable/mypage"/>
 </menu>

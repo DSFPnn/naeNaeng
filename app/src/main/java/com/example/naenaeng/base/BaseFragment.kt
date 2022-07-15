@@ -9,13 +9,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import com.example.naenaeng.R
 
 abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
     Fragment() {
 
     // protected abstract val viewModel: VM
     protected lateinit var binding: B
-    //private lateinit var navController: NavController
+    protected lateinit var navController: NavController
 
     // * 레이아웃을 띄운 직후 호출. * 뷰나 액티비티의 속성 등을 초기화. * ex) 리사이클러뷰, 툴바, 드로어뷰..
     protected open fun initStartView() {}
@@ -24,9 +29,9 @@ abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutR
     // * 바인딩 이후에 할 일을 여기에 구현. * 그 외에 설정할 것이 있으면 이곳에서 설정. * 클릭 리스너도 이곳에서 설정.
     protected open fun initAfterBinding() {}
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setHasOptionsMenu(true)
     }
 
@@ -42,7 +47,7 @@ abstract class BaseFragment<B: ViewDataBinding> (@LayoutRes private  val layoutR
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //navController = findNavController()
+        navController = findNavController()
 
         initStartView()
         initDataBinding()
