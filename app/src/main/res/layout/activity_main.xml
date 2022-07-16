@@ -14,10 +14,10 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="68dp"
         android:background="@color/white"
         android:theme="?attr/actionBarTheme"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:contentInsetStart="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,9 +30,11 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="#00FFFFFF"
                 android:scaleType="fitCenter"
                 android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/back" />
@@ -43,10 +45,12 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="14dp"
+                android:layout_marginBottom="13dp"
                 android:text="메인"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btn_back"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -67,11 +71,11 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="76dp"
         app:itemBackground="@color/white"
         app:itemIconTint="@drawable/menu_click_color"
-        app:itemPaddingBottom="13dp"
-        app:itemPaddingTop="13dp"
+        app:itemPaddingBottom="19dp"
+        app:itemPaddingTop="19dp"
         app:itemTextColor="@drawable/menu_click_color"
         app:menu="@menu/bottom_nav_menu" />
 

@@ -1,27 +1,14 @@
 package com.example.naenaeng.ui.mypage
 
-import android.os.Debug
-import android.util.Log
-import android.util.Patterns
-import android.widget.Toast
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentChangePasswordBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-
 
 class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.layout.fragment_change_password) {
-    private lateinit var auth: FirebaseAuth
-
     override fun initStartView() {
         super.initStartView()
         (activity as MainActivity).setToolbar("비밀번호 변경")
-        auth = Firebase.auth
-
     }
 
     override fun initDataBinding() {

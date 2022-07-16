@@ -9,46 +9,51 @@
         android:background="#FFFFFF">
 
         <EditText
-            android:id="@+id/btn_ingredient_name"
+            android:id="@+id/et_id"
             android:layout_width="328dp"
             android:layout_height="56dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/outline_raidus_shape"
             android:ems="10"
             android:foregroundGravity="center"
             android:hint="음식 이름을 입력해주세요."
-            android:includeFontPadding="false"
             android:inputType="textPersonName"
-            android:paddingLeft="12dp"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="14sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_ingredient"
-            tools:layout_editor_absoluteX="67dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_ingredient" />
 
         <Button
             android:id="@+id/btn_set_name"
             android:layout_width="328dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="312dp"
             android:background="@drawable/solid_raidus_shpae"
             android:text="확인"
             android:textColor="#5f5144"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_ingredient_name" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
         <ImageView
             android:id="@+id/img_ingredient"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="96dp"
+            android:layout_marginEnd="150dp"
             android:background="@drawable/food_picture_radius"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 

@@ -7,6 +7,8 @@ import com.example.naenaeng.databinding.FragmentMyPageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.example.naenaeng.ui.info.AllergyFragment
+import com.example.naenaeng.ui.info.PreferenceFragment
 
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
     private lateinit var auth: FirebaseAuth
@@ -24,10 +26,10 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             navController.navigate(R.id.action_myPageFragment_to_changePasswordFragment)
         }
         binding.btnChangePreference.setOnClickListener {
-            navController.navigate(R.id.action_myPageFragment_to_preferenceFragment)
+            PreferenceFragment().show(parentFragmentManager, "preference")
         }
         binding.btnChangeAllergy.setOnClickListener {
-            navController.navigate(R.id.action_myPageFragment_to_allergyFragment)
+            AllergyFragment().show(parentFragmentManager, "preference")
         }
         binding.btnLogout.setOnClickListener {
             //로그아웃
