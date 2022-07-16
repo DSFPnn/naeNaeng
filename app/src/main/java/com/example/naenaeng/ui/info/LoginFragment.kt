@@ -43,8 +43,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         binding.btnRegister.setOnClickListener {
             val ToastText = mutableListOf<String>()
             var isGoToLogin = true
-            val email = binding.btnIngredientName.text.toString()
-            val password = binding.btnIngredientLife.text.toString()
+            val email = binding.etId.text.toString()
+            val password = binding.etPassword.text.toString()
 
             // 유효성 검사
             if (email.isEmpty() and !password.isEmpty()) {
@@ -64,7 +64,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
             if (!email.isEmpty() and !password.isEmpty() and !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(context, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
-                binding.btnIngredientName.setText("")
+                binding.etId.setText("")
                 isGoToLogin = false
             }
 

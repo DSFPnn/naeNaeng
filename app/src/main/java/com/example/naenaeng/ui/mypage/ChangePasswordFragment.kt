@@ -1,9 +1,13 @@
 package com.example.naenaeng.ui.mypage
 
+import android.util.Patterns
+import android.widget.Toast
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentChangePasswordBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.layout.fragment_change_password) {
     override fun initStartView() {
@@ -18,16 +22,15 @@ class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.lay
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        binding.btnRegister.setOnClickListener {
+        binding.btnSetPassword.setOnClickListener {
             var isGoToChange = true
             var Check = true
             val EmptyString  = emptyList<String>().toMutableList()
-            val emailCheck = binding.btnIngredientName.text.toString()
-            val newPassword = binding.btnIngredientLife.text.toString()
+            val emailCheck = binding.etId.text.toString()
+            val newPassword = binding.etPassword.text.toString()
             val newPasswordCheck = binding.etPasswordCheck.text.toString()
 
             val user = Firebase.auth.currentUser
-            val email = user?.email
 
             //유효성 검사
             if(emailCheck.isEmpty())
@@ -45,7 +48,7 @@ class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.lay
 
             if (Check and !Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
                 Toast.makeText(context, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
-                binding.btnIngredientName.setText("")
+                binding.etId.setText("")
                 isGoToChange = false
                 Check = false
             }

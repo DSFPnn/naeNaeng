@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/icon_naenaeng" />
 
         <EditText
-            android:id="@+id/btn_ingredient_name"
+            android:id="@+id/et_id"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginStart="16dp"

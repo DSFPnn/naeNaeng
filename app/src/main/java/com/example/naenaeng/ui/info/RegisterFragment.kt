@@ -27,7 +27,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        binding.btnLogin2.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             navController.navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
@@ -35,8 +35,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             var isGoToJoin = true
             var EmptyCheck = true
             val EmptyString  = emptyList<String>().toMutableList()
-            val email = binding.btnIngredientName.text.toString()
-            val password = binding.btnIngredientLife.text.toString()
+            val email = binding.etId.text.toString()
+            val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
 
             // 유효성 검사
@@ -61,7 +61,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
             if (EmptyCheck and (password == passwordCheck) and !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(context, "이메일 형식이 아닙니다", Toast.LENGTH_SHORT).show()
-                binding.btnIngredientName.setText("")
+                binding.etId.setText("")
                 isGoToJoin = false
             }
 
