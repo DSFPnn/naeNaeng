@@ -2,6 +2,7 @@ package com.example.naenaeng.ui.mypage
 
 import android.os.Debug
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
@@ -32,6 +33,8 @@ class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.lay
 
         binding.btnRegister.setOnClickListener {
             var isGoToChange = true
+            var Check = true
+            val EmptyString  = emptyList<String>().toMutableList()
             val emailCheck = binding.btnIngredientName.text.toString()
             val newPassword = binding.btnIngredientLife.text.toString()
             val newPasswordCheck = binding.etPasswordCheck.text.toString()
@@ -39,16 +42,40 @@ class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.lay
             val user = Firebase.auth.currentUser
             val email = user?.email
 
-            if(user?.email != emailCheck){
-                Toast.makeText(context, "이메일이 일치하지 않습니다.", Toast.LENGTH_LONG).show()
+            //유효성 검사
+            if(emailCheck.isEmpty())
+                EmptyString.add("이메일")
+            if(newPassword.isEmpty())
+                EmptyString.add("비밀번호")
+            if(newPasswordCheck.isEmpty())
+                EmptyString.add("비밀번호 확인")
+
+            if(emailCheck.isEmpty() or newPassword.isEmpty() or newPasswordCheck.isEmpty()){
+                Toast.makeText(context, EmptyString.toString()+" 을/를 입력해주세요", Toast.LENGTH_LONG).show()
                 isGoToChange = false
+                Check = false
             }
 
-            if (newPassword != newPasswordCheck) {
+            if (Check and !Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
+                Toast.makeText(context, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
+                binding.btnIngredientName.setText("")
+                isGoToChange = false
+                Check = false
+            }
+
+            if(Check and (user?.email != emailCheck)){
+                Toast.makeText(context, "이메일이 일치하지 않습니다.", Toast.LENGTH_LONG).show()
+                isGoToChange = false
+                Check = false
+            }
+
+            if (Check and (newPassword != newPasswordCheck)){
                 Toast.makeText(context, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show()
                 isGoToChange = false
             }
 
+
+            //비밀번호 변경
             if (isGoToChange) {
                 user!!.updatePassword(newPassword)
                     .addOnCompleteListener { task ->

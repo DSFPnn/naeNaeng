@@ -1,5 +1,6 @@
 package com.example.naenaeng.ui.info
 
+import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
@@ -40,20 +41,36 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         }
 
         binding.btnRegister.setOnClickListener {
+            val ToastText = mutableListOf<String>()
             var isGoToLogin = true
             val email = binding.btnIngredientName.text.toString()
             val password = binding.btnIngredientLife.text.toString()
 
             // 유효성 검사
-            if (email.isEmpty()) {
+            if (email.isEmpty() and !password.isEmpty()) {
                 Toast.makeText(context, "이메일을 입력해주세요.", Toast.LENGTH_LONG).show()
                 isGoToLogin = false
             }
-            if (password.isEmpty()) {
+
+            if (password.isEmpty() and !email.isEmpty()) {
                 Toast.makeText(context, "비밀번호를 입력해주세요.", Toast.LENGTH_LONG).show()
                 isGoToLogin = false
             }
 
+            if (email.isEmpty() and password.isEmpty()){
+                Toast.makeText(context, "이메일과 비밀번호를 입력해주세요.", Toast.LENGTH_LONG).show()
+                isGoToLogin = false
+            }
+
+            if (!email.isEmpty() and !password.isEmpty() and !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(context, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
+                binding.btnIngredientName.setText("")
+                isGoToLogin = false
+            }
+
+
+
+            //로그인
             if(isGoToLogin){
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
