@@ -26,6 +26,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
     override fun initAfterBinding() {
         super.initAfterBinding()
 
+        binding.btnLogin2.setOnClickListener {
+            navController.navigate(R.id.action_registerFragment_to_loginFragment)
+        }
+
         binding.btnRegister.setOnClickListener {
             var isGoToJoin = true
             val email = binding.btnIngredientName.text.toString()
