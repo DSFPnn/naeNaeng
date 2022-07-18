@@ -2,9 +2,9 @@ package com.example.naenaeng.ui.home
 
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseDialogFragment
-import com.example.naenaeng.databinding.FragmentIngredientLifeBinding
+import com.example.naenaeng.databinding.DialogIngredientLifeBinding
 
-class IngredientLifeFragment : BaseDialogFragment<FragmentIngredientLifeBinding>(R.layout.fragment_ingredient_life){
+class IngredientLifeDialog : BaseDialogFragment<DialogIngredientLifeBinding>(R.layout.dialog_ingredient_life){
     override fun initAfterBinding() {
         super.initAfterBinding()
 

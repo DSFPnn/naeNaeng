@@ -1,11 +1,11 @@
 package com.example.naenaeng.ui.info
 
-import android.util.Log
 import com.example.naenaeng.R
+import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.base.BaseDialogFragment
-import com.example.naenaeng.databinding.FragmentPreferenceBinding
+import com.example.naenaeng.databinding.DialogPreferenceBinding
 
-class PreferenceFragment : BaseDialogFragment<FragmentPreferenceBinding>(R.layout.fragment_preference) {
+class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.layout.dialog_preference) {
     override fun initAfterBinding() {
         super.initAfterBinding()
 

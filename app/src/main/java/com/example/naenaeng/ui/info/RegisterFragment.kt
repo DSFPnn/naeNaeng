@@ -28,8 +28,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
         binding.btnRegister.setOnClickListener {
             var isGoToJoin = true
-            val email = binding.btnIngredientName.text.toString()
-            val password = binding.btnIngredientLife.text.toString()
+            val email = binding.etId.text.toString()
+            val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
 
             // 유효성 검사
@@ -57,12 +57,16 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "회원가입 성공", Toast.LENGTH_LONG).show()
-                            navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
+                            // navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
                         } else {
                             Toast.makeText(context, "회원가입 실패", Toast.LENGTH_LONG).show()
                         }
                     }
             }
+        }
+
+        binding.btnBack.setOnClickListener {
+            navController.navigate(R.id.action_registerFragment_to_loginFragment)
         }
     }
 }

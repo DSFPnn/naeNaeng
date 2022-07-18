@@ -41,8 +41,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
         binding.btnRegister.setOnClickListener {
             var isGoToLogin = true
-            val email = binding.btnIngredientName.text.toString()
-            val password = binding.btnIngredientLife.text.toString()
+            val email = binding.etId.text.toString()
+            val password = binding.etPassword.text.toString()
 
             // 유효성 검사
             if (email.isEmpty()) {
@@ -62,7 +62,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                             navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
-
                         }
                     }
             }
