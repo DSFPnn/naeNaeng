@@ -9,8 +9,6 @@ import com.example.naenaeng.ui.info.PreferenceDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.example.naenaeng.ui.info.AllergyFragment
-import com.example.naenaeng.ui.info.PreferenceFragment
 
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
     private lateinit var auth: FirebaseAuth

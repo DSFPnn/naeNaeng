@@ -37,8 +37,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             val EmptyString  = emptyList<String>().toMutableList()
             val email = binding.etId.text.toString()
             val password = binding.etPassword.text.toString()
-            val email = binding.etId.text.toString()
-            val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
 
             // 유효성 검사
