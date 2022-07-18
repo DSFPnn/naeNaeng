@@ -1,12 +1,10 @@
 package com.example.naenaeng.ui.home
 
-import androidx.fragment.app.DialogFragment
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseDialogFragment
-import com.example.naenaeng.base.BaseFragment
-import com.example.naenaeng.databinding.FragmentIngredientNameBinding
+import com.example.naenaeng.databinding.DialogIngredientNameBinding
 
-class IngredientNameFragment :BaseDialogFragment<FragmentIngredientNameBinding>(R.layout.fragment_ingredient_name){
+class IngredientNameDialog :BaseDialogFragment<DialogIngredientNameBinding>(R.layout.dialog_ingredient_name){
     override fun initAfterBinding() {
         super.initAfterBinding()
 

@@ -79,7 +79,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                             navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
-
                         }
                     }
             }

@@ -36,14 +36,14 @@
     </fragment>
     <dialog
         android:id="@+id/ingredientNameFragment"
-        android:name="com.example.naenaeng.ui.home.IngredientNameFragment"
+        android:name="com.example.naenaeng.ui.home.IngredientNameDialog"
         android:label="IngredientNameFragment"
-        tools:layout="@layout/fragment_ingredient_name"/>
+        tools:layout="@layout/dialog_ingredient_name"/>
     <dialog
         android:id="@+id/ingredientLifeFragment"
-        android:name="com.example.naenaeng.ui.home.IngredientLifeFragment"
+        android:name="com.example.naenaeng.ui.home.IngredientLifeDialog"
         android:label="IngredientLifeFragment"
-        tools:layout="@layout/fragment_ingredient_life"/>
+        tools:layout="@layout/dialog_ingredient_life"/>
     <fragment
         android:id="@+id/myPageFragment"
         android:name="com.example.naenaeng.ui.mypage.MyPageFragment"
@@ -85,13 +85,18 @@
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.naenaeng.ui.info.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_registerFragment_to_preferenceFragment"
             app:destination="@id/preferenceFragment" />
@@ -104,15 +109,15 @@
     </fragment>
     <fragment
         android:id="@+id/preferenceFragment"
-        android:name="com.example.naenaeng.ui.info.PreferenceFragment"
+        android:name="com.example.naenaeng.ui.info.PreferenceDialog"
         android:label="PreferenceFragment"
-        tools:layout="@layout/fragment_preference">
+        tools:layout="@layout/dialog_preference">
     </fragment>
     <fragment
         android:id="@+id/allergyFragment"
-        android:name="com.example.naenaeng.ui.info.AllergyFragment"
+        android:name="com.example.naenaeng.ui.info.AllergyDialog"
         android:label="AllergyFragment"
-        tools:layout="@layout/fragment_allergy">
+        tools:layout="@layout/dialog_allergy">
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
