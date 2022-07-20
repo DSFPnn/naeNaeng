@@ -19,9 +19,9 @@ class RecipeAdapter :
 
      */
 
-    inner class ViewHolder(itemBinding: RecipeItemViewBinding) :
-        RecyclerView.ViewHolder(itemBinding.root) {
-        val recipe: ImageView = itemBinding.recipePicture
+    inner class ViewHolder(itemViewBinding: RecipeItemViewBinding) :
+        RecyclerView.ViewHolder(itemViewBinding.root) {
+        val recipe: ImageView = itemViewBinding.recipePicture
     }
 
     override fun onCreateViewHolder(
