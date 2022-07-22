@@ -1,16 +1,11 @@
 package com.example.naenaeng
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.naenaeng.databinding.ActivityMainBinding
-import com.example.naenaeng.ui.home.HomeFragment
-import com.example.naenaeng.ui.mypage.MyPageFragment
-import com.example.naenaeng.ui.recipe.RecipeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity: AppCompatActivity() {
@@ -22,6 +17,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         setBottomNav()
 

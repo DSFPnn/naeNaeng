@@ -4,6 +4,8 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication.Companion.prefs
+import com.example.naenaeng.MysharedPreferences
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRegisterBinding
@@ -16,7 +18,8 @@ import com.google.firebase.ktx.Firebase
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
-    lateinit var num : String
+    private var num : String = arguments?.getString("num").toString()
+    private var userId : Int = 0
 
     override fun initStartView() {
         super.initStartView()
@@ -87,8 +90,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "회원가입 성공", Toast.LENGTH_LONG).show()
-                            database.child("users").child("user${num}").child("email").setValue(email)
+                            //인원수 증가
                             database.child("users").child("num").setValue(num.toInt()+1)
+                            userId=num.toInt()+1
+                            // 프리퍼런스에 인원수 저장
+                            prefs.setString("num",userId.toString())
+                            // 데베 사용자 추가
+                            database.child("users").child("user${userId.toString()}").child("email").setValue(email)
                             navController.navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {
                             Toast.makeText(context, "회원가입 실패", Toast.LENGTH_LONG).show()
