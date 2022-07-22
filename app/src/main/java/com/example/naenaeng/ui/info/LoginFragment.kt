@@ -22,7 +22,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         //로그인 되어있는지 확인
         val currentUser = auth.currentUser
         if(currentUser != null){
-            //navController.navigate(R.id.action_loginFragment_to_homeFragment)
+            navController.navigate(R.id.action_loginFragment_to_allergyFragment)
         }
     }
 
@@ -76,7 +76,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
-                            navController.navigate(R.id.action_loginFragment_to_homeFragment)
+                            navController.navigate(R.id.action_loginFragment_to_allergyFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
                         }

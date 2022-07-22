@@ -1,5 +1,6 @@
 package com.example.naenaeng.ui.info
 
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
@@ -8,10 +9,14 @@ import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+    lateinit var num : String
 
     override fun initStartView() {
         super.initStartView()
@@ -38,6 +43,17 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             val email = binding.etId.text.toString()
             val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
+            database = Firebase.database.reference
+
+            //firebase에서 사용자수 가져오기
+            database.child("users").child("num").get().addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.value}")
+                num = it.value.toString()
+
+            }.addOnFailureListener{
+                Log.e("firebase", "Error getting data", it)
+            }
+
 
             // 유효성 검사
             if(email.isEmpty())
@@ -71,7 +87,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "회원가입 성공", Toast.LENGTH_LONG).show()
-                            // navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
+                            database.child("users").child("user${num}").child("email").setValue(email)
+                            database.child("users").child("num").setValue(num.toInt()+1)
+                            navController.navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {
                             Toast.makeText(context, "회원가입 실패", Toast.LENGTH_LONG).show()
                         }

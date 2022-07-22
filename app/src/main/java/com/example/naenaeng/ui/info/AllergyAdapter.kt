@@ -2,22 +2,22 @@ package com.example.naenaeng.ui.info
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 
-class AllergyAdapter()
-    : RecyclerView.Adapter<AllergyAdapter.ViewHolder>(){
-    var itemList:ArrayList<String> = ArrayList()
 
-    inner class ViewHolder(itemViewBinding: AllergyItemViewBinding)
-        :RecyclerView.ViewHolder(itemViewBinding.root){
-        var allergy = itemViewBinding.tvAllergy
-    }
+class ViewHolder(val binding: AllergyItemViewBinding)
+    :RecyclerView.ViewHolder(binding.root)
+
+class AllergyAdapter(val datas:MutableList<String>)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AllergyAdapter.ViewHolder {
+    ): RecyclerView.ViewHolder {
         return ViewHolder(
             AllergyItemViewBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -27,10 +27,16 @@ class AllergyAdapter()
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val binding = (holder as ViewHolder).binding
+
+        binding.tvAllergy.text = datas[position]
+
     }
 
-    override fun getItemCount(): Int =5
+    override fun getItemCount(): Int {
+        return datas.size
+    }
+
     //override fun getItemCount(): Int = itemList.size
 }
