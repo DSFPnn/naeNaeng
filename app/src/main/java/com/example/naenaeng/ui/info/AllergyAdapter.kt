@@ -6,7 +6,8 @@ import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class ViewHolder(val binding: AllergyItemViewBinding)
@@ -14,9 +15,9 @@ class ViewHolder(val binding: AllergyItemViewBinding)
 
 class AllergyAdapter(val datas:MutableList<String>)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    private lateinit var database: DatabaseReference
-    private var i : Int = 1
-    private var num = prefs.getString("num","0")
+    private val db = Firebase.firestore
+    private var allergyDatas = mutableListOf<String>()
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -34,19 +35,18 @@ class AllergyAdapter(val datas:MutableList<String>)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).binding
 
-
         binding.tvAllergy.text = datas[position]
 
-
+        //사용자별 알러지 DB에 저장
         binding.checkBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener
         { buttonView, isChecked ->
             if(isChecked){
-               //database.child("users").child("user${num}").child("allergy").child("$i").setValue(binding.tvAllergy.text)
-                i = i + 1
+                allergyDatas.add(binding.tvAllergy.text.toString())
+                db.collection("users").document(prefs.getString("email","null")).update("allergy",allergyDatas)
             }
             else {
-               //database.child("users").child("user${num}").child("allergy").child("$i").removeValue()
-                i = i - 1
+                allergyDatas.remove(binding.tvAllergy.text.toString())
+                db.collection("users").document(prefs.getString("email","null")).update("allergy",allergyDatas)
             }
 
         })

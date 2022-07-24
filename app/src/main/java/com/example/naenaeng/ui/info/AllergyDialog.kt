@@ -7,40 +7,36 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.databinding.DialogAllergyBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.dialog_allergy) {
-    private lateinit var database: DatabaseReference
     private lateinit var allergyAdapter:AllergyAdapter
+    private val db = Firebase.firestore
+    private var datas = mutableListOf<String>()
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun initDataBinding() {
         super.initDataBinding()
-        database = Firebase.database.reference
 
-        //알레르기 데이터 받아오기
-        val datas = mutableListOf<String>()
-        val myTopPostsQuery = database.child("allergy").orderByKey()
-
-        myTopPostsQuery.addValueEventListener(object : ValueEventListener {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (postSnapshot in dataSnapshot.children) {
-                    datas.add("${postSnapshot.value.toString()} 알러지")
+        //DB에서 알러지이름 가져오기
+        db.collection("allergy").document("allergyName").get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    var data = document.data?.get("names").toString()
+                    data = data.substring(1..data.length-2)
+                    val array = data.split(",")
+                    for (item in array)
+                        datas.add(item.trim())
                     allergyAdapter.notifyDataSetChanged()
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(TAG, "No such document")
                 }
             }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
             }
-        })
 
 
         val layoutManager = LinearLayoutManager(activity)
@@ -56,4 +52,6 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
 
         }
     }
+
+
 }
