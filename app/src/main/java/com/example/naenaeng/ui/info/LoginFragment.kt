@@ -6,13 +6,18 @@ import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
     private lateinit var auth: FirebaseAuth
+
+
 
     override fun initStartView() {
         super.initStartView()

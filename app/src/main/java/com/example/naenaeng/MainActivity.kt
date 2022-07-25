@@ -3,6 +3,7 @@ package com.example.naenaeng
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,6 +27,7 @@ class MainActivity: AppCompatActivity() {
         setBottomNav()
 
     }
+
     private fun setBottomNav() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

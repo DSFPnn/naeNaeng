@@ -4,14 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.databinding.AllergyItemViewBinding
+import com.example.naenaeng.model.Allergy
 
-class AllergyAdapter()
+class AllergyAdapter(itemList: MutableList<Allergy>)
     : RecyclerView.Adapter<AllergyAdapter.ViewHolder>(){
-    var itemList:ArrayList<String> = ArrayList()
+    var itemList: MutableList<Allergy> = itemList
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     inner class ViewHolder(itemViewBinding: AllergyItemViewBinding)
         :RecyclerView.ViewHolder(itemViewBinding.root){
         var allergy = itemViewBinding.tvAllergy
+        //var allergyCheck = itemViewBinding.checkBox
     }
 
     override fun onCreateViewHolder(
@@ -27,10 +33,10 @@ class AllergyAdapter()
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: AllergyAdapter.ViewHolder, position: Int) {
+        holder.allergy.text = itemList[position].type
+        //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
     }
 
-    override fun getItemCount(): Int =5
-    //override fun getItemCount(): Int = itemList.size
+    override fun getItemCount(): Int = itemList.size
 }
