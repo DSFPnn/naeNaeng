@@ -27,7 +27,6 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
             allergyAdapter.itemList = itemList
             Log.d("allergyy",itemList.toString())
         }
-
     }
     override fun initAfterBinding() {
         super.initAfterBinding()

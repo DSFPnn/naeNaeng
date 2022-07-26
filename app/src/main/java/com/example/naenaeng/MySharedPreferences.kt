@@ -3,7 +3,7 @@ package com.example.naenaeng
 import android.content.Context
 import android.content.SharedPreferences
 
-class MysharedPreferences(context : Context) {
+class MySharedPreferences(context : Context) {
     private val prefs: SharedPreferences =
         context.getSharedPreferences("prefs_name", Context.MODE_PRIVATE)
 
@@ -14,6 +14,4 @@ class MysharedPreferences(context : Context) {
     fun setString(key: String, str: String) {
         prefs.edit().putString(key, str).apply()
     }
-
-
 }
