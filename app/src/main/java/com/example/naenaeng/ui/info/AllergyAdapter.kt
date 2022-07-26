@@ -2,8 +2,8 @@ package com.example.naenaeng.ui.info
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
+import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 import com.example.naenaeng.model.Allergy
 import com.google.firebase.firestore.ktx.firestore

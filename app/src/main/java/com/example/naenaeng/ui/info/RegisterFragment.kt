@@ -3,15 +3,18 @@ package com.example.naenaeng.ui.info
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
     private lateinit var auth: FirebaseAuth
+    private val db = Firebase.firestore
 
     override fun initStartView() {
         super.initStartView()
@@ -38,6 +41,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             val email = binding.etId.text.toString()
             val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
+
 
             // 유효성 검사
             if(email.isEmpty())
@@ -71,7 +75,17 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "회원가입 성공", Toast.LENGTH_LONG).show()
-                            // navController.navigate(R.id.action_registerFragment_to_preferenceFragment)
+
+                            //firestore에 유저정보 저장
+                            val data = hashMapOf(
+                                "email" to email
+                            )
+                            db.collection("users").document(email).set(data)
+
+                            //preferences에 유저 이메일 저장
+                            prefs.setString("email",email)
+
+                            navController.navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {
                             Toast.makeText(context, "회원가입 실패", Toast.LENGTH_LONG).show()
                         }

@@ -57,6 +57,11 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/bottom_nav_menu.xml" value="0.32578125" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/nav_menu.xml" value="0.20521590423257802" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33457605271112345" />
+        <entry key="app/src/main/res/layout/allergy_item_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_allergy.xml" value="0.23550724637681159" />
+        <entry key="app/src/main/res/layout/dialog_ingredient_life.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/dialog_ingredient_name.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/dialog_preference.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/fragment_add_ingredient.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_allergy.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_change_password.xml" value="0.25769927536231885" />
@@ -68,6 +73,8 @@
         <entry key="app/src/main/res/layout/fragment_preference.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/ingredient_item_view.xml" value="0.2028985507246377" />
+        <entry key="app/src/main/res/layout/recipe_item_view.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.247" />
       </map>
