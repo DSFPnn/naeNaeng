@@ -13,11 +13,10 @@ import com.google.firebase.ktx.Firebase
 class ViewHolder(val binding: AllergyItemViewBinding)
     :RecyclerView.ViewHolder(binding.root)
 
-class AllergyAdapter(val datas:MutableList<String>)
+class AllergyAdapter(val datas:ArrayList<String>)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     private val db = Firebase.firestore
     private var allergyDatas = mutableListOf<String>()
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

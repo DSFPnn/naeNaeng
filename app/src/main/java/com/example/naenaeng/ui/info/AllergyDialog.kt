@@ -7,13 +7,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.databinding.DialogAllergyBinding
+import com.example.naenaeng.model.Allergy
+import com.example.naenaeng.model.User
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.dialog_allergy) {
     private lateinit var allergyAdapter:AllergyAdapter
     private val db = Firebase.firestore
-    private var datas = mutableListOf<String>()
+    private var datas = ArrayList<String>()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun initDataBinding() {
@@ -21,15 +24,19 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
 
         //DB에서 알러지이름 가져오기
         db.collection("allergy").document("allergyName").get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    var data = document.data?.get("names").toString()
+            .addOnSuccessListener { documentSnapShot ->
+                if (documentSnapShot != null) {
+                    val data = documentSnapShot.toObject<Allergy>()
+                    datas = data?.names!!
+                    /*
+                    var data = documentSnapShot.data?.get("names").toString()
                     data = data.substring(1..data.length-2)
                     val array = data.split(",")
                     for (item in array)
                         datas.add(item.trim())
+                     */
                     allergyAdapter.notifyDataSetChanged()
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                    Log.d(TAG, "DocumentSnapshot data: ${documentSnapShot.data}")
                 } else {
                     Log.d(TAG, "No such document")
                 }
@@ -49,7 +56,7 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
         super.initAfterBinding()
 
         binding.btnNext.setOnClickListener {
-
+            dismiss()
         }
     }
 

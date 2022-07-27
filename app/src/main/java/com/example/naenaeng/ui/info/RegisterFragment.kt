@@ -82,9 +82,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                             )
                             db.collection("users").document(email).set(data)
 
-                            //preferences에 유저 이메일 저장
-                            prefs.setString("email",email)
-
                             navController.navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {
                             Toast.makeText(context, "회원가입 실패", Toast.LENGTH_LONG).show()

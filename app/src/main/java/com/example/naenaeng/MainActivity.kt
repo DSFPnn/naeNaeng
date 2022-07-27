@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.naenaeng.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -47,4 +48,5 @@ class MainActivity: AppCompatActivity() {
             }
         }
     }
+
 }

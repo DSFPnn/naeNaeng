@@ -38,7 +38,11 @@
         android:id="@+id/ingredientNameFragment"
         android:name="com.example.naenaeng.ui.home.IngredientNameDialog"
         android:label="IngredientNameFragment"
-        tools:layout="@layout/dialog_ingredient_name"/>
+        tools:layout="@layout/dialog_ingredient_name">
+        <action
+            android:id="@+id/action_ingredientNameFragment_to_addIngredientFragment"
+            app:destination="@id/addIngredientFragment" />
+    </dialog>
     <dialog
         android:id="@+id/ingredientLifeFragment"
         android:name="com.example.naenaeng.ui.home.IngredientLifeDialog"
@@ -55,7 +59,7 @@
         <action
             android:id="@+id/action_myPageFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/myPageFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
