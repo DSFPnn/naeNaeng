@@ -6,16 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 import com.example.naenaeng.model.Allergy
-import com.example.naenaeng.model.AllergyList
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class AllergyAdapter(itemList: MutableList<Allergy>)
+class AllergyAdapter(itemList: ArrayList<String>)
     : RecyclerView.Adapter<AllergyAdapter.ViewHolder>(){
     private val db = Firebase.firestore
     private var allergyDatas = mutableListOf<String>()
 
-    var itemList: MutableList<Allergy> = itemList
+    var itemList: ArrayList<String> = itemList
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -42,7 +41,7 @@ class AllergyAdapter(itemList: MutableList<Allergy>)
 
     override fun onBindViewHolder(holder: AllergyAdapter.ViewHolder, position: Int) {
 
-        holder.allergy.text = itemList[position].type
+        holder.allergy.text = itemList[position]
         //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
 
         //사용자별 알러지 DB에 저장
