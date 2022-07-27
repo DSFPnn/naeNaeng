@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 import com.example.naenaeng.model.Allergy
+import com.example.naenaeng.model.AllergyList
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 

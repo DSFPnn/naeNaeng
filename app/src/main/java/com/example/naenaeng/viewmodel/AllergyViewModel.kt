@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.naenaeng.model.Allergy
+import com.example.naenaeng.model.AllergyList
 import com.example.naenaeng.repository.AllergyRepository
 
 class AllergyViewModel :ViewModel(){
@@ -13,7 +14,6 @@ class AllergyViewModel :ViewModel(){
     val allergyLiveData:LiveData<MutableList<Allergy>>
         get() = _allergyLiveData
     private val repo = AllergyRepository()
-
     fun getAllergy() {
         Log.d("allergyy vm",_allergyLiveData.value.toString())
         repo.getData().observeForever{

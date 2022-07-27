@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    // coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
     // SharedPreference
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
