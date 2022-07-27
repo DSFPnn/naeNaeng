@@ -6,22 +6,31 @@ import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
+import com.example.naenaeng.model.Allergy
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-
-class ViewHolder(val binding: AllergyItemViewBinding)
-    :RecyclerView.ViewHolder(binding.root)
-
-class AllergyAdapter(val datas:ArrayList<String>)
-    : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class AllergyAdapter(itemList: ArrayList<String>)
+    : RecyclerView.Adapter<AllergyAdapter.ViewHolder>(){
     private val db = Firebase.firestore
     private var allergyDatas = mutableListOf<String>()
+
+    var itemList: ArrayList<String> = itemList
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    inner class ViewHolder(itemViewBinding: AllergyItemViewBinding)
+        :RecyclerView.ViewHolder(itemViewBinding.root){
+        var allergy = itemViewBinding.tvAllergy
+        var allergyCheck = itemViewBinding.checkBox
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerView.ViewHolder {
+    ): AllergyAdapter.ViewHolder {
         return ViewHolder(
             AllergyItemViewBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -31,29 +40,24 @@ class AllergyAdapter(val datas:ArrayList<String>)
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val binding = (holder as ViewHolder).binding
+    override fun onBindViewHolder(holder: AllergyAdapter.ViewHolder, position: Int) {
 
-        binding.tvAllergy.text = datas[position]
+        holder.allergy.text = itemList[position]
+        //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
 
         //사용자별 알러지 DB에 저장
-        binding.checkBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener
-        { buttonView, isChecked ->
-            if(isChecked){
-                allergyDatas.add(binding.tvAllergy.text.toString())
-                db.collection("users").document(prefs.getString("email","null")).update("allergy",allergyDatas)
+        holder.allergyCheck.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                allergyDatas.add(holder.allergy.text.toString())
+                db.collection("users").document(prefs.getString("email", "null"))
+                    .update("allergy", allergyDatas)
+            } else {
+                allergyDatas.remove(holder.allergy.text.toString())
+                db.collection("users").document(prefs.getString("email", "null"))
+                    .update("allergy", allergyDatas)
             }
-            else {
-                allergyDatas.remove(binding.tvAllergy.text.toString())
-                db.collection("users").document(prefs.getString("email","null")).update("allergy",allergyDatas)
-            }
-
-        })
+        }
     }
 
-    override fun getItemCount(): Int {
-        return datas.size
-    }
-
-    //override fun getItemCount(): Int = itemList.size
+    override fun getItemCount(): Int = itemList.size
 }

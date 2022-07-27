@@ -3,17 +3,21 @@ package com.example.naenaeng.ui.info
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
-import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
     private lateinit var auth: FirebaseAuth
+
+
 
     override fun initStartView() {
         super.initStartView()
@@ -77,10 +81,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
-
-                            //preferences에 유저 이메일 저장
-                            MyApplication.prefs.setString("email",email)
-
                             navController.navigate(R.id.action_loginFragment_to_allergyFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()

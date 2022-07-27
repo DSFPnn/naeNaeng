@@ -10,7 +10,6 @@ class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.lay
         super.initAfterBinding()
 
         binding.btnSetPreference.setOnClickListener {
-            // 회원가입 할때는 알러지로 넘어가게, 마이페이지에서 변경할때는 바로 사라지게
             dismiss()
         }
     }

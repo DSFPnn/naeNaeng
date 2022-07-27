@@ -74,6 +74,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            AllergyDialog().show(parentFragmentManager, "preference")
+                            PreferenceDialog().show(parentFragmentManager, "preference")
+
                             Toast.makeText(context, "회원가입 성공", Toast.LENGTH_LONG).show()
 
                             //firestore에 유저정보 저장
