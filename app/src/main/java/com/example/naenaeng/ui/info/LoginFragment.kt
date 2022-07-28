@@ -3,6 +3,7 @@ package com.example.naenaeng.ui.info
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
@@ -81,7 +82,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
-                            navController.navigate(R.id.action_loginFragment_to_allergyFragment)
+
+                            //prefs에 이메일 저장
+                            MyApplication.prefs.setString("email",email)
+
+                            navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
                         }

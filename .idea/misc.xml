@@ -73,7 +73,7 @@
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_preference.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.15476190476190477" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/ingredient_item_view.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/recipe_item_view.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3182291666666667" />
