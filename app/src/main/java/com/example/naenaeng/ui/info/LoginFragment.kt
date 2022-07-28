@@ -81,7 +81,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
-                            navController.navigate(R.id.action_loginFragment_to_allergyFragment)
+                            navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
                         }
