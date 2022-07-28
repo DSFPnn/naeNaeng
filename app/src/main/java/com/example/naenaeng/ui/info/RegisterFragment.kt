@@ -37,12 +37,16 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             var isGoToJoin = true
             var EmptyCheck = true
             val EmptyString  = emptyList<String>().toMutableList()
+
+            val name = binding.etName.text.toString()
             val email = binding.etId.text.toString()
             val password = binding.etPassword.text.toString()
             val passwordCheck=binding.etPasswordCheck.text.toString()
 
 
             // 유효성 검사
+            if(name.isEmpty())
+                EmptyString.add("이름")
             if(email.isEmpty())
                 EmptyString.add("이메일")
             if(password.isEmpty())
@@ -50,7 +54,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             if(passwordCheck.isEmpty())
                 EmptyString.add("비밀번호 확인")
 
-            if(email.isEmpty() or password.isEmpty() or passwordCheck.isEmpty()){
+            if(name.isEmpty() or email.isEmpty() or password.isEmpty() or passwordCheck.isEmpty()){
                 Toast.makeText(context, EmptyString.toString()+" 을/를 입력해주세요", Toast.LENGTH_LONG).show()
                 isGoToJoin = false
                 EmptyCheck = false
@@ -80,9 +84,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
                             //firestore에 유저정보 저장
                             val data = hashMapOf(
-                                "email" to email
+                                "email" to email,
+                                "name" to name,
+                                "ingredients" to ArrayList<HashMap<String,String>>()
                             )
+
                             db.collection("users").document(email).set(data)
+
+                            //prefs에 이메일 저장
+                            prefs.setString("email",email)
 
                             navController.navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {

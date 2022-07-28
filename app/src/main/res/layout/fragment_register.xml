@@ -13,7 +13,7 @@
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginStart="11dp"
-            android:layout_marginTop="102dp"
+            android:layout_marginTop="184dp"
             android:layout_marginEnd="21dp"
             android:background="@drawable/outline_raidus_shape"
             android:ems="10"
@@ -26,24 +26,31 @@
             android:textColorHint="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_name"
             android:layout_width="328dp"
             android:layout_height="56dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="21dp"
             android:background="@drawable/outline_raidus_shape"
             android:ems="10"
-            android:hint="PW를 입력해주세요."
-            android:inputType="textPassword"
+            android:foregroundGravity="center"
+            android:hint="이름을 입력해주세요."
+            android:includeFontPadding="false"
+            android:inputType="textEmailAddress"
             android:paddingLeft="12dp"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/et_id"
-            app:layout_constraintTop_toBottomOf="@+id/et_id" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_password_check"
@@ -59,6 +66,7 @@
             android:textColorHint="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/et_password"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/et_password"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
@@ -66,11 +74,12 @@
             android:id="@+id/btn_register"
             android:layout_width="328dp"
             android:layout_height="48dp"
-            android:layout_marginTop="49dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/solid_raidus_shpae"
             android:text="회원가입"
             android:textColor="#5f5144"
             app:layout_constraintEnd_toEndOf="@+id/et_password_check"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/et_password_check"
             app:layout_constraintTop_toBottomOf="@+id/et_password_check" />
 
@@ -78,13 +87,30 @@
             android:id="@+id/btn_back"
             android:layout_width="328dp"
             android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/outline_raidus_shape"
             android:text="이미 계정을 가지고 계십니까?"
             android:textColor="#5f5144"
             app:layout_constraintEnd_toEndOf="@+id/btn_register"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/btn_register"
             app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/outline_raidus_shape"
+            android:ems="10"
+            android:hint="PW를 입력해주세요."
+            android:inputType="textPassword"
+            android:paddingLeft="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/et_id"
+            app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
