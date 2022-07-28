@@ -1,14 +1,16 @@
 package com.example.naenaeng.ui.info
 
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -29,10 +31,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         if(currentUser != null) {
             navController.navigate(R.id.action_loginFragment_to_homeFragment)
         }
-    }
-
-    override fun initDataBinding() {
-        super.initDataBinding()
     }
 
     override fun initAfterBinding() {
@@ -80,6 +78,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            //preferences에 유저 이메일 저장
+                            prefs.setString("email",email)
+                            setName(email)
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
                             navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
@@ -89,5 +90,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             }
         }
 
+    }
+
+    private fun setName(email:String) {
+        val db = Firebase.firestore
+        // 앱 저장소에 이름 저장
+        db.collection("users").document(email).get()
+            .addOnSuccessListener { document ->
+                var name = document.get("name").toString()
+                prefs.setString("name", name)
+            }
+            .addOnFailureListener{
+                Log.d("error LoginFragment", "null")
+            }
     }
 }

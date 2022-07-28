@@ -3,7 +3,6 @@ package com.example.naenaeng.ui.info
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
-import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRegisterBinding

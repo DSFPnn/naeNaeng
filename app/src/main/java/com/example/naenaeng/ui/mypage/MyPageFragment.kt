@@ -1,6 +1,7 @@
 package com.example.naenaeng.ui.mypage
 
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentMyPageBinding
@@ -10,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
     private lateinit var auth: FirebaseAuth
 
@@ -17,6 +19,13 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         super.initStartView()
         (activity as MainActivity).setToolbar("마이")
         auth=Firebase.auth
+    }
+
+    override fun initDataBinding() {
+        super.initDataBinding()
+
+        val name = prefs.getString("name", "null")
+        binding.tvHi.text = resources.getString((R.string.hi), name)
     }
 
     override fun initAfterBinding() {
