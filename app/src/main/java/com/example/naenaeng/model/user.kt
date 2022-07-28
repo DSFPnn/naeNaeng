@@ -1,8 +1,8 @@
 package com.example.naenaeng.model
 
 data class User (
-    val allergy: ArrayList<String>? = null,
-    val email: String? = null,
-    val name: String? = null,
-    val ingredients: ArrayList<HashMap<String,String>>? = null
+    val allergy: ArrayList<String> = ArrayList(),
+    val email: String = "",
+    val name: String = "",
+    val ingredients: ArrayList<Ingredient> = ArrayList()
 )
