@@ -24,15 +24,15 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
         binding.imgIngredient.clipToOutline = true
 
         //재료이름 받아오기
-        setFragmentResultListener("requestIngredient") { requestKey, bundle ->
+        setFragmentResultListener("requestIngredient") { _, bundle ->
             val result = bundle.getString("ingredient")
             binding.btnIngredientName.text=result
         }
 
         //유통기한 받아오기
-        setFragmentResultListener("requestDate") { requestKey, bundle ->
+        setFragmentResultListener("requestDate") { _, bundle ->
             val result = bundle.getString("date")
-            binding.btnIngredientLife.text=result
+            binding.btnIngredientDate.text=result
         }
 
     }
@@ -43,15 +43,15 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
         binding.btnIngredientName.setOnClickListener {
             navController.navigate(R.id.action_addIngredientFragment_to_ingredientNameFragment)
         }
-        binding.btnIngredientLife.setOnClickListener {
+        binding.btnIngredientDate.setOnClickListener {
             navController.navigate(R.id.action_addIngredientFragment_to_ingredientLifeFragment)
         }
         binding.btnSetIngredient.setOnClickListener{
             navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
 
             val data =  hashMapOf(
-                "Name" to binding.btnIngredientName.text,
-                "date" to binding.btnIngredientLife.text
+                "name" to binding.btnIngredientName.text,
+                "date" to binding.btnIngredientDate.text
             )
 
             //firestore에 재료추가

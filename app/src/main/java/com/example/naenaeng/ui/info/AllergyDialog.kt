@@ -34,6 +34,4 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
             dismiss()
         }
     }
-
-
 }

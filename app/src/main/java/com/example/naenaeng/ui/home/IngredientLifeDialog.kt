@@ -5,10 +5,10 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseDialogFragment
-import com.example.naenaeng.databinding.DialogIngredientLifeBinding
+import com.example.naenaeng.databinding.DialogIngredientDateBinding
 
 
-class IngredientLifeDialog : BaseDialogFragment<DialogIngredientLifeBinding>(R.layout.dialog_ingredient_life){
+class IngredientLifeDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.layout.dialog_ingredient_date){
     private lateinit var date :String
 
     override fun initAfterBinding() {

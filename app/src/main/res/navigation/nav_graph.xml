@@ -47,7 +47,7 @@
         android:id="@+id/ingredientLifeFragment"
         android:name="com.example.naenaeng.ui.home.IngredientLifeDialog"
         android:label="IngredientLifeFragment"
-        tools:layout="@layout/dialog_ingredient_life"/>
+        tools:layout="@layout/dialog_ingredient_date"/>
     <fragment
         android:id="@+id/myPageFragment"
         android:name="com.example.naenaeng.ui.mypage.MyPageFragment"
