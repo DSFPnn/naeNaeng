@@ -85,9 +85,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                             setName(email)
                             Toast.makeText(context, "로그인 성공",Toast.LENGTH_SHORT).show()
 
-                            //prefs에 이메일 저장
-                            MyApplication.prefs.setString("email",email)
-
                             navController.navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(context, "로그인 실패",Toast.LENGTH_SHORT).show()
