@@ -3,6 +3,7 @@ package com.example.naenaeng
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.core.content.edit
 
 class MySharedPreferences(context : Context) {
     private val prefs: SharedPreferences =
@@ -16,7 +17,11 @@ class MySharedPreferences(context : Context) {
         return prefs.getString(key, defValue).toString()
     }
 
-    fun setString(key: String, str: String) { // 데이터 저장장
+    fun setString(key: String, str: String) { // 데이터 저장
        prefs.edit().putString(key, str).apply()
+    }
+
+    fun remove(key: String){    //데이터 삭제
+        prefs.edit().remove(key).apply()
     }
 }
