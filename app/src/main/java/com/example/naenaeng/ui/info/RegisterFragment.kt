@@ -3,6 +3,7 @@ package com.example.naenaeng.ui.info
 import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRegisterBinding
@@ -88,6 +89,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                                 "name" to name,
                                 "ingredients" to ArrayList<HashMap<String,String>>()
                             )
+                            
+                            MyApplication.prefs.setString("email",email)
 
                             db.collection("users").document(email).set(data)
 

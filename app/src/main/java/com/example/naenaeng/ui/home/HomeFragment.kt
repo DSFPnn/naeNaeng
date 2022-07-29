@@ -42,6 +42,8 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         binding.btnAddIngredient.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_addIngredientFragment)
+
         }
     }
+
 }
