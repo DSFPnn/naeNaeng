@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.naenaeng.MyApplication.Companion.prefs
-import com.example.naenaeng.model.Allergy
 import com.example.naenaeng.model.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject

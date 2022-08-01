@@ -4,6 +4,8 @@
     <string name="noToolbar">none</string>
     <string name="noToolbarNoBottom">gone</string>
 
+    <string name="hi">%s님, 안녕하세요!\n필요한 부분이 있으실까요?</string>
+
     <string name="one_star">★ (1.0)</string>
     <string name="two_star">★★ (2.0)</string>
     <string name="three_star">★★★ (3.0)</string>

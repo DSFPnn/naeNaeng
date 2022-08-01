@@ -19,14 +19,16 @@
 
             <TextView
                 android:id="@+id/tv_hi"
-                android:layout_width="168dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="118dp"
                 android:layout_marginBottom="24dp"
-                android:text="김준서님, 안녕하세요! 필요하신 부분이 있으실까요?"
+                android:text="@string/hi"
                 android:textColor="#5f5144"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_profile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

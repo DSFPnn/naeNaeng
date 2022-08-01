@@ -8,7 +8,6 @@ import com.example.naenaeng.model.Allergy
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.tasks.await
 
 class AllergyRepository {
     //DB에서 알러지이름 가져오기
