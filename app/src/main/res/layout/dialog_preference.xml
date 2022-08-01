@@ -5,13 +5,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_bottomsheet_shape">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_set_preference"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -21,7 +22,7 @@
                 android:layout_width="304dp"
                 android:layout_height="84dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="103dp"
+                android:layout_marginTop="125dp"
                 android:layout_marginEnd="28dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
                         android:layout_marginTop="3dp"
                         android:text="인덱스"
                         android:textColor="#000000"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,6 +68,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
                         android:text="한식"
                         android:textColor="#000000" />
 
@@ -74,6 +77,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
                         android:text="중식"
                         android:textColor="#000000" />
 
@@ -82,6 +86,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
                         android:text="일식"
                         android:textColor="#000000" />
 
@@ -90,6 +95,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
                         android:text="양식"
                         android:textColor="#000000" />
 
@@ -98,6 +104,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
                         android:text="전통"
                         android:textColor="#000000" />
                 </LinearLayout>
@@ -109,7 +116,7 @@
                 android:layout_width="304dp"
                 android:layout_height="84dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="28dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +135,7 @@
                         android:layout_marginTop="3dp"
                         android:text="맛"
                         android:textColor="#000000"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,11 +149,59 @@
                         app:srcCompat="@drawable/expand" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CheckBox" />
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider2"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/tv_taste1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="신맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="단맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="짠맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="고소한"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="그 외"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -153,11 +209,9 @@
                 android:layout_width="304dp"
                 android:layout_height="84dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="28dp"
-                android:layout_marginBottom="103dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -174,6 +228,7 @@
                         android:layout_marginTop="3dp"
                         android:text="맵기정도"
                         android:textColor="#000000"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -187,11 +242,59 @@
                         app:srcCompat="@drawable/expand" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <CheckedTextView
-                    android:id="@+id/checkedTextView"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CheckedTextView" />
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider2"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/tv_spicy1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/solid_raidus_shpae"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -205,7 +308,6 @@
             android:textColor="#5D4037"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

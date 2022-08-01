@@ -13,6 +13,8 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/button_mypage.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/button_recipe.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/check_box.xml" value="0.167" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/dialog_bottomsheet_shape.xml" value="0.1675" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/dialog_shpae.xml" value="0.1675" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/divider.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/divider2.xml" value="0.1675" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/expandable_listview.xml" value="0.167" />
@@ -36,8 +38,9 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/allergy_item.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/allergy_item_view.xml" value="0.5493055555555556" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_allergy.xml" value="0.50390625" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_date.xml" value="0.50390625" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_life.xml" value="0.50390625" />
-        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_name.xml" value="0.2921875" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_name.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_preference.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_add_ingredient.xml" value="0.50390625" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_allergy.xml" value="0.31561181434599156" />
