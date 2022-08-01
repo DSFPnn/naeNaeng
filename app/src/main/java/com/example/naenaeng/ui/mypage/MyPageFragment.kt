@@ -45,6 +45,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         binding.btnLogout.setOnClickListener {
             //로그아웃
             auth.signOut()
+
+            // 저장된 prefs 삭제
+            prefs.remove("email")
+            prefs.remove("name")
+
             navController.navigate(R.id.action_myPageFragment_to_loginFragment)
         }
     }

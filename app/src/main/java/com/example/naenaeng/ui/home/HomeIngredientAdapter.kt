@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.MyApplication
+import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 import com.example.naenaeng.databinding.IngredientItemViewBinding
 import com.example.naenaeng.model.Ingredient
 import com.example.naenaeng.ui.info.AllergyAdapter
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -93,6 +95,13 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>)
         Log.d("ingredd vh",itemList[position].toString())
         //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
 
+        //삭제 버튼 클릭시 재료 DB에서 삭제
+        holder.remove.setOnClickListener {
+            db.collection("users").document(prefs.getString("email","null"))
+              .update("ingredients", FieldValue.arrayRemove(itemList[position]))
+            itemList.removeAt(position)
+            notifyItemRemoved(position)
+        }
     }
 
     override fun getItemCount(): Int = itemList.size
