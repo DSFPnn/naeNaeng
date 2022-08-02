@@ -56,64 +56,13 @@
                         app:srcCompat="@drawable/expand" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pre_index_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:divider="@drawable/divider2"
-                    android:gravity="bottom"
                     android:orientation="horizontal"
-                    android:showDividers="middle">
-
-                    <TextView
-                        android:id="@+id/tv_index1"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="한식"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_index2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="중식"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_index3"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="일식"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_index4"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="양식"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_index5"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="전통"
-                        android:textColor="#000000" />
-                </LinearLayout>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/preference_item_view" />
 
             </LinearLayout>
 
@@ -156,64 +105,13 @@
                         app:srcCompat="@drawable/expand" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pre_taste_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:divider="@drawable/divider2"
-                    android:gravity="bottom"
                     android:orientation="horizontal"
-                    android:showDividers="middle">
-
-                    <TextView
-                        android:id="@+id/tv_taste1"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="신맛"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_taste2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="단맛"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_taste3"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="짠맛"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_taste4"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="고소한"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_taste5"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="그 외"
-                        android:textColor="#000000" />
-                </LinearLayout>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/preference_item_view" />
 
             </LinearLayout>
 
@@ -255,66 +153,16 @@
                         app:srcCompat="@drawable/expand" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pre_spicy_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:divider="@drawable/divider2"
-                    android:gravity="bottom"
                     android:orientation="horizontal"
-                    android:showDividers="middle">
-
-                    <TextView
-                        android:id="@+id/tv_spicy1"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_spicy2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="2"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_spicy3"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="3"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_spicy4"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="4"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/tv_spicy5"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/green_solid_radius8"
-                        android:fontFamily="@font/nanumsquare_acr"
-                        android:gravity="center"
-                        android:text="5"
-                        android:textColor="#000000" />
-                </LinearLayout>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/preference_item_view" />
 
             </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button

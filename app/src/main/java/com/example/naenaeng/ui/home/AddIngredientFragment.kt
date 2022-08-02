@@ -21,7 +21,7 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
     override fun initDataBinding() {
         super.initDataBinding()
-        binding.imgIngredient.clipToOutline = true
+        binding.imgAddIngredient.clipToOutline = true
 
         //재료이름 받아오기
         setFragmentResultListener("requestIngredient") { _, bundle ->

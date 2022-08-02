@@ -25,9 +25,11 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>)
 
     inner class ViewHolder(itemViewBinding: IngredientItemViewBinding)
         :RecyclerView.ViewHolder(itemViewBinding.root){
-        var name = itemViewBinding.tvIngredientName
-        var life = itemViewBinding.tvIngredientDate
-        var remove = itemViewBinding.btnRemove
+        val ingredientImg = itemViewBinding.imgIngredient
+        val firstLetter = itemViewBinding.tvFirstLetter
+        val name = itemViewBinding.tvIngredientName
+        val life = itemViewBinding.tvIngredientDate
+        val remove = itemViewBinding.btnRemove
     }
 
     override fun onCreateViewHolder(
@@ -44,6 +46,8 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>)
     }
 
     override fun onBindViewHolder(holder: HomeIngredientAdapter.ViewHolder, position: Int) {
+        holder.firstLetter.text = itemList[position].name.substring(0,1)
+        holder.ingredientImg.background
         holder.name.text = itemList[position].name
         holder.life.text = itemList[position].date
         Log.d("ingredd vh",itemList[position].toString())

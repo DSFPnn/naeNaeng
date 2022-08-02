@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.naenaeng.model.Ingredient
+import com.example.naenaeng.model.Preference
 import com.example.naenaeng.repository.UserRepository
 
 class UserViewModel : ViewModel(){
@@ -19,6 +20,11 @@ class UserViewModel : ViewModel(){
     val userIngredientLiveData: LiveData<ArrayList<Ingredient>>
         get() = _userIngredientLiveData
 
+    private val _userPreferenceLiveData: MutableLiveData<Preference>
+            = MutableLiveData()
+    val userPreferenceLiveData: LiveData<Preference>
+        get() = _userPreferenceLiveData
+
     fun getUserAllergy() {
         repo.getData().observeForever{
             _userAllergyLiveData.postValue(it.allergy)
@@ -29,6 +35,12 @@ class UserViewModel : ViewModel(){
         repo.getData().observeForever{
             _userIngredientLiveData.value = it.ingredients
             Log.d("ingred vm", _userIngredientLiveData.value.toString())
+        }
+    }
+    fun getUserPreference(){
+        repo.getData().observeForever{
+            _userPreferenceLiveData.value = it.preference
+            Log.d("ingred vm", _userPreferenceLiveData.value.toString())
         }
     }
 }

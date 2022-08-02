@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bottomsheet_shape">
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_bottomsheet_shape">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_set_preference"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="304dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="125dp"
+                android:layout_marginEnd="28dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:background="@drawable/bottom_line">
+
+                    <TextView
+                        android:id="@+id/tv_index"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
+                        android:text="인덱스"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_expand_index"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/expand" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider16"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/tv_index1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="한식"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_index2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="중식"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_index3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="일식"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_index4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="양식"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_index5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="전통"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="304dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="28dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:background="@drawable/bottom_line">
+
+                    <TextView
+                        android:id="@+id/tv_favor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
+                        android:text="맛"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_expand_favor"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/expand" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider16"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/tv_taste1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="신맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="단맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="짠맛"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="고소한"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_taste5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="그 외"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="304dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="28dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:background="@drawable/bottom_line">
+
+                    <TextView
+                        android:id="@+id/tv_spicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
+                        android:text="맵기정도"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_expand_spicy"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/expand" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider16"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/tv_spicy1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_spicy5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/preference_selected"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_set_preference"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="@color/primary_green"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="다음"
+            android:textColor="#5D4037"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+-->
