@@ -39,6 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
                         android:text="인덱스"
                         android:textColor="#000000"
                         android:textSize="14sp"
@@ -68,6 +69,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="한식"
                         android:textColor="#000000" />
@@ -77,6 +79,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="중식"
                         android:textColor="#000000" />
@@ -86,6 +89,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="일식"
                         android:textColor="#000000" />
@@ -95,6 +99,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="양식"
                         android:textColor="#000000" />
@@ -104,6 +109,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="전통"
                         android:textColor="#000000" />
@@ -133,6 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
                         android:text="맛"
                         android:textColor="#000000"
                         android:textSize="14sp"
@@ -162,6 +169,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="신맛"
                         android:textColor="#000000" />
@@ -171,6 +179,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="단맛"
                         android:textColor="#000000" />
@@ -180,6 +189,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="짠맛"
                         android:textColor="#000000" />
@@ -189,6 +199,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="고소한"
                         android:textColor="#000000" />
@@ -198,6 +209,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="그 외"
                         android:textColor="#000000" />
@@ -226,6 +238,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nanumsquare_acb"
                         android:text="맵기정도"
                         android:textColor="#000000"
                         android:textSize="14sp"
@@ -255,6 +268,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="1"
                         android:textColor="#000000" />
@@ -264,6 +278,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="2"
                         android:textColor="#000000" />
@@ -273,6 +288,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="3"
                         android:textColor="#000000" />
@@ -282,6 +298,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="4"
                         android:textColor="#000000" />
@@ -291,6 +308,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/solid_raidus_shpae"
+                        android:fontFamily="@font/nanumsquare_acr"
                         android:gravity="center"
                         android:text="5"
                         android:textColor="#000000" />
@@ -304,6 +322,7 @@
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:background="@color/primary_green"
+            android:fontFamily="@font/nanumsquare_acb"
             android:text="다음"
             android:textColor="#5D4037"
             app:layout_constraintBottom_toBottomOf="parent"

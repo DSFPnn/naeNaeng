@@ -5,11 +5,9 @@ import android.util.Patterns
 import android.widget.Toast
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.MyApplication.Companion.prefs
-import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentLoginBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -25,7 +23,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbar("none2")
+        (activity as MainActivity).setToolbarTitle("none2")
         auth = Firebase.auth
 
         //로그인 되어있는지 확인

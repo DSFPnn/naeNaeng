@@ -7,8 +7,6 @@ import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentHomeBinding
 import com.example.naenaeng.viewmodel.UserViewModel
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 
 class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -16,7 +14,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbar("none")
+        (activity as MainActivity).setToolbarTitle("none")
     }
     private val viewModel by lazy {
         ViewModelProvider(this).get(UserViewModel::class.java)

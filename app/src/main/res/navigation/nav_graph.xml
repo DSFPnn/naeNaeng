@@ -23,31 +23,11 @@
         android:label="AddIngredientFragment"
         tools:layout="@layout/fragment_add_ingredient">
         <action
-            android:id="@+id/action_addIngredientFragment_to_ingredientNameFragment"
-            app:destination="@id/ingredientNameFragment" />
-        <action
-            android:id="@+id/action_addIngredientFragment_to_ingredientLifeFragment"
-            app:destination="@id/ingredientLifeFragment" />
-        <action
             android:id="@+id/action_addIngredientFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <dialog
-        android:id="@+id/ingredientNameFragment"
-        android:name="com.example.naenaeng.ui.home.IngredientNameDialog"
-        android:label="IngredientNameFragment"
-        tools:layout="@layout/dialog_ingredient_name">
-        <action
-            android:id="@+id/action_ingredientNameFragment_to_addIngredientFragment"
-            app:destination="@id/addIngredientFragment" />
-    </dialog>
-    <dialog
-        android:id="@+id/ingredientLifeFragment"
-        android:name="com.example.naenaeng.ui.home.IngredientLifeDialog"
-        android:label="IngredientLifeFragment"
-        tools:layout="@layout/dialog_ingredient_date"/>
     <fragment
         android:id="@+id/myPageFragment"
         android:name="com.example.naenaeng.ui.mypage.MyPageFragment"
@@ -70,7 +50,7 @@
         <action
             android:id="@+id/action_changePasswordFragment_to_myPageFragment"
             app:destination="@id/myPageFragment"
-            app:popUpTo="@id/myPageFragment"
+            app:popUpTo="@id/changePasswordFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -80,17 +60,12 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_loginFragment_to_allergyFragment"
-            app:destination="@id/allergyFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -100,18 +75,6 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/preferenceFragment"
-        android:name="com.example.naenaeng.ui.info.PreferenceDialog"
-        android:label="PreferenceFragment"
-        tools:layout="@layout/dialog_preference">
-    </fragment>
-    <fragment
-        android:id="@+id/allergyFragment"
-        android:name="com.example.naenaeng.ui.info.AllergyDialog"
-        android:label="AllergyFragment"
-        tools:layout="@layout/dialog_allergy">
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"

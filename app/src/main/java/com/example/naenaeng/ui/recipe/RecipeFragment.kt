@@ -8,6 +8,6 @@ import com.example.naenaeng.databinding.FragmentRecipeBinding
 class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_recipe) {
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbar("레시피")
+        (activity as MainActivity).setToolbarTitle("레시피")
     }
 }

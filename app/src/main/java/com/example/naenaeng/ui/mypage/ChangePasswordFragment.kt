@@ -12,7 +12,7 @@ import com.google.firebase.ktx.Firebase
 class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>(R.layout.fragment_change_password) {
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbar("비밀번호 변경")
+        (activity as MainActivity).setToolbarTitle("비밀번호 변경")
     }
 
     override fun initDataBinding() {

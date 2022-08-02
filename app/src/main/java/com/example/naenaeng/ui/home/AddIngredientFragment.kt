@@ -16,7 +16,7 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbar("재료 추가")
+        (activity as MainActivity).setToolbarTitle("재료 추가")
     }
 
     override fun initDataBinding() {
@@ -41,10 +41,10 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
         super.initAfterBinding()
 
         binding.btnIngredientName.setOnClickListener {
-            navController.navigate(R.id.action_addIngredientFragment_to_ingredientNameFragment)
+            IngredientNameDialog().show(parentFragmentManager, "preference")
         }
         binding.btnIngredientDate.setOnClickListener {
-            navController.navigate(R.id.action_addIngredientFragment_to_ingredientLifeFragment)
+            IngredientLifeDialog().show(parentFragmentManager, "preference")
         }
         binding.btnSetIngredient.setOnClickListener{
             navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
