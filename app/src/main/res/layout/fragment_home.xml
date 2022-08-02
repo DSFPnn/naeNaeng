@@ -25,7 +25,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/search_shape"
+            android:background="@drawable/white_solid_outline_radius20"
             android:ems="10"
             android:fontFamily="@font/nanumsquare_acr"
             android:hint="재료를 검색해보세요."
@@ -61,7 +61,7 @@
             android:layout_height="60dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/img_button_add_ingredient"
+            android:background="@drawable/green_oval"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_add" />
