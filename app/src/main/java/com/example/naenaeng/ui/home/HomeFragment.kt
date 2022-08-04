@@ -42,6 +42,6 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             navController.navigate(R.id.action_homeFragment_to_addIngredientFragment)
 
         }
-    }
 
+    }
 }

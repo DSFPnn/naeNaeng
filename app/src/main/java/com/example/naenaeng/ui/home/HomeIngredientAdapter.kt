@@ -55,12 +55,15 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>)
 
         //삭제 버튼 클릭시 재료 DB에서 삭제
         holder.remove.setOnClickListener {
-            db.collection("users").document(prefs.getString("email","null"))
-              .update("ingredients", FieldValue.arrayRemove(itemList[position]))
+            db.collection("users").document(prefs.getString("email", "null"))
+                .update("ingredients", FieldValue.arrayRemove(itemList[position]))
             itemList.removeAt(position)
             notifyItemRemoved(position)
         }
+
+
     }
 
     override fun getItemCount(): Int = itemList.size
 }
+
