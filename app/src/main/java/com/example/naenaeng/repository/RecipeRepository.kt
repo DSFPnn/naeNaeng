@@ -24,6 +24,7 @@ class RecipeRepository {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
+
         return mutableData
     }
 }

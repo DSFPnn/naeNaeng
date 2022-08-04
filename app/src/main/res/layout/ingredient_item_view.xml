@@ -88,7 +88,6 @@
                 android:fontFamily="@font/nanumsquare_acb"
                 android:gravity="center"
                 android:text="삭제"
-                android:visibility="invisible"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
