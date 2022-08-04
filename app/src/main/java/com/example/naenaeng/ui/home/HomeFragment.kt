@@ -74,11 +74,9 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 if (binding.etSearchIngredient.text.isEmpty()) {
                     viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
                         homeIngredientAdapter.itemList = itemList
-                        Log.d("ingredd", itemList.toString())
                     }
                 }
             }
         }
     })
-}
-}
+} }
