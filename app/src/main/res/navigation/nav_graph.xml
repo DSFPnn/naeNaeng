@@ -66,6 +66,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_findIdPwFragment"
+            app:destination="@id/findIdPwFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -81,4 +84,13 @@
         android:name="com.example.naenaeng.ui.recipe.RecipeFragment"
         android:label="RecipeFragment"
         tools:layout="@layout/fragment_recipe" />
+    <fragment
+        android:id="@+id/findIdPwFragment"
+        android:name="com.example.naenaeng.ui.info.FindIdPwFragment"
+        android:label="findIdPwFragment"
+        tools:layout="@layout/fragment_find_idpw" >
+        <action
+            android:id="@+id/action_findIdPwFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
