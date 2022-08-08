@@ -1,9 +1,14 @@
 package com.example.naenaeng.ui.recipe
 
+import android.graphics.DrawFilter
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
@@ -13,6 +18,7 @@ import com.example.naenaeng.model.Menu
 import com.example.naenaeng.ui.info.AllergyAdapter
 import com.example.naenaeng.viewmodel.AllergyViewModel
 import com.example.naenaeng.viewmodel.RecipeViewModel
+import com.google.android.material.navigation.NavigationView
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_recipe) {
     private lateinit var recipeAdapter: RecipeAdapter
@@ -39,6 +45,13 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
             Log.d("recipee",itemList.toString())
         }
 
+
+        //필터기능
+        binding.btnFilter.setOnClickListener {
+            navController.navigate(R.id.action_recipeFragment_to_recipeFilterFragment)
+        }
+
+        //검색기능
         binding.etSearchRecipe.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val searchString = s.toString()

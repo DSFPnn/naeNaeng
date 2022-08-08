@@ -1,18 +1,13 @@
 package com.example.naenaeng.ui.info
 
-import android.util.Log
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
-import com.example.naenaeng.base.BaseDialogFragment
 import com.example.naenaeng.databinding.DialogPreferenceBinding
-import com.example.naenaeng.viewmodel.AllergyViewModel
 import com.example.naenaeng.viewmodel.PreferenceViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.dialog_preference.*
 
 class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.layout.dialog_preference) {
     private val db = Firebase.firestore

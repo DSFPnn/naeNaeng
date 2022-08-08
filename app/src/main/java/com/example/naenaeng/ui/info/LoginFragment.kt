@@ -19,8 +19,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     private var backPressedTime: Long = 0
     private lateinit var auth: FirebaseAuth
 
-
-
     override fun initStartView() {
         super.initStartView()
         (activity as MainActivity).setToolbarTitle("none2")

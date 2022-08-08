@@ -28,90 +28,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btn_filter"
+            android:layout_width="76dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/white_solid_outline_radius20"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:paddingLeft="12dp"
+            android:paddingTop="9dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="9dp"
+            android:text="필터"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_recipe" />
+
         <TextView
             android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="맞춤 메뉴"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="13dp"
-            android:divider="@drawable/divider12"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search_recipe">
-
-            <TextView
-                android:id="@+id/tv_tag1"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:background="@drawable/white_solid_outline_radius20"
-                android:fontFamily="@font/nanumsquare_acr"
-                android:paddingLeft="12dp"
-                android:paddingTop="9dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="9dp"
-                android:text="달달한"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/btn_tag2"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:background="@drawable/white_solid_outline_radius20"
-                android:fontFamily="@font/nanumsquare_acr"
-                android:paddingLeft="12dp"
-                android:paddingTop="9dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="9dp"
-                android:text="달달한"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/btn_tag3"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:background="@drawable/white_solid_outline_radius20"
-                android:fontFamily="@font/nanumsquare_acr"
-                android:paddingLeft="12dp"
-                android:paddingTop="9dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="9dp"
-                android:text="혼자 하기 쉬운"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-        </LinearLayout>
+            app:layout_constraintStart_toStartOf="@+id/et_search_recipe"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipe_recycler_view"
+            android:layout_width="363dp"
+            android:layout_height="550dp"
+            android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="14dp"
             app:layout_constrainedHeight="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-            tools:listitem="@layout/recipe_item_view" />
+            app:layout_constraintStart_toStartOf="@+id/tv_recommend"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recommend"
+            tools:listitem="@layout/recipe_item_view" >
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

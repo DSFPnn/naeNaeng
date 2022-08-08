@@ -20,6 +20,10 @@ class UserRepository {
         db.collection("users").document(prefs.getString("email","null")).get()
             .addOnSuccessListener { documentSnapshot ->
                 val data = documentSnapshot.toObject<User>()
+                if (data != null) {
+                    prefs.setString("pref",data.preference.toString())
+
+                }
                 mutableData.value=data!!
                 Log.d("ingred repo",data.toString())
             }

@@ -73,8 +73,11 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/bottom_nav_menu.xml" value="0.32578125" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/nav_menu.xml" value="0.20521590423257802" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/background_splash.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/ic_baseline_filter_alt_24.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/icon_naenaeng.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/list.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/menu_click_color.xml" value="0.216" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33457605271112345" />
         <entry key="app/src/main/res/layout/allergy_item_view.xml" value="0.1" />
@@ -83,6 +86,7 @@
         <entry key="app/src/main/res/layout/dialog_ingredient_name.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/dialog_preference.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/dialog_preference_2.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/filter_drawer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_add_ingredient.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_allergy.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_change_password.xml" value="0.25769927536231885" />
@@ -96,13 +100,16 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.15476190476190477" />
         <entry key="app/src/main/res/layout/fragment_preference.xml" value="0.15476190476190477" />
-        <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/fragment_receipe_filter.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.36266326904296875" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/ingredient_item_view.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/preference_item_view.xml" value="0.25317028985507245" />
         <entry key="app/src/main/res/layout/recipe_item_view.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.247" />
+        <entry key="app/src/main/res/xml/from_right.xml" value="0.1" />
+        <entry key="app/src/main/res/xml/to_left.xml" value="0.1" />
       </map>
     </option>
   </component>
