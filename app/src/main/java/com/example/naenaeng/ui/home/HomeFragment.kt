@@ -50,6 +50,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         }
 
+        //검색기능
         binding.etSearchIngredient.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val searchString = s.toString()
