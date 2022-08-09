@@ -93,6 +93,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_dateAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="유통기한 임박!"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/btn_remove"
+                app:layout_constraintEnd_toEndOf="@+id/btn_remove" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

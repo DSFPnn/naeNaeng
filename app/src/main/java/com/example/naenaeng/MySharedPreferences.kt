@@ -24,4 +24,7 @@ class MySharedPreferences(context : Context) {
     fun remove(key: String){    //데이터 삭제
         prefs.edit().remove(key).apply()
     }
+    fun removeAll(){
+        prefs.edit().clear()
+    }
 }

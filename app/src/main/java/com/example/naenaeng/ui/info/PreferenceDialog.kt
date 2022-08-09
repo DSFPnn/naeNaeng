@@ -5,6 +5,7 @@ import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.databinding.DialogPreferenceBinding
+import com.example.naenaeng.repository.UserRepository
 import com.example.naenaeng.viewmodel.PreferenceViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -49,6 +50,7 @@ class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.lay
             dbUser.update("preference.taste", preferenceTasteAdapter.preferenceDatas)
             dbUser.update("preference.spicy", preferenceSpicyAdapter.preferenceDatas)
 
+            UserRepository().getData()
             dismiss()
         }
     }

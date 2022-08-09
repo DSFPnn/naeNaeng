@@ -10,6 +10,8 @@ import com.example.naenaeng.model.Ingredient
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeIngredientAdapter(itemList: ArrayList<Ingredient>)
 : RecyclerView.Adapter<HomeIngredientAdapter.ViewHolder>(){

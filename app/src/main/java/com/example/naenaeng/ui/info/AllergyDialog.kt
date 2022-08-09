@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.databinding.DialogAllergyBinding
+import com.example.naenaeng.repository.UserRepository
 import com.example.naenaeng.viewmodel.AllergyViewModel
 
 class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.dialog_allergy) {
@@ -31,6 +32,7 @@ class AllergyDialog : BaseBottomDialogFragment<DialogAllergyBinding>(R.layout.di
         super.initAfterBinding()
 
         binding.btnNext.setOnClickListener {
+            UserRepository().getData()
             dismiss()
         }
     }

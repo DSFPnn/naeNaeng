@@ -79,9 +79,11 @@
         <entry key="app/src/main/res/drawable/icon_naenaeng.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/list.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/menu_click_color.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/preference_selected.xml" value="0.208" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33457605271112345" />
         <entry key="app/src/main/res/layout/allergy_item_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_allergy.xml" value="0.23550724637681159" />
+        <entry key="app/src/main/res/layout/dialog_ingredient_date.xml" value="0.26811594202898553" />
         <entry key="app/src/main/res/layout/dialog_ingredient_life.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_ingredient_name.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/dialog_preference.xml" value="0.2028985507246377" />
@@ -103,7 +105,7 @@
         <entry key="app/src/main/res/layout/fragment_receipe_filter.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.36266326904296875" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/ingredient_item_view.xml" value="0.2028985507246377" />
+        <entry key="app/src/main/res/layout/ingredient_item_view.xml" value="0.375" />
         <entry key="app/src/main/res/layout/preference_item_view.xml" value="0.25317028985507245" />
         <entry key="app/src/main/res/layout/recipe_item_view.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3182291666666667" />

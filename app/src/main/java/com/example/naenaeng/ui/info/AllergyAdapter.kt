@@ -3,6 +3,7 @@ package com.example.naenaeng.ui.info
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.databinding.AllergyItemViewBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -39,21 +40,29 @@ class AllergyAdapter(itemList: ArrayList<String>)
     }
 
     override fun onBindViewHolder(holder: AllergyAdapter.ViewHolder, position: Int) {
+        val preference = MyApplication.prefs.getString("allergy","null")
 
         holder.allergy.text = itemList[position]
+        val item = holder.allergy.text.toString()
+
+        if(preference.contains(item)){
+            holder.allergyCheck.isChecked = true
+            allergyDatas.add(item)
+        }
+
+        db.collection("users").document(prefs.getString("email", "null"))
+            .update("allergy", allergyDatas)
         //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
 
         //사용자별 알러지 DB에 저장
         holder.allergyCheck.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 allergyDatas.add(holder.allergy.text.toString())
-                db.collection("users").document(prefs.getString("email", "null"))
-                    .update("allergy", allergyDatas)
             } else {
                 allergyDatas.remove(holder.allergy.text.toString())
-                db.collection("users").document(prefs.getString("email", "null"))
-                    .update("allergy", allergyDatas)
             }
+            db.collection("users").document(prefs.getString("email", "null"))
+                .update("allergy", allergyDatas)
         }
     }
 

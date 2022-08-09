@@ -22,7 +22,7 @@ class UserRepository {
                 val data = documentSnapshot.toObject<User>()
                 if (data != null) {
                     prefs.setString("pref",data.preference.toString())
-
+                    prefs.setString("allergy",data.allergy.toString())
                 }
                 mutableData.value=data!!
                 Log.d("ingred repo",data.toString())
