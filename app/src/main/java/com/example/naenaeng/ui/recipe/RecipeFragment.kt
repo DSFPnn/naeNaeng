@@ -16,6 +16,7 @@ import com.example.naenaeng.databinding.FragmentRecipeBinding
 import com.example.naenaeng.model.Ingredient
 import com.example.naenaeng.model.Menu
 import com.example.naenaeng.ui.info.AllergyAdapter
+import com.example.naenaeng.ui.info.AllergyDialog
 import com.example.naenaeng.viewmodel.AllergyViewModel
 import com.example.naenaeng.viewmodel.RecipeViewModel
 import com.google.android.material.navigation.NavigationView
@@ -48,7 +49,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
 
         //필터기능
         binding.btnFilter.setOnClickListener {
-            navController.navigate(R.id.action_recipeFragment_to_recipeFilterFragment)
+            RecipeFilterDialog().show(parentFragmentManager, "filter")
         }
 
         //검색기능

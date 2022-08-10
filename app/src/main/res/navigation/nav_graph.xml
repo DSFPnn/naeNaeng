@@ -84,13 +84,6 @@
         android:name="com.example.naenaeng.ui.recipe.RecipeFragment"
         android:label="RecipeFragment"
         tools:layout="@layout/fragment_recipe" >
-        <action
-            android:id="@+id/action_recipeFragment_to_recipeFilterFragment"
-            app:destination="@id/recipeFilterFragment"
-            app:enterAnim="@anim/in_right"
-            app:exitAnim="@anim/out_left"
-            app:popEnterAnim="@anim/in_left"
-            app:popExitAnim="@anim/out_right" />
     </fragment>
     <fragment
         android:id="@+id/findIdPwFragment"
@@ -100,18 +93,5 @@
         <action
             android:id="@+id/action_findIdPwFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/recipeFilterFragment"
-        android:name="com.example.naenaeng.ui.recipe.RecipeFilterFragment"
-        android:label="recipeFilterFragment"
-        tools:layout="@layout/fragment_receipe_filter" >
-        <action
-            android:id="@+id/action_recipeFilterFragment_to_recipeFragment"
-            app:destination="@id/recipeFragment"
-            app:enterAnim="@anim/in_left"
-            app:exitAnim="@anim/out_right"
-            app:popEnterAnim="@anim/in_right"
-            app:popExitAnim="@anim/out_left" />
     </fragment>
 </navigation>

@@ -37,7 +37,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             PreferenceDialog().show(parentFragmentManager, "preference")
         }
         binding.btnChangeAllergy.setOnClickListener {
-            AllergyDialog().show(parentFragmentManager, "preference")
+            AllergyDialog().show(parentFragmentManager, "allergy")
         }
         binding.btnLogout.setOnClickListener {
             //로그아웃
