@@ -86,16 +86,10 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
             holder.date.background = ContextCompat.getDrawable(context, R.color.white)
         }
 
-        // (1) 리스트 내 항목 클릭 시 onClick() 호출
-        holder.edit.setOnClickListener {
-            Log.d("clickk adapter","눌림")
-            val status = "edit"
-            itemClickListener?.onClick(it, position, status)
-        }
         //유통기한 확인
         val today = Date().time
         val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
-        val itemDate = dateFormat.parse(holder.life.text.toString()).time
+        val itemDate = dateFormat.parse(holder.date.text.toString()).time
         var dDay = (itemDate - today) / (24 * 60 * 60 * 1000)
         if((dDay<7) and (dDay>0)) {
             holder.warning.setText("유통기한이 ${dDay}일 남았습니다!")
@@ -109,6 +103,13 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
             dDay = dDay.absoluteValue
             holder.warning.setText("유통기한이 ${dDay}일 지났습니다!")
             holder.warning.visibility = View.VISIBLE
+        }
+
+        // (1) 리스트 내 항목 클릭 시 onClick() 호출
+        holder.edit.setOnClickListener {
+            Log.d("clickk adapter","눌림")
+            val status = "edit"
+            itemClickListener?.onClick(it, position, status)
         }
 
         //삭제 버튼 클릭시 재료 DB에서 삭제

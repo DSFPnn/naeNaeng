@@ -21,8 +21,6 @@ import com.google.common.collect.ComparisonChain.start
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 
 class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -53,6 +51,19 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             Log.d("ingredd", itemList.toString())
         }
     }
+    private fun toggleFab() {
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        if (isFabOpen) {
+            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 180f, 0f).apply { start() }
+        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", -360f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", -180f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 0f, 180f).apply { start() }
+        }
+        isFabOpen = !isFabOpen
+    }
 
     override fun initAfterBinding() {
         super.initAfterBinding()
@@ -71,23 +82,8 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.btnCheck.setOnClickListener {
             selectMode(false)
         }
-    }
-    private fun toggleFab() {
-        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
-        if (isFabOpen) {
-            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", 0f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", 0f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 180f, 0f).apply { start() }
-        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
-            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", -360f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", -180f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 0f, 180f).apply { start() }
-        }
-        isFabOpen = !isFabOpen
-    }
-
         //검색기능
-        binding.etSearchIngredient.addTextChangedListener(object: TextWatcher {
+        binding.etSearchIngredient.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val searchString = s.toString()
             }
@@ -101,12 +97,21 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 val searchItemList: ArrayList<Ingredient> = ArrayList<Ingredient>()
                 val searchString = binding.etSearchIngredient.text
                 viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
-                    for (item in itemList){
-                        if(item.name.contains(searchString)){
+                    for (item in itemList) {
+                        if (item.name.contains(searchString)) {
                             searchItemList.add(item)
                         }
                     }
                     homeIngredientAdapter.itemList = searchItemList
+                    if (binding.etSearchIngredient.text.isEmpty()) {
+                        viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
+                            homeIngredientAdapter.itemList = itemList
+                        }
+                    }
+                }
+            }
+        })
+    }
 
     private fun selectMode(em:Boolean){
         if(em){ // 편집 모드
@@ -180,12 +185,4 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 }
-                if (binding.etSearchIngredient.text.isEmpty()) {
-                    viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
-                        homeIngredientAdapter.itemList = itemList
-                    }
-                }
-            }
-        }
-    })
-} }
+
