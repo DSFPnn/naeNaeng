@@ -61,14 +61,17 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipe_recycler_view"
-            android:layout_width="363dp"
-            android:layout_height="550dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filter"
             app:layout_constraintStart_toStartOf="@+id/tv_recommend"
             app:layout_constraintTop_toBottomOf="@+id/tv_recommend"
-            tools:listitem="@layout/recipe_item_view" >
+            tools:listitem="@layout/recipe_item_view">
 
         </androidx.recyclerview.widget.RecyclerView>
 
