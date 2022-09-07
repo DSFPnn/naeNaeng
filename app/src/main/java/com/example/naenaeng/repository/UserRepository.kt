@@ -15,6 +15,17 @@ class UserRepository {
     fun getData(): LiveData<User> {
         val db = Firebase.firestore
         val mutableData = MutableLiveData<User>()
+        val user = prefs.getString("email","null")
+
+//        db.collection("users/$user").orderBy("added").get()
+//            .addOnSuccessListener { documentSnapshot ->
+//                val data = documentSnapshot.toObject<User>()
+//                mutableData.value=data!!
+//                Log.d("ingred repo",data.toString())
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d(ContentValues.TAG, "get failed with ", exception)
+//            }
 
         db.collection("users").document(prefs.getString("email","null")).get()
             .addOnSuccessListener { documentSnapshot ->

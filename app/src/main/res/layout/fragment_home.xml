@@ -55,16 +55,57 @@
             app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/ingredient_item_view" />
 
-        <ImageButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add_ingredient"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:visibility="visible"
+            app:backgroundTint="@color/primary_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_etc"
+            app:layout_constraintEnd_toEndOf="@+id/btn_edit_ingredient"
+            app:layout_constraintStart_toStartOf="@+id/btn_edit_ingredient"
+            app:srcCompat="@drawable/add" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_edit_ingredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:visibility="visible"
+            app:backgroundTint="@color/primary_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_etc"
+            app:layout_constraintEnd_toEndOf="@+id/btn_etc"
+            app:layout_constraintStart_toStartOf="@+id/btn_etc"
+            app:srcCompat="@drawable/edit" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_etc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/green_oval"
+            android:clickable="true"
+            android:visibility="visible"
+            app:backgroundTint="@color/primary_dark_blue"
+            app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            app:srcCompat="@drawable/etc" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:backgroundTint="@color/primary_dark_blue"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/check_white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

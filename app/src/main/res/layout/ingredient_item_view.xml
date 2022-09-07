@@ -70,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginTop="14dp"
+                android:background="@drawable/bottom_line"
                 android:fontFamily="@font/nanumsquare_acr"
                 android:gravity="center"
                 android:text="유통기한"
@@ -81,7 +82,7 @@
 
             <Button
                 android:id="@+id/btn_remove"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="36dp"
                 android:layout_marginTop="51dp"
                 android:background="@color/transparent"
@@ -90,9 +91,31 @@
                 android:text="삭제"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btn_edit_dialog"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="5dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_ingredient_date"
+                app:layout_constraintStart_toEndOf="@+id/tv_ingredient_date"
+                app:layout_constraintTop_toTopOf="@+id/tv_ingredient_date"
+                app:srcCompat="@drawable/pen_black" />
+
+            <TextView
+                android:id="@+id/tv_ingredient_added"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="TextView"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/tv_ingredient_name"
+                tools:layout_editor_absoluteY="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

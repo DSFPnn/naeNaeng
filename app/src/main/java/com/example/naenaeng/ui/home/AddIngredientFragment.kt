@@ -9,6 +9,7 @@ import com.example.naenaeng.databinding.FragmentAddIngredientBinding
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
 
 class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) {//음식 추가 화면
     //private lateinit var navController : NavController
@@ -44,14 +45,16 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
             IngredientNameDialog().show(parentFragmentManager, "preference")
         }
         binding.btnIngredientDate.setOnClickListener {
-            IngredientLifeDialog().show(parentFragmentManager, "preference")
+            IngredientDateDialog().show(parentFragmentManager, "preference")
         }
         binding.btnSetIngredient.setOnClickListener{
             navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
 
             val data =  hashMapOf(
                 "name" to binding.btnIngredientName.text,
-                "date" to binding.btnIngredientDate.text
+                "date" to binding.btnIngredientDate.text,
+                "added" to today(),
+                "imageClass" to "null jpg"
             )
 
             //firestore에 재료추가
@@ -59,6 +62,13 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                 .update("ingredients", FieldValue.arrayUnion(data))
 
         }
+    }
+
+    private fun today(): String {
+        val currentTime = System.currentTimeMillis()
+        val dataFormat = SimpleDateFormat("yyyyMMdd")
+
+        return dataFormat.format(currentTime).toString()
     }
 
 }
