@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.naenaeng.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
 
 
 class MainActivity: AppCompatActivity() {
@@ -25,6 +26,8 @@ class MainActivity: AppCompatActivity() {
         setToolbar()
         setBottomNav()
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

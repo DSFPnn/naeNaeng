@@ -34,6 +34,7 @@ class UserViewModel : ViewModel(){
     fun getUserIngredient() {
         repo.getData().observeForever{
             _userIngredientLiveData.value = it.ingredients
+            // .sortWith(compareBy<Ingredient>{it.added}.thenBy{it.name})
             Log.d("ingred vm", _userIngredientLiveData.value.toString())
         }
     }
