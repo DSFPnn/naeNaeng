@@ -15,7 +15,7 @@ class AllergyRepository {
         val db = Firebase.firestore
         val mutableData = MutableLiveData<Allergy>()
 
-        db.collection("allergy").document("allergyName").get()
+        db.collection("public").document("allergy").get()
             .addOnSuccessListener { documentSnapshot ->
                 val data = documentSnapshot.toObject<Allergy>()
                 mutableData.value=data!!
