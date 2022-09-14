@@ -1,5 +1,6 @@
 package com.example.naenaeng.ui.recipe
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +10,21 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.naenaeng.databinding.RecipeItemViewBinding
 import com.example.naenaeng.model.Menu
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class RecipeAdapter(itemList: ArrayList<Menu>)
 : RecyclerView.Adapter<RecipeAdapter.ViewHolder>(){
     private val db = Firebase.firestore
     private var ingredientDatas = mutableListOf<String>()
+    lateinit var context: Context
+    private val storage: FirebaseStorage = FirebaseStorage.getInstance("gs://naenaeng-bebed.appspot.com")
+    private val storageRef: StorageReference = storage.reference
 
     var itemList: ArrayList<Menu> = itemList
     set(value) {
@@ -38,6 +45,7 @@ class RecipeAdapter(itemList: ArrayList<Menu>)
         parent: ViewGroup,
         viewType: Int
     ): RecipeAdapter.ViewHolder {
+        context = parent.context
         return ViewHolder(
             RecipeItemViewBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -47,11 +55,18 @@ class RecipeAdapter(itemList: ArrayList<Menu>)
         )
     }
     override fun onBindViewHolder(holder: RecipeAdapter.ViewHolder, position: Int) {
-        holder.recipeImg.clipToOutline = true
-
         holder.title.text = itemList[position].title
         holder.index.text = itemList[position].index
-        //Log.d("ingredd vh",itemList[position].toString())
+        Log.d("ingredd vh",itemList[position].toString())
+        storageRef.child("recipe/"+itemList[position].imageName).downloadUrl.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Glide.with(context)
+                    .load(task.result)
+                    .fitCenter()
+                    .into(holder.recipeImg)
+            }
+        }
+        holder.recipeImg.clipToOutline = true
 
         // (1) 리스트 내 항목 클릭 시 onClick() 호출
         holder.layout.setOnClickListener {

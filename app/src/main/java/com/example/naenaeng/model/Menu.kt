@@ -10,6 +10,6 @@ data class Menu (
         var additionalIngredients:String = "",
         @get:PropertyName("essential ingredients") @set:PropertyName("essential ingredients")
         var essentialIngredients:String = "",
-        val ImageName:String = "",
+        val imageName:String = "",
         val step:String = ""
 )

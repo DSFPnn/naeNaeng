@@ -36,6 +36,7 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
             binding.btnIngredientDate.text=result
         }
 
+
     }
 
     override fun initAfterBinding() {

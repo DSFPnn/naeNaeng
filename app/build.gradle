@@ -47,6 +47,13 @@ dependencies {
     // SharedPreference
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    // firebase storage
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-storage:20.0.2'
+
     // fireBase
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
