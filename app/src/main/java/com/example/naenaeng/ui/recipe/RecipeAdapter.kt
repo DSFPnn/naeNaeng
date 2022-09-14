@@ -2,9 +2,12 @@ package com.example.naenaeng.ui.recipe
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naenaeng.databinding.RecipeItemViewBinding
 import com.example.naenaeng.model.Menu
@@ -25,6 +28,7 @@ class RecipeAdapter(itemList: ArrayList<Menu>)
 
     inner class ViewHolder(itemViewBinding: RecipeItemViewBinding) :
         RecyclerView.ViewHolder(itemViewBinding.root) {
+        val layout : LinearLayout = itemViewBinding.recipeItemLayout
         val recipeImg: ImageView = itemViewBinding.recipePicture
         val title: TextView = itemViewBinding.tvTitle
         val index: TextView = itemViewBinding.tvRecipeIndex
@@ -48,7 +52,25 @@ class RecipeAdapter(itemList: ArrayList<Menu>)
         holder.title.text = itemList[position].title
         holder.index.text = itemList[position].index
         //Log.d("ingredd vh",itemList[position].toString())
+
+        // (1) 리스트 내 항목 클릭 시 onClick() 호출
+        holder.layout.setOnClickListener {
+            Log.d("clickk adapter","눌림")
+            val status = "edit"
+            itemClickListener?.onClick(it, position, status)
+        }
     }
+    // (2) 리스너 인터페이스
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int, m:String)
+    }
+    // (3) 외부에서 클릭 시 이벤트 설정
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
+    // (4) setItemClickListener로 설정한 함수 실행
+    private var itemClickListener : OnItemClickListener? = null
 
     override fun getItemCount(): Int = itemList.size
 }

@@ -111,35 +111,6 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
             val status = "edit"
             itemClickListener?.onClick(it, position, status)
         }
-
-        //삭제 버튼 클릭시 재료 DB에서 삭제
-        holder.remove.setOnClickListener {
-            Log.d("clickk removeBtn", "눌림")
-            val status = "remove"
-            itemClickListener?.onClick(it, position, status)
-        }
-
-//        // 수정 모드에서 유통기한 클릭시 유통기한 수정
-//        holder.date.setOnClickListener {
-//            IngredientDateDialog().show(mFragmentManager,"date")
-//
-//            var map= mutableMapOf<String,Any>()
-//            map[holder.name.text.toString()] = date
-//            db.collection("users").document(prefs.getString("email","null"))
-//                .update(map)
-//                .addOnCompleteListener {
-//                    if(it.isSuccessful){
-//                        Toast.makeText(context, "수정 완료", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//        }
-//        //삭제 버튼 클릭시 재료 DB에서 삭제
-//        holder.remove.setOnClickListener {
-//            db.collection("users").document(prefs.getString("email","null"))
-//              .update("ingredients", FieldValue.arrayRemove(itemList[position]))
-//            itemList.removeAt(position)
-//            notifyItemRemoved(position)
-//        }
     }
     // (2) 리스너 인터페이스
     interface OnItemClickListener {

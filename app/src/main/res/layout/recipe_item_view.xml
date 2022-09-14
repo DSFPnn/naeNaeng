@@ -15,10 +15,11 @@
         android:background="@color/white">
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
+            android:id="@+id/recipe_item_layout"
             android:layout_width="match_parent"
             android:layout_height="232dp"
-            android:background="@drawable/white_solid_outline"
+            android:background="@color/white"
+            android:elevation="2dp"
             android:orientation="vertical"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
@@ -73,7 +74,7 @@
             android:layout_height="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_item_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

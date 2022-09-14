@@ -4,22 +4,27 @@ import android.graphics.DrawFilter
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRecipeBinding
 import com.example.naenaeng.model.Ingredient
 import com.example.naenaeng.model.Menu
+import com.example.naenaeng.ui.home.HomeIngredientAdapter
+import com.example.naenaeng.ui.home.IngredientDateDialog
 import com.example.naenaeng.ui.info.AllergyAdapter
 import com.example.naenaeng.ui.info.AllergyDialog
 import com.example.naenaeng.viewmodel.AllergyViewModel
 import com.example.naenaeng.viewmodel.RecipeViewModel
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.FieldValue
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_recipe) {
     private lateinit var recipeAdapter: RecipeAdapter
@@ -80,6 +85,19 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
                         }
                     }
                 }
+            }
+        })
+    }
+
+    override fun initAfterBinding() {
+        super.initAfterBinding()
+
+        recipeAdapter.setItemClickListener(object: RecipeAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int, m:String) {
+                // 클릭 시 이벤트 작성
+                Log.d("clickk","${recipeAdapter.itemList[position].title}")
+
+                RecipeDetailDialog(recipeAdapter.itemList[position]).show(parentFragmentManager, "recipeDetail")
             }
         })
     }
