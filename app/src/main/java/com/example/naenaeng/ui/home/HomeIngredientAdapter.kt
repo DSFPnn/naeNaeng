@@ -90,18 +90,21 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         val today = Date().time
         val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
         val itemDate = dateFormat.parse(holder.date.text.toString()).time
-        var dDay = (itemDate - today) / (24 * 60 * 60 * 1000)
+        val dDay = ((itemDate - today) / (24 * 60 * 60 * 1000))
         if((dDay<7) and (dDay>0)) {
+            Log.d("ddayy a",dDay.toString())
             holder.warning.setText("유통기한이 ${dDay}일 남았습니다!")
             holder.warning.visibility = View.VISIBLE
         }
         else if (dDay.toInt() == 0){
+            Log.d("ddayy b",dDay.toString())
             holder.warning.setText("유통기한이 오늘까지입니다!")
             holder.warning.visibility = View.VISIBLE
         }
         else if (dDay<0) {
-            dDay = dDay.absoluteValue
-            holder.warning.setText("유통기한이 ${dDay}일 지났습니다!")
+            Log.d("ddayy c",dDay.toString())
+            val abDDay=dDay.absoluteValue
+            holder.warning.setText("유통기한이 ${abDDay}일 지났습니다!")
             holder.warning.visibility = View.VISIBLE
         }
 
@@ -109,6 +112,10 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         holder.edit.setOnClickListener {
             Log.d("clickk adapter","눌림")
             val status = "edit"
+            itemClickListener?.onClick(it, position, status)
+        }
+        holder.remove.setOnClickListener {
+            val status = "remove"
             itemClickListener?.onClick(it, position, status)
         }
     }

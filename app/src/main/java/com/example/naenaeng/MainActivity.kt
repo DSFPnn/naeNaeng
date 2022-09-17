@@ -1,6 +1,8 @@
 package com.example.naenaeng
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -8,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.naenaeng.databinding.ActivityMainBinding
+import com.example.naenaeng.ui.home.CameraActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
@@ -27,7 +30,10 @@ class MainActivity: AppCompatActivity() {
         setBottomNav()
     }
 
-
+    fun replaceToCameraActivity() {
+        val cameraIntent = Intent(this, CameraActivity::class.java)
+        startActivity(cameraIntent)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

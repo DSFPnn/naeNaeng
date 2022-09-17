@@ -37,9 +37,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         binding.tvRegister.setOnClickListener {
             navController.navigate(R.id.action_loginFragment_to_registerFragment)
         }
-        binding.btnMaster.setOnClickListener {
-            navController.navigate(R.id.action_loginFragment_to_homeFragment)
-        }
         binding.tvFindIdPw.setOnClickListener {
             navController.navigate(R.id.action_loginFragment_to_findIdPwFragment)
         }

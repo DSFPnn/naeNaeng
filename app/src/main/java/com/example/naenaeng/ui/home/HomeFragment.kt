@@ -1,13 +1,14 @@
 package com.example.naenaeng.ui.home
 
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.MainActivity
@@ -17,7 +18,6 @@ import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentHomeBinding
 import com.example.naenaeng.model.Ingredient
 import com.example.naenaeng.viewmodel.UserViewModel
-import com.google.common.collect.ComparisonChain.start
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -28,6 +28,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private var isFabOpen = false // Fab 버튼 default는 닫혀있음
     private var editMode = false // ture:수정모드 false:일반모드
     val db = Firebase.firestore
+    private lateinit var result:String
 
     override fun initStartView() {
         super.initStartView()
@@ -41,28 +42,25 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.initDataBinding()
 
         homeIngredientAdapter = HomeIngredientAdapter(ArrayList(), editMode, parentFragmentManager)
-
         binding.ingredientRecyclerView.adapter=homeIngredientAdapter
-
         viewModel.getUserIngredient()
-
         viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
             homeIngredientAdapter.itemList = itemList
             Log.d("ingredd", itemList.toString())
         }
-    }
-    private fun toggleFab() {
-        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
-        if (isFabOpen) {
-            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", 0f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", 0f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 180f, 0f).apply { start() }
-        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
-            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", -360f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", -180f).apply { start() }
-            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 0f, 180f).apply { start() }
+
+        // 재료 추가 모드
+        setFragmentResultListener("requestAddMode") { _, bundle ->
+            result = bundle.getString("addMode").toString()
+
+            if (result == "manual")
+                navController.navigate(R.id.action_homeFragment_to_addIngredientFragment)
+            else if (result == "automatic")
+                (activity as MainActivity).replaceToCameraActivity()
+            result=""
+
+            viewModel.getUserIngredient()
         }
-        isFabOpen = !isFabOpen
     }
 
     override fun initAfterBinding() {
@@ -72,7 +70,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             toggleFab()
         }
         binding.btnAddIngredient.setOnClickListener {
-            navController.navigate(R.id.action_homeFragment_to_addIngredientFragment)
+            SelectAddModeDialog().show(parentFragmentManager, "select_add_mode")
         }
 
         binding.btnEditIngredient.setOnClickListener {
@@ -111,6 +109,20 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 }
             }
         })
+    }
+
+    private fun toggleFab() {
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        if (isFabOpen) {
+            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 180f, 0f).apply { start() }
+        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+            ObjectAnimator.ofFloat(binding.btnAddIngredient, "translationY", -360f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEditIngredient, "translationY", -180f).apply { start() }
+            ObjectAnimator.ofFloat(binding.btnEtc, View.ROTATION, 0f, 180f).apply { start() }
+        }
+        isFabOpen = !isFabOpen
     }
 
     private fun selectMode(em:Boolean){
