@@ -56,7 +56,7 @@ class RecipeAdapter(itemList: ArrayList<Menu>)
     }
     override fun onBindViewHolder(holder: RecipeAdapter.ViewHolder, position: Int) {
         holder.title.text = itemList[position].title
-        holder.index.text = itemList[position].index
+        holder.index.text = itemList[position].index + " 레시피"
         Log.d("ingredd vh",itemList[position].toString())
         storageRef.child("recipe/"+itemList[position].imageName).downloadUrl.addOnCompleteListener { task ->
             if (task.isSuccessful) {

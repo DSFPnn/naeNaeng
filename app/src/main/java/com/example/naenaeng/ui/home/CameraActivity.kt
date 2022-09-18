@@ -33,6 +33,7 @@ class CameraActivity : AppCompatActivity() {
                     val imageBitmap = result.data?.extras?.get("data") as Bitmap
                     binding.preview.setImageBitmap(imageBitmap)
                     binding.btnOk.visibility = View.VISIBLE
+                    binding.btnTakePhoto.text = "다시 촬영"
                 }
             }
         }

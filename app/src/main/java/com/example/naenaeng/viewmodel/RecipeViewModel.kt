@@ -17,7 +17,11 @@ class RecipeViewModel:ViewModel() {
     fun getRecipe() {
         repo.getData().observeForever{
             _recipeLiveData.value = it.menu
-            Log.d("recipee vm", _recipeLiveData.value.toString())
+        }
+    }
+    fun getFilterRecipe(){
+        repo.getFilterData().observeForever{
+            _recipeLiveData.value = it.menu
         }
     }
 }

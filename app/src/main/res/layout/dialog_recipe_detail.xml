@@ -69,6 +69,7 @@
                     android:id="@+id/tv_title_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/nanumsquare_acb"
                     android:gravity="center"
@@ -104,15 +105,23 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:id="@+id/view6"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:background="@color/outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_item_layout" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="#e2e2e2"
                 android:paddingRight="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/recipe_item_layout"
                 app:layout_constraintStart_toStartOf="@+id/recipe_item_layout"
-                app:layout_constraintTop_toBottomOf="@+id/recipe_item_layout">
+                app:layout_constraintTop_toBottomOf="@+id/view6">
 
                 <TextView
                     android:id="@+id/textView8"
@@ -131,12 +140,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="1dp"
                     android:text="steps"
                     android:textColor="#80000000"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toEndOf="@+id/textView8"
-                    app:layout_constraintTop_toTopOf="@+id/textView8" />
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                    app:layout_constraintStart_toEndOf="@+id/textView8" />
 
                 <TextView
                     android:id="@+id/tv_step"
@@ -157,7 +166,7 @@
             android:id="@+id/btn_close"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="7dp"
             android:background="@drawable/green_oval"
             android:backgroundTint="#ffffff"
             android:elevation="4dp"

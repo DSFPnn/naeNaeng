@@ -11,5 +11,6 @@ data class Menu (
         @get:PropertyName("essential ingredients") @set:PropertyName("essential ingredients")
         var essentialIngredients:String = "",
         val imageName:String = "",
-        val step:String = ""
+        val step:String = "",
+        val filter:ArrayList<String> = ArrayList()
 )

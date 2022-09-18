@@ -9,6 +9,9 @@ import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.MainActivity
@@ -46,7 +49,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewModel.getUserIngredient()
         viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
             homeIngredientAdapter.itemList = itemList
-            Log.d("ingredd", itemList.toString())
+            Log.d("ingredd", "1"+itemList.toString())
         }
 
         // 재료 추가 모드
@@ -58,8 +61,6 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             else if (result == "automatic")
                 (activity as MainActivity).replaceToCameraActivity()
             result=""
-
-            viewModel.getUserIngredient()
         }
     }
 
@@ -94,21 +95,24 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchItemList: ArrayList<Ingredient> = ArrayList<Ingredient>()
                 val searchString = binding.etSearchIngredient.text
-                viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
-                    for (item in itemList) {
-                        if (item.name.contains(searchString)) {
-                            searchItemList.add(item)
-                        }
+
+                for (item in viewModel.userIngredientLiveData.value!!) {
+                    if (item.name.contains(searchString)) {
+                        searchItemList.add(item)
                     }
-                    homeIngredientAdapter.itemList = searchItemList
-                    if (binding.etSearchIngredient.text.isEmpty()) {
-                        viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
-                            homeIngredientAdapter.itemList = itemList
-                        }
-                    }
+                }
+                homeIngredientAdapter.itemList = searchItemList
+                if (binding.etSearchIngredient.text.isEmpty()) {
+                    viewModel.getUserIngredient()
                 }
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.getUserIngredient()
     }
 
     private fun toggleFab() {
@@ -130,17 +134,13 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             val db = Firebase.firestore
             var dataOrigin:Ingredient = Ingredient()
             var editItName:String = "nullName"
-            var editItDate:String = "nullName"
+            var editItDate:String = "nullDate"
             var editItJpg:String = "nullJpg"
             var editItAdded:String = "nullAdded"
 
             homeIngredientAdapter = HomeIngredientAdapter(ArrayList(), em, parentFragmentManager)
             binding.ingredientRecyclerView.adapter=homeIngredientAdapter
             viewModel.getUserIngredient()
-            viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
-                homeIngredientAdapter.itemList = itemList
-                Log.d("ingredd", itemList.toString())
-            }
 
             homeIngredientAdapter.setItemClickListener(object: HomeIngredientAdapter.OnItemClickListener{
                 override fun onClick(v: View, position: Int, m:String) {
@@ -196,5 +196,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             binding.btnCheck.visibility = INVISIBLE
         }
     }
+
+
 }
 

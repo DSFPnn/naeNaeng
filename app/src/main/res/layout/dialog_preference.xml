@@ -36,12 +36,12 @@
                     android:background="@drawable/bottom_line">
 
                     <TextView
-                        android:id="@+id/tv_index"
+                        android:id="@+id/tv_country"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:fontFamily="@font/nanumsquare_acb"
-                        android:text="인덱스"
+                        android:text="나라"
                         android:textColor="#000000"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/pre_index_recycler_view"
+                    android:id="@+id/pre_country_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -133,12 +133,12 @@
                     android:background="@drawable/bottom_line">
 
                     <TextView
-                        android:id="@+id/tv_spicy"
+                        android:id="@+id/tv_cook"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:fontFamily="@font/nanumsquare_acb"
-                        android:text="맵기정도"
+                        android:text="조리 방법"
                         android:textColor="#000000"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +155,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/pre_spicy_recycler_view"
+                    android:id="@+id/pre_cook_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"

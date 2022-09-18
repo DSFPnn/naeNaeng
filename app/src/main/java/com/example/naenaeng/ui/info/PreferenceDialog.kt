@@ -12,9 +12,10 @@ import com.google.firebase.ktx.Firebase
 
 class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.layout.dialog_preference) {
     private val db = Firebase.firestore
-    private lateinit var preferenceIndexAdapter: PreferenceAdapter
+    private lateinit var preferenceCountryAdapter: PreferenceAdapter
     private lateinit var preferenceTasteAdapter: PreferenceAdapter
-    private lateinit var preferenceSpicyAdapter: PreferenceAdapter
+    private lateinit var preferenceCookAdapter: PreferenceAdapter
+    var filterArray:ArrayList<String> = ArrayList()
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(PreferenceViewModel::class.java)
@@ -22,20 +23,20 @@ class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.lay
 
     override fun initDataBinding() {
         super.initDataBinding()
-        preferenceIndexAdapter = PreferenceAdapter(ArrayList())
+        preferenceCountryAdapter = PreferenceAdapter(ArrayList())
         preferenceTasteAdapter = PreferenceAdapter(ArrayList())
-        preferenceSpicyAdapter = PreferenceAdapter(ArrayList())
+        preferenceCookAdapter = PreferenceAdapter(ArrayList())
 
-        binding.preIndexRecyclerView.adapter = preferenceIndexAdapter
+        binding.preCountryRecyclerView.adapter = preferenceCountryAdapter
         binding.preTasteRecyclerView.adapter = preferenceTasteAdapter
-        binding.preSpicyRecyclerView.adapter = preferenceSpicyAdapter
+        binding.preCookRecyclerView.adapter = preferenceCookAdapter
 
         viewModel.getPreference()
 
         viewModel.preferenceLiveData.observe(viewLifecycleOwner) { itemList ->
-            preferenceIndexAdapter.itemList = itemList.index
+            preferenceCountryAdapter.itemList = itemList.country
             preferenceTasteAdapter.itemList = itemList.taste
-            preferenceSpicyAdapter.itemList = itemList.spicy
+            preferenceCookAdapter.itemList = itemList.cook
         }
     }
 
@@ -46,9 +47,9 @@ class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.lay
 
         binding.btnSetPreference.setOnClickListener {
             // 사용자별 선호도 DB에 저장
-            dbUser.update("preference.index", preferenceIndexAdapter.preferenceDatas)
+            dbUser.update("preference.index", preferenceCountryAdapter.preferenceDatas)
             dbUser.update("preference.taste", preferenceTasteAdapter.preferenceDatas)
-            dbUser.update("preference.spicy", preferenceSpicyAdapter.preferenceDatas)
+            dbUser.update("preference.spicy", preferenceCookAdapter.preferenceDatas)
 
             UserRepository().getData()
             dismiss()

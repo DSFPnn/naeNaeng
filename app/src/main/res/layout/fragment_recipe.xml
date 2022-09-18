@@ -28,49 +28,136 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_filter"
-            android:layout_width="76dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/white_solid_outline_radius20"
-            android:fontFamily="@font/nanumsquare_acr"
-            android:paddingLeft="12dp"
-            android:paddingTop="9dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="9dp"
-            android:text="필터"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search_recipe" />
-
         <TextView
             android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
-            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/nanumsquare_acb"
+            android:gravity="center"
             android:text="맞춤 메뉴"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/et_search_recipe"
             app:layout_constraintTop_toBottomOf="@+id/et_search_recipe" />
 
+        <ImageButton
+            android:id="@+id/btn_filter"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/filter"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_recommend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_recommend" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_recommend"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recommend">
+
+            <Button
+                android:id="@+id/btn_filter_country"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/white_solid_outline_radius20"
+                android:fontFamily="@font/nanumsquare_acr"
+                android:minWidth="74dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="9dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="9dp"
+                android:text="나라"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_filter_taste"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_solid_outline_radius20"
+                android:fontFamily="@font/nanumsquare_acr"
+                android:minWidth="74dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="9dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="9dp"
+                android:text="맛"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_filter_country"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter_country"
+                app:layout_constraintTop_toTopOf="@+id/btn_filter_country" />
+
+            <Button
+                android:id="@+id/btn_filter_cook"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_solid_outline_radius20"
+                android:fontFamily="@font/nanumsquare_acr"
+                android:minWidth="74dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="9dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="9dp"
+                android:text="조리 방법"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_filter_taste"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter_taste"
+                app:layout_constraintTop_toTopOf="@+id/btn_filter_taste" />
+
+            <Button
+                android:id="@+id/btn_filter_allergy"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_solid_outline_radius20"
+                android:fontFamily="@font/nanumsquare_acr"
+                android:minWidth="74dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="9dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="9dp"
+                android:text="알러지 필터링"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_filter_cook"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter_cook"
+                app:layout_constraintTop_toTopOf="@+id/btn_filter_cook" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipe_recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginBottom="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btn_filter"
-            app:layout_constraintStart_toStartOf="@+id/tv_recommend"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommend"
+            app:layout_constraintEnd_toEndOf="@+id/et_search_recipe"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
             tools:listitem="@layout/recipe_item_view">
 
         </androidx.recyclerview.widget.RecyclerView>

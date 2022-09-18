@@ -10,12 +10,13 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class RecipeRepository {
+    private val db = Firebase.firestore
     // DB에서 레시피 정보 가져오기
     fun getData(): LiveData<Recipe> {
-        val db = Firebase.firestore
         val mutableData = MutableLiveData<Recipe>()
 
-        db.collection("public").document("recipe").get()
+        db.collection("public").document("recipe")
+            .get()
             .addOnSuccessListener { documentSnapshot ->
                 val data = documentSnapshot.toObject<Recipe>()
                 mutableData.value=data!!
@@ -24,6 +25,13 @@ class RecipeRepository {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
+
+        return mutableData
+    }
+
+    fun getFilterData(): LiveData<Recipe>{
+        val mutableData = getData()
+        mutableData.value?.menu
 
         return mutableData
     }

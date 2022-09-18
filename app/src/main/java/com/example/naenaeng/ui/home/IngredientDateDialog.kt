@@ -10,17 +10,14 @@ import com.example.naenaeng.databinding.DialogIngredientDateBinding
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class IngredientDateDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.layout.dialog_ingredient_date){
-    private val db = Firebase.firestore
     private lateinit var date :String
 
-    override fun initDataBinding() {
-        super.initDataBinding()
-    }
     override fun initAfterBinding() {
         super.initAfterBinding()
 
@@ -33,6 +30,18 @@ class IngredientDateDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.l
             setFragmentResult("requestDate", bundleOf("date" to date))
             dismiss()
         }
-    }
 
+        binding.btnSetLife.setOnClickListener{
+            //날짜 미선택시 오늘날짜 가져오기
+            try{
+                setFragmentResult("requestDate", bundleOf("date" to date))
+            }catch(e: UninitializedPropertyAccessException){
+                val now = Date()
+                val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
+                date= dateFormat.format(now)
+                setFragmentResult("requestDate", bundleOf("date" to date))
+            }
+            dismiss()
+        }
+    }
 }
