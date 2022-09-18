@@ -84,6 +84,8 @@
         android:name="com.example.naenaeng.ui.recipe.RecipeFragment"
         android:label="RecipeFragment"
         tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_recipeDetailFragment"/>
     </fragment>
     <fragment
         android:id="@+id/findIdPwFragment"

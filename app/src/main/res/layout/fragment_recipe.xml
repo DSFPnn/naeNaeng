@@ -23,7 +23,7 @@
             android:paddingLeft="12dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,13 +49,13 @@
         <TextView
             android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
-            android:layout_height="26dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/nanumsquare_acb"
+            android:fontFamily="@font/bold_font"
             android:text="맞춤 메뉴"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/et_search_recipe"
             app:layout_constraintTop_toBottomOf="@+id/et_search_recipe" />
 
