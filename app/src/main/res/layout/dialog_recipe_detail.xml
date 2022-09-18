@@ -2,171 +2,101 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="410dp"
         android:layout_height="match_parent"
-        android:background="@drawable/dialog_bottomsheet_shape"
-        app:behavior_draggable="false">
+        android:background="@drawable/recipe_background">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/white_solid_outline_radius8"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/tv_recipe_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/bold_font"
+            android:gravity="center"
+            android:lineSpacingExtra="8sp"
+            android:text="title"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_close">
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/recipe_item_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/tv_ingred"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/normal_font"
+            android:text="재료"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="주요 재료 : "
-                    android:textColor="#000000"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_additional_ingredient"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_title_detail" />
+        <TextView
+            android:id="@+id/tv_ingred2"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/normal_font"
+            android:text="재료"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView16"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="추가 재료 : "
-                    android:textColor="#000000"
-                    android:textSize="10sp"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_essential_ingredient"
-                    app:layout_constraintTop_toTopOf="@+id/tv_essential_ingredient" />
+        <View
+            android:id="@+id/view3"
+            android:layout_width="450dp"
+            android:layout_height="155dp"
+            android:background="#EEEEEE"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-                <ImageView
-                    android:id="@+id/recipe_picture"
-                    android:layout_width="match_parent"
-                    android:layout_height="164dp"
-                    android:layout_marginTop="1dp"
-                    android:background="@drawable/gray_solid_radius8"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+        <View
+            android:id="@+id/view4"
+            android:layout_width="1dp"
+            android:layout_height="333dp"
+            android:background="#EEEEEE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerVeiw"
+            app:layout_constraintTop_toTopOf="@+id/recyclerVeiw" />
 
-                <TextView
-                    android:id="@+id/tv_title_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/nanumsquare_acb"
-                    android:gravity="center"
-                    android:text="Title"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_picture" />
+        <View
+            android:id="@+id/view5"
+            android:layout_width="1dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#737373"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerVeiw"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-                <TextView
-                    android:id="@+id/tv_additional_ingredient"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxWidth="200dp"
-                    android:text="가, 나, 다"
-                    android:textColor="#000000"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-                <TextView
-                    android:id="@+id/tv_essential_ingredient"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="16dp"
-                    android:maxWidth="200dp"
-                    android:text="라, 마, 바반달 어슷썰기한 새송이버섯과 줄기와 잎을 나눈 청경채, 방울토마토는 2등분하여 준비한다. \끓는물에 소금 1/3큰술, 올리브오일 1/3큰술을 넣고 스파게티 면을 8분동안 삶는다. \올리브오일에 편마늘을 넣고 볶다가 양파를 넣어 볶는다. 양파 숨이 죽으면 새송이버섯을 같이 볶는다. \방울토마토를 넣고 면수를 3큰술 넣어 끓이듯 볶아준다. 청경채 줄기를 넣어 볶다가 삶은 스파게티를 넣어 볶는다. \청경채 잎 넣고 소금으로 간을 한다. 취향대로 후추와 올리브 오일로 마무리한다. "
-                    android:textColor="#000000"
-                    android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_additional_ingredient" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/view6"
-                android:layout_width="wrap_content"
-                android:layout_height="4dp"
-                android:background="@color/outline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipe_item_layout" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:paddingRight="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/recipe_item_layout"
-                app:layout_constraintStart_toStartOf="@+id/recipe_item_layout"
-                app:layout_constraintTop_toBottomOf="@+id/view6">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:text="조리 순서"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="1dp"
-                    android:text="steps"
-                    android:textColor="#80000000"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
-                    app:layout_constraintStart_toEndOf="@+id/textView8" />
-
-                <TextView
-                    android:id="@+id/tv_step"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="25dp"
-                    android:text="만드는 방법\n만드는 방법\n만드는 방법\n만드는 방법\n만드는 방법"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="297dp"
+            android:layout_height="163dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recipe_title"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <ImageButton
-            android:id="@+id/btn_close"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="7dp"
+            android:id="@+id/btn_recipe_close"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/green_oval"
             android:backgroundTint="#ffffff"
             android:elevation="4dp"
@@ -174,6 +104,79 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="800px"
+            android:layout_height="5px"
+            android:layout_marginTop="4dp"
+            android:background="@color/primary_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerVeiw"
+            android:layout_width="345dp"
+            android:layout_height="251dp"
+            android:layout_marginTop="8dp"
+            android:scrollbarFadeDuration="0"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            tools:listitem="@layout/recipe_step" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="만드는 방법"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recyclerVeiw"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ingred" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="234dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Recipe"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_recipe_close" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="124dp"
+            android:text="필수재료"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
+            android:text="부가재료"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/view5"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
