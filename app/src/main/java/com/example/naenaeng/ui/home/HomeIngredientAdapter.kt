@@ -87,25 +87,37 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         }
 
         //유통기한 확인
-        val today = Date().time
-        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
-        val itemDate = dateFormat.parse(holder.date.text.toString()).time
-        val dDay = ((itemDate - today) / (24 * 60 * 60 * 1000))
+//        val today = Date().time
+//        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
+//        val itemDate = dateFormat.parse(holder.date.text.toString()).time
+//        val dDay = ((itemDate - today) / (24 * 60 * 60 * 1000))
+//        Log.d("dday",today.toString() + "/" + itemDate.toString())
+        val currentTime = System.currentTimeMillis()
+        val dataFormat = SimpleDateFormat("yyyyMMdd")
+        val today = dataFormat.format(currentTime).toInt()
+        val itemDate = (itemList[position].date.substring(0..3) + itemList[position].date.substring(6..7)
+                + itemList[position].date.substring(10..11)).toInt()
+        val dDay = itemDate - today
+
         if((dDay<7) and (dDay>0)) {
             Log.d("ddayy a",dDay.toString())
-            holder.warning.setText("유통기한이 ${dDay}일 남았습니다!")
+            holder.warning.text = "유통기한이 ${dDay}일 남았습니다!"
             holder.warning.visibility = View.VISIBLE
         }
         else if (dDay.toInt() == 0){
             Log.d("ddayy b",dDay.toString())
-            holder.warning.setText("유통기한이 오늘까지입니다!")
+            holder.warning.text = "유통기한이 오늘까지입니다!"
             holder.warning.visibility = View.VISIBLE
         }
         else if (dDay<0) {
             Log.d("ddayy c",dDay.toString())
             val abDDay=dDay.absoluteValue
-            holder.warning.setText("유통기한이 ${abDDay}일 지났습니다!")
+            holder.warning.text = "유통기한이 ${abDDay}일 지났습니다!"
             holder.warning.visibility = View.VISIBLE
+        }
+        else{
+            holder.warning.text = ""
+            holder.warning.visibility = View.INVISIBLE
         }
 
         // (1) 리스트 내 항목 클릭 시 onClick() 호출

@@ -21,10 +21,13 @@ class IngredientDateDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.l
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        val cal = Calendar.getInstance()
         // 캘린더 날짜 가져오기
         binding.calendarView.setOnDateChangeListener { _: CalendarView, year: Int, month: Int, dayOfMonth: Int ->
-            date = "${year}년 ${month + 1}월 ${dayOfMonth}일"
+            val _month = if((month+1)<10) "0${month + 1}" else "${month + 1}"
+            val _dayOfMonth = if(dayOfMonth<10) "0${dayOfMonth}" else "${dayOfMonth}"
+
+            date = "${year}년 ${_month}월 ${_dayOfMonth}일"
+
         }
         binding.btnSetLife.setOnClickListener{
             setFragmentResult("requestDate", bundleOf("date" to date))

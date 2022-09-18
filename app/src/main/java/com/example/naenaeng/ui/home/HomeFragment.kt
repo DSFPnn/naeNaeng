@@ -148,6 +148,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                     Log.d("clickk","${homeIngredientAdapter.itemList[position].name}"+"${homeIngredientAdapter.itemList[position].date}")
                     editItName = homeIngredientAdapter.itemList[position].name
                     editItDate = homeIngredientAdapter.itemList[position].date
+                    editItAdded = homeIngredientAdapter.itemList[position].added
                     editItJpg = homeIngredientAdapter.itemList[position].imageClass
                     dataOrigin = homeIngredientAdapter.itemList[position]
 
