@@ -42,7 +42,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         }
 
         binding.btnRegister.setOnClickListener {
-            val ToastText = mutableListOf<String>()
             var isGoToLogin = true
             val email = binding.etId.text.toString()
             val password = binding.etPassword.text.toString()

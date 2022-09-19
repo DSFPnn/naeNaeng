@@ -1,5 +1,6 @@
 package com.example.naenaeng.ui.home
 
+import android.util.Log
 import androidx.fragment.app.setFragmentResultListener
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.MyApplication.Companion.prefs
@@ -14,6 +15,8 @@ import java.text.SimpleDateFormat
 class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) {//음식 추가 화면
     //private lateinit var navController : NavController
     private val db = Firebase.firestore
+    private val ingredRef = db.collection("public")
+    private var imageClass: String = "null jpg"
 
     override fun initStartView() {
         super.initStartView()
@@ -44,25 +47,43 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
         binding.btnIngredientName.setOnClickListener {
             IngredientNameDialog().show(parentFragmentManager, "preference")
+
         }
         binding.btnIngredientDate.setOnClickListener {
             IngredientDateDialog().show(parentFragmentManager, "preference")
         }
-        binding.btnSetIngredient.setOnClickListener{
+        binding.btnSetIngredient.setOnClickListener {
             navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
 
-            val data =  hashMapOf(
-                "name" to binding.btnIngredientName.text,
-                "date" to binding.btnIngredientDate.text,
-                "added" to today(),
-                "imageClass" to "null jpg"
-            )
 
-            //firestore에 재료추가
-            db.collection("users").document(prefs.getString("email","null"))
-                .update("ingredients", FieldValue.arrayUnion(data))
+            //재료 분류 검색
+            ingredRef.document("ingredient").get().addOnSuccessListener {
+                val ingred = it.data
+                val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
+                val typeList = ingred?.get("typeName") as ArrayList<String>
+                for (type in typeList) {
+                    val typeArray = ingredType?.get(type)
+                    if (typeArray != null) {
+                        if (binding.btnIngredientName.text in typeArray) {
+                            imageClass = type
 
-        }
+                            val data = hashMapOf(
+                                "name" to binding.btnIngredientName.text,
+                                "date" to binding.btnIngredientDate.text,
+                                "added" to today(),
+                                "imageClass" to imageClass
+                            )
+
+
+                            //firestore에 재료추가
+                            db.collection("users").document(prefs.getString("email", "null"))
+                                .update("ingredients", FieldValue.arrayUnion(data))
+
+                        }
+                    }
+                }
+            }
+         }
     }
 
     private fun today(): String {
