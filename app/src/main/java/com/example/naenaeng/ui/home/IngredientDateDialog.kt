@@ -29,10 +29,6 @@ class IngredientDateDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.l
             date = "${year}년 ${_month}월 ${_dayOfMonth}일"
 
         }
-        binding.btnSetLife.setOnClickListener{
-            setFragmentResult("requestDate", bundleOf("date" to date))
-            dismiss()
-        }
 
         binding.btnSetLife.setOnClickListener{
             //날짜 미선택시 오늘날짜 가져오기

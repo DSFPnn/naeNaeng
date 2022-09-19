@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.databinding.IngredientItemViewBinding
@@ -18,6 +19,8 @@ import com.example.naenaeng.model.Ingredient
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -30,6 +33,9 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
     lateinit var context:Context
     private val editMode = editMode
     private var mFragmentManager : FragmentManager
+    private val storage: FirebaseStorage = FirebaseStorage.getInstance("gs://naenaeng-bebed.appspot.com")
+    private val storageRef: StorageReference = storage.reference
+
     init {
         mFragmentManager = fragmentManager
     }
@@ -69,7 +75,16 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
 
     override fun onBindViewHolder(holder: HomeIngredientAdapter.ViewHolder, position: Int) {
         holder.firstLetter.text = itemList[position].name.substring(0,1)
-        holder.ingredientImg.background
+        storageRef.child("ingredients/"+itemList[position].imageClass+".jpg").downloadUrl.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Glide.with(context)
+                    .load(task.result)
+                    .fitCenter()
+                    .into(holder.ingredientImg)
+            }
+        }
+        holder.ingredientImg.clipToOutline = true
+
         holder.name.text = itemList[position].name
         holder.date.text = itemList[position].date
         Log.d("ingredd vh",itemList[position].toString())

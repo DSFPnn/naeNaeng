@@ -12,6 +12,7 @@ class FindIdPwFragment  : BaseFragment<FragmentFindIdpwBinding>(R.layout.fragmen
         super.initStartView()
         (activity as MainActivity).setToolbarTitle("ID/PW찾기")
 
+
     }
 
     override fun initAfterBinding() {
