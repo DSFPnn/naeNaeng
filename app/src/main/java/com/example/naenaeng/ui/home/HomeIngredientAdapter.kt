@@ -47,7 +47,6 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         val firstLetter = itemViewBinding.tvFirstLetter
         val name = itemViewBinding.tvIngredientName
         val date = itemViewBinding.tvIngredientDate
-        val added = itemViewBinding.tvIngredientAdded
         val remove = itemViewBinding.btnRemove
         val warning = itemViewBinding.tvWarning
         val edit = itemViewBinding.btnEditDialog
@@ -71,6 +70,7 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         holder.firstLetter.text = itemList[position].name.substring(0,1)
         holder.ingredientImg.background
         holder.name.text = itemList[position].name
+        holder.name.isSelected = true
         holder.date.text = itemList[position].date
         Log.d("ingredd vh",itemList[position].toString())
         //holder.allergyCheck.isChecked = itemList[position].allergy_check==1
@@ -87,11 +87,6 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         }
 
         //유통기한 확인
-//        val today = Date().time
-//        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
-//        val itemDate = dateFormat.parse(holder.date.text.toString()).time
-//        val dDay = ((itemDate - today) / (24 * 60 * 60 * 1000))
-//        Log.d("dday",today.toString() + "/" + itemDate.toString())
         val currentTime = System.currentTimeMillis()
         val dataFormat = SimpleDateFormat("yyyyMMdd")
         val today = dataFormat.format(currentTime).toInt()
