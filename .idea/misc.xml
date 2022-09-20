@@ -92,6 +92,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33457605271112345" />
         <entry key="app/src/main/res/layout/allergy_item_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_allergy.xml" value="0.23550724637681159" />
+        <entry key="app/src/main/res/layout/dialog_ingredient_check.xml" value="0.2536231884057971" />
         <entry key="app/src/main/res/layout/dialog_ingredient_date.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/dialog_ingredient_life.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_ingredient_name.xml" value="0.3182291666666667" />

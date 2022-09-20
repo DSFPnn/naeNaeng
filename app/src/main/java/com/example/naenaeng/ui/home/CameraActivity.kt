@@ -1,6 +1,7 @@
 package com.example.naenaeng.ui.home
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -13,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.naenaeng.MyApplication
@@ -42,6 +44,8 @@ class CameraActivity : AppCompatActivity() {
     private val REQUEST_IMAGE_CAPTURE:Int = 1
     private lateinit var imageBitmap : Bitmap
     private lateinit var interpreter : Interpreter
+    private val ingredRef = db.collection("public")
+    private var imageClass: String = "null jpg"
     private var result : String =""
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
@@ -126,36 +130,58 @@ class CameraActivity : AppCompatActivity() {
                     modelOutput.rewind()
                     val probabilities = modelOutput.asFloatBuffer()
                     var temp = 0F
-                    try {
-                        val reader = BufferedReader(
-                            InputStreamReader(assets.open("labels.txt")))
-                            for (i in 0..2) {
-                                val label: String = reader.readLine()
-                                val probability = probabilities.get(i)
-                                println("$label: $probability")
-                                if (temp < probability){
-                                    temp = probability
-                                    result = label
-                                }
-                        }
-                        println(result)
-                        val data =  hashMapOf(
-                            "name" to result,
-                            "date" to "2022년 10월 10일",
-                            "added" to today(),
-                            "imageClass" to "null jpg"
-                        )
-                        //firestore에 재료추가
-                        db.collection("users").document(MyApplication.prefs.getString("email","null"))
-                            .update("ingredients", FieldValue.arrayUnion(data))
 
-                    } catch (e: IOException) {
-                        // File not found?
+                    val reader = BufferedReader(
+                        InputStreamReader(assets.open("labels.txt")))
+                        for (i in 0..2) {
+                            val label: String = reader.readLine()
+                            val probability = probabilities.get(i)
+                            println("$label: $probability")
+                            if (temp < probability){
+                                temp = probability
+                                result = label
+                            }
                     }
+                    println(result)
+
+                    //재료 확인 메시지
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("인식된 식재료 추가하기")
+                        .setMessage(result+"를 추가하시겠습니까?")
+                        .setPositiveButton("추가",
+                            DialogInterface.OnClickListener { dialog, id ->
+                                ingredRef.document("ingredient").get().addOnSuccessListener {
+                                    val ingred = it.data
+                                    val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
+                                    val typeList = ingred?.get("typeName") as ArrayList<String>
+                                    for (type in typeList) {
+                                        val typeArray = ingredType?.get(type)
+                                        if (typeArray != null) {
+                                            if (result in typeArray) {
+                                                imageClass = type
+
+                                                val data = hashMapOf(
+                                                    "name" to result,
+                                                    "date" to "2022년 09월 21일",
+                                                    "added" to today(),
+                                                    "imageClass" to imageClass
+                                                )
+                                                //firestore에 재료추가
+                                                db.collection("users").document(MyApplication.prefs.getString("email", "null"))
+                                                    .update("ingredients", FieldValue.arrayUnion(data))
+
+                                                finish()
+                                            }
+                                        }
+                                    }
+                                }
+                            })
+                        .setNegativeButton("취소",
+                            DialogInterface.OnClickListener { dialog, id ->
+
+                            })
+                    builder.show()
                 }
-
-
-            finish()
         }
     }
 
