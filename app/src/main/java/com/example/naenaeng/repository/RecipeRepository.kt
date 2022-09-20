@@ -28,11 +28,4 @@ class RecipeRepository {
 
         return mutableData
     }
-
-    fun getFilterData(): LiveData<Recipe>{
-        val mutableData = getData()
-        mutableData.value?.menu
-
-        return mutableData
-    }
 }

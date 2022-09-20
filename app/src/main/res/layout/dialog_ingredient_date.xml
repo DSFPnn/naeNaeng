@@ -5,7 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:background="@drawable/dialog_shpae"
         android:gravity="center">
 
@@ -14,25 +14,39 @@
             android:layout_width="328dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:selectedWeekBackgroundColor="@color/primary_dark_blue"
+            app:layout_constraintBottom_toTopOf="@+id/btn_set_life"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_set_life"
             android:layout_width="328dp"
             android:layout_height="56dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="126dp"
-            android:background="@drawable/green_solid_radius8"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/blue_solid_radius8"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="확인"
             android:textColor="#5f5144"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/calendarView"
-            app:layout_constraintStart_toStartOf="@+id/calendarView"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            app:layout_constraintStart_toStartOf="@+id/calendarView" />
+
+        <ImageView
+            android:id="@+id/btn_close_date"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/blue_oval"
+            android:backgroundTint="@color/white"
+            android:elevation="3dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

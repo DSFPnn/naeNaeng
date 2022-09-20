@@ -5,28 +5,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:background="@drawable/dialog_shpae">
 
         <ImageView
-            android:id="@+id/img_add_ingredient"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="150dp"
-            android:background="@drawable/gray_solid_radius8"
+            android:id="@+id/btn_close_name"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/blue_oval"
+            android:backgroundTint="@color/white"
+            android:elevation="3dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
         <EditText
             android:id="@+id/et_id"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="130dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/white_solid_outline_radius8"
             android:ems="10"
@@ -39,23 +40,25 @@
             android:textColorHint="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_add_ingredient" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_close_name" />
 
         <Button
             android:id="@+id/btn_set_name"
             android:layout_width="328dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="312dp"
-            android:background="@drawable/green_solid_radius8"
+            android:layout_marginBottom="196dp"
+            android:background="@drawable/blue_solid_radius8"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="확인"
             android:textColor="#5f5144"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_id" />
 

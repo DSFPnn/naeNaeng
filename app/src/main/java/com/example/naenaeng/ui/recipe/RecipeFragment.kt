@@ -8,14 +8,21 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
 import com.example.naenaeng.databinding.FragmentRecipeBinding
 import com.example.naenaeng.model.Menu
+import com.example.naenaeng.model.Recipe
 import com.example.naenaeng.viewmodel.RecipeViewModel
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_recipe) {
     private lateinit var recipeAdapter: RecipeAdapter
+    private var result : ArrayList<ArrayList<String>> = ArrayList()
+    private var userFilterList:ArrayList<String> = ArrayList() // 사용자가 고른 레시피 필터
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(RecipeViewModel::class.java)
@@ -30,7 +37,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
         super.initDataBinding()
 
         recipeAdapter= RecipeAdapter(ArrayList())
-        binding.recipeRecyclerView.adapter=recipeAdapter
+        binding.recipeRecyclerView.adapter = recipeAdapter
         viewModel.getRecipe()
         viewModel.recipeLiveData.observe(viewLifecycleOwner) { itemList ->
             recipeAdapter.itemList = itemList
@@ -39,7 +46,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
 
         // 필터 받아오기 (0:나라, 1:맛, 2:조리방법, 3:알러지)
         setFragmentResultListener("requestFilter") { _, bundle ->
-            val result = bundle.get("filterArray") as ArrayList<ArrayList<String>>
+            result = bundle.get("filterArray") as ArrayList<ArrayList<String>>
 
             if(result[0].isNotEmpty()) {
                 Log.d("resultt", "0${result[0]}")
@@ -80,6 +87,11 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
                 binding.btnFilterAllergy.text = "알러지 필터링"
                 binding.btnFilterAllergy.background = ResourcesCompat.getDrawable(resources, R.drawable.white_solid_outline_radius20, null)
             }
+
+            if(result[0].isNotEmpty() or result[1].isNotEmpty() or result[2].isNotEmpty() or result[3].isNotEmpty())
+                filtering()
+            else
+                viewModel.getRecipe()
         }
     }
 
@@ -88,15 +100,13 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
 
         recipeAdapter.setItemClickListener(object: RecipeAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int, m:String) {
-                // 클릭 시 이벤트 작성
-                Log.d("clickk","${recipeAdapter.itemList[position].title}")
-
                 RecipeDetailDialog(recipeAdapter.itemList[position]).show(parentFragmentManager, "recipeDetail")
             }
         })
 
         //필터기능
         binding.btnFilter.setOnClickListener {
+            Log.d("filterArrayy why",viewModel.getFilter().toString())
             RecipeFilterDialog().show(parentFragmentManager, "filter")
         }
 
@@ -104,12 +114,9 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
         //검색기능
         binding.etSearchRecipe.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                val searchString = s.toString()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // TODO("not implemented")
-                // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -128,5 +135,30 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
                 }
             }
         })
+    }
+
+    private fun filtering() {
+        val recipeFilteringItemList: ArrayList<Menu> = ArrayList() // 필터링 된 레시피 리스트
+        val reci = viewModel.recipeLiveData.value?:ArrayList()
+        val reciFilterArray:ArrayList<ArrayList<String>> = ArrayList()
+        // userFilterList 사용자가 고른 필터값 리스트
+
+        for(i in 0 until reci.size) {
+            reciFilterArray.add(reci[i].filter)
+        }
+        for (i in 0 until result.size) {
+            userFilterList += result[i]
+        }
+
+        for(i in 0 until reciFilterArray.size) {
+            for(filter in userFilterList) {
+                val filterBoolean:Boolean = reciFilterArray[i].contains(filter)
+                if(filterBoolean) {
+                    recipeFilteringItemList.add(reci[i])
+                    break
+                }
+            }
+        }
+        recipeAdapter.itemList = recipeFilteringItemList
     }
 }

@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquare_aceb"
                 android:text="첫"
-                android:textColor="@color/white"
+                android:textColor="#B9FFFFFF"
                 android:textSize="32sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/img_ingredient"
@@ -54,16 +54,26 @@
 
             <TextView
                 android:id="@+id/tv_ingredient_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="14dp"
+                android:ellipsize="marquee"
                 android:fontFamily="@font/nanumsquare_acb"
-                android:gravity="center"
+                android:gravity="left|center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
                 android:text="재료1"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/view8"
                 app:layout_constraintStart_toEndOf="@+id/img_ingredient"
                 app:layout_constraintTop_toTopOf="@+id/img_ingredient" />
+
+            <View
+                android:id="@+id/view8"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/tv_warning" />
 
             <TextView
                 android:id="@+id/tv_ingredient_date"
@@ -102,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/normal_font"
-                android:text="유통기한 임박!"
+                android:text="."
                 android:textColor="#FF0000"
                 android:textSize="18sp"
                 android:visibility="invisible"
@@ -120,15 +130,6 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_ingredient_date"
                 app:srcCompat="@drawable/pen_black" />
 
-            <TextView
-                android:id="@+id/tv_ingredient_added"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="TextView"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/tv_ingredient_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_ingredient_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

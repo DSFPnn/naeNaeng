@@ -8,6 +8,7 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/backgound_splash.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/background_splash.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/blue_solid_radius20.xml" value="0.1915" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/blue_solid_radius8.xml" value="0.1915" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/bottom_line.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/bottom_nav_list.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/button_home.xml" value="0.1475" />
@@ -25,6 +26,8 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/green_outline_radius8.xml" value="0.1905" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/green_oval.xml" value="0.1905" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/green_solid_radius8.xml" value="0.1905" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/ic_baseline_filter_alt_24.xml" value="0.1885" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.1915" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/icon.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/icon_naenaeng.xml" value="0.1905" />
@@ -38,7 +41,10 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/radius13_left_bottom.xml" value="0.1875" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/radius8_right_bottom.xml" value="0.16" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/raidus_shpae.xml" value="0.167" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/recipe_background.xml" value="0.1915" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/recipe_num_background.xml" value="0.1915" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/recipe_radius.xml" value="0.167" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/round_background.xml" value="0.1915" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/search_shape.xml" value="0.1475" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/solid_raidus_shpae.xml" value="0.167" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/drawable/styles.xml" value="0.1475" />
@@ -53,9 +59,9 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/allergy_item.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/allergy_item_view.xml" value="0.5493055555555556" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_allergy.xml" value="0.50390625" />
-        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_date.xml" value="0.33" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_date.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_life.xml" value="0.50390625" />
-        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_name.xml" value="0.33" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_ingredient_name.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_preference.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_preference_2.xml" value="0.49609375" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/dialog_receipe_filter.xml" value="0.5" />
@@ -79,9 +85,10 @@
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_recipe.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_recipe_item.xml" value="0.27575887131252674" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/fragment_register.xml" value="0.50390625" />
-        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/ingredient_item_view.xml" value="0.75" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/ingredient_item_view.xml" value="0.9" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/preference_item_view.xml" value="0.49609375" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/recipe_item_view.xml" value="0.67" />
+        <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/recipe_step.xml" value="0.50390625" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/layout/recipe_step_dialog.xml" value="0.5" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/bottom_nav_menu.xml" value="0.32578125" />
         <entry key="..\:/Users/xkqeh/AndroidStudioProjects/NaeNaeng/app/src/main/res/menu/nav_menu.xml" value="0.20521590423257802" />

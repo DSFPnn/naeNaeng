@@ -13,7 +13,6 @@ import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 
 class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) {//음식 추가 화면
-    //private lateinit var navController : NavController
     private val db = Firebase.firestore
     private val ingredRef = db.collection("public")
     private var imageClass: String = "null jpg"
@@ -38,8 +37,6 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
             val result = bundle.getString("date")
             binding.btnIngredientDate.text=result
         }
-
-
     }
 
     override fun initAfterBinding() {
@@ -47,15 +44,11 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
         binding.btnIngredientName.setOnClickListener {
             IngredientNameDialog().show(parentFragmentManager, "preference")
-
         }
         binding.btnIngredientDate.setOnClickListener {
             IngredientDateDialog().show(parentFragmentManager, "preference")
         }
         binding.btnSetIngredient.setOnClickListener {
-            navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
-
-
             //재료 분류 검색
             ingredRef.document("ingredient").get().addOnSuccessListener {
                 val ingred = it.data
@@ -74,7 +67,6 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                                 "imageClass" to imageClass
                             )
 
-
                             //firestore에 재료추가
                             db.collection("users").document(prefs.getString("email", "null"))
                                 .update("ingredients", FieldValue.arrayUnion(data))
@@ -83,6 +75,7 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                     }
                 }
             }
+            navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
          }
     }
 
@@ -92,5 +85,4 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
         return dataFormat.format(currentTime).toString()
     }
-
 }
