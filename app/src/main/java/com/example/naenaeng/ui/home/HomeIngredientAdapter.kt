@@ -26,7 +26,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.absoluteValue
 
-class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, fragmentManager: FragmentManager)
+class HomeIngredientAdapter(itemList: List<Ingredient>, editMode: Boolean, fragmentManager: FragmentManager)
 : RecyclerView.Adapter<HomeIngredientAdapter.ViewHolder>(){
     private val db = Firebase.firestore
     private var ingredientDatas = mutableListOf<String>()
@@ -40,7 +40,7 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
         mFragmentManager = fragmentManager
     }
 
-    var itemList: ArrayList<Ingredient> = itemList
+    var itemList: List<Ingredient> = itemList
     set(value) {
         field = value
         notifyDataSetChanged()

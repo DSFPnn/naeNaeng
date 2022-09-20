@@ -1,17 +1,13 @@
 package com.example.naenaeng.ui.home
 
 import android.animation.ObjectAnimator
-import android.content.Intent
-import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.naenaeng.MainActivity
@@ -107,7 +103,24 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 }
             }
         })
+
+        //정렬
+        binding.btnFilter.setOnClickListener {
+            val items = arrayOf("추가순", "이름순", "남은 유통기한순")
+            var selectedItem: String? = null
+            val builder = context?.let { it1 ->
+                AlertDialog.Builder(it1)
+                    .setTitle("정렬")
+                    .setSingleChoiceItems(items,MyApplication.prefs.getString("sortNum","0").toInt()) { dialog, which ->
+                        selectedItem = items[which]
+                        MyApplication.prefs.setString("sortNum",which.toString())
+                        viewModel.getUserIngredient()
+                    }.setPositiveButton("확인") { dialog, which ->
+                    }.show()
+            }
+        }
     }
+
 
     override fun onResume() {
         super.onResume()

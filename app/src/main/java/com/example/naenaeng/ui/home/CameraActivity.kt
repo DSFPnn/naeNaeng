@@ -229,9 +229,9 @@ class CameraActivity : AppCompatActivity() {
 
     private fun today(): String {
         val currentTime = System.currentTimeMillis()
-        val dataFormat = SimpleDateFormat("yyyyMMdd")
 
-        return dataFormat.format(currentTime).toString()
+        return currentTime.toString()
     }
+
 
 }

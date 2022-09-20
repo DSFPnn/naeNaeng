@@ -17,6 +17,7 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
     private val db = Firebase.firestore
     private val ingredRef = db.collection("public")
     private var imageClass: String = "null jpg"
+    private var check : Boolean = false
 
     override fun initStartView() {
         super.initStartView()
@@ -75,20 +76,23 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                                 //firestore에 재료추가
                                 db.collection("users").document(prefs.getString("email", "null"))
                                     .update("ingredients", FieldValue.arrayUnion(data))
-                            }
-                            else {
-                                val data = hashMapOf(
-                                    "name" to binding.btnIngredientName.text,
-                                    "date" to binding.btnIngredientDate.text,
-                                    "added" to today(),
-                                    "imageClass" to imageClass
-                                )
 
-                                //firestore에 재료추가
-                                db.collection("users").document(prefs.getString("email", "null"))
-                                    .update("ingredients", FieldValue.arrayUnion(data))
+                                check = true
+                                break
                             }
                         }
+                    }
+                    if(check){
+                        val data = hashMapOf(
+                            "name" to binding.btnIngredientName.text,
+                            "date" to binding.btnIngredientDate.text,
+                            "added" to today(),
+                            "imageClass" to imageClass
+                        )
+
+                        //firestore에 재료추가
+                        db.collection("users").document(prefs.getString("email", "null"))
+                            .update("ingredients", FieldValue.arrayUnion(data))
                     }
                 }
                 navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
@@ -98,8 +102,8 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
     private fun today(): String {
         val currentTime = System.currentTimeMillis()
-        val dataFormat = SimpleDateFormat("yyyyMMdd")
 
-        return dataFormat.format(currentTime).toString()
+        return currentTime.toString()
     }
+
 }
