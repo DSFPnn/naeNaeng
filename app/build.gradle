@@ -44,9 +44,16 @@ android {
 
 dependencies {
 
-    // tensorflow lite
-    implementation 'com.google.firebase:firebase-ml-modeldownloader-ktx'
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:30.4.0')
+
+    // Add the dependency for the Firebase ML model downloader library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-ml-modeldownloader'
+
+    // Also add the dependency for the TensorFlow Lite library and specify its version
     implementation 'org.tensorflow:tensorflow-lite:2.3.0'
+
 
     // CameraX
     def camerax_version = "1.0.1"
