@@ -1,6 +1,7 @@
 package com.example.naenaeng.ui.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.MyApplication.Companion.prefs
@@ -49,33 +50,49 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
             IngredientDateDialog().show(parentFragmentManager, "preference")
         }
         binding.btnSetIngredient.setOnClickListener {
-            //재료 분류 검색
-            ingredRef.document("ingredient").get().addOnSuccessListener {
-                val ingred = it.data
-                val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
-                val typeList = ingred?.get("typeName") as ArrayList<String>
-                for (type in typeList) {
-                    val typeArray = ingredType?.get(type)
-                    if (typeArray != null) {
-                        if (binding.btnIngredientName.text in typeArray) {
-                            imageClass = type
+            if(binding.btnIngredientName.text=="" || binding.btnIngredientDate.text==""){
+                Toast.makeText(context, "재료를 입력해주세요!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                //재료 분류 검색
+                ingredRef.document("ingredient").get().addOnSuccessListener {
+                    val ingred = it.data
+                    val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
+                    val typeList = ingred?.get("typeName") as ArrayList<String>
+                    for (type in typeList) {
+                        val typeArray = ingredType?.get(type)
+                        if (typeArray != null) {
+                            if (binding.btnIngredientName.text in typeArray) {
+                                imageClass = type
 
-                            val data = hashMapOf(
-                                "name" to binding.btnIngredientName.text,
-                                "date" to binding.btnIngredientDate.text,
-                                "added" to today(),
-                                "imageClass" to imageClass
-                            )
+                                val data = hashMapOf(
+                                    "name" to binding.btnIngredientName.text,
+                                    "date" to binding.btnIngredientDate.text,
+                                    "added" to today(),
+                                    "imageClass" to imageClass
+                                )
 
-                            //firestore에 재료추가
-                            db.collection("users").document(prefs.getString("email", "null"))
-                                .update("ingredients", FieldValue.arrayUnion(data))
+                                //firestore에 재료추가
+                                db.collection("users").document(prefs.getString("email", "null"))
+                                    .update("ingredients", FieldValue.arrayUnion(data))
+                            }
+                            else {
+                                val data = hashMapOf(
+                                    "name" to binding.btnIngredientName.text,
+                                    "date" to binding.btnIngredientDate.text,
+                                    "added" to today(),
+                                    "imageClass" to imageClass
+                                )
 
+                                //firestore에 재료추가
+                                db.collection("users").document(prefs.getString("email", "null"))
+                                    .update("ingredients", FieldValue.arrayUnion(data))
+                            }
                         }
                     }
                 }
+                navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
             }
-            navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
          }
     }
 
