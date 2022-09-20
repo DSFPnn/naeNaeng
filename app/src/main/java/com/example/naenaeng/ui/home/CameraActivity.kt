@@ -4,9 +4,10 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -15,22 +16,38 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.naenaeng.MyApplication
-import com.example.naenaeng.R
 import com.example.naenaeng.databinding.ActivityCameraBinding
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.ml.modeldownloader.CustomModel
+import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions
+import com.google.firebase.ml.modeldownloader.DownloadType
+import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
+import org.tensorflow.lite.Interpreter
+import java.io.BufferedReader
+import java.io.File
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.URL
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 import java.text.SimpleDateFormat
+import java.util.EnumSet.range
+
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding:ActivityCameraBinding
     private val db = Firebase.firestore
     private val REQUEST_IMAGE_CAPTURE:Int = 1
+    private lateinit var imageBitmap : Bitmap
+    private lateinit var interpreter : Interpreter
+    private var result : String =""
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
                 RESULT_OK -> {
                     Log.d("cameraa", "result_ok$result")
-                    val imageBitmap = result.data?.extras?.get("data") as Bitmap
+                    imageBitmap = result.data?.extras?.get("data") as Bitmap
                     binding.preview.setImageBitmap(imageBitmap)
                     binding.btnOk.visibility = View.VISIBLE
                     binding.btnTakePhoto.text = "다시 촬영"
@@ -47,6 +64,7 @@ class CameraActivity : AppCompatActivity() {
 
         checkPermission()
 
+
         binding.btnTakePhoto.setOnClickListener {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -58,16 +76,84 @@ class CameraActivity : AppCompatActivity() {
             }
         }
         binding.btnOk.setOnClickListener {
-            val data =  hashMapOf(
-                "name" to "망고",
-                "date" to "2022년 10월 10일",
-                "added" to today(),
-                "imageClass" to "null jpg"
-            )
 
-            //firestore에 재료추가
-            db.collection("users").document(MyApplication.prefs.getString("email","null"))
-                .update("ingredients", FieldValue.arrayUnion(data))
+            val conditions = CustomModelDownloadConditions.Builder()
+                .requireWifi()  // Also possible: .requireCharging() and .requireDeviceIdle()
+                .build()
+
+            FirebaseModelDownloader.getInstance()
+                .getModel("TestModel", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
+                    conditions)
+                .addOnSuccessListener { model: CustomModel? ->
+                    // Download complete. Depending on your app, you could enable the ML
+                    // feature, or switch from the local model to the remote model, etc.
+
+                    // The CustomModel object contains the local path of the model file,
+                    // which you can use to instantiate a TensorFlow Lite interpreter.
+                    val modelFile = model?.file
+                    if (modelFile != null) {
+                        interpreter = Interpreter(modelFile)
+                    }
+
+                    val bitmap = Bitmap.createScaledBitmap(imageBitmap, 128, 128, true)
+                    val input = ByteBuffer.allocateDirect(128*128*3*4).order(ByteOrder.nativeOrder())
+                    for (y in 0 until 128) {
+                        for (x in 0 until 128) {
+                            val px = bitmap.getPixel(x, y)
+
+                            // Get channel values from the pixel value.
+                            val r = Color.red(px)
+                            val g = Color.green(px)
+                            val b = Color.blue(px)
+
+                            // Normalize channel values to [-1.0, 1.0]. This requirement depends on the model.
+                            // For example, some models might require values to be normalized to the range
+                            // [0.0, 1.0] instead.
+                            val rf = (r - 127) / 255f
+                            val gf = (g - 127) / 255f
+                            val bf = (b - 127) / 255f
+
+                            input.putFloat(rf)
+                            input.putFloat(gf)
+                            input.putFloat(bf)
+                        }
+                    }
+
+                    val bufferSize = 3 * java.lang.Float.SIZE / java.lang.Byte.SIZE
+                    val modelOutput = ByteBuffer.allocateDirect(bufferSize).order(ByteOrder.nativeOrder())
+                    interpreter.run(input, modelOutput)
+
+                    modelOutput.rewind()
+                    val probabilities = modelOutput.asFloatBuffer()
+                    var temp = 0F
+                    try {
+                        val reader = BufferedReader(
+                            InputStreamReader(assets.open("labels.txt")))
+                            for (i in 0..2) {
+                                val label: String = reader.readLine()
+                                val probability = probabilities.get(i)
+                                println("$label: $probability")
+                                if (temp < probability){
+                                    temp = probability
+                                    result = label
+                                }
+                        }
+                        println(result)
+                        val data =  hashMapOf(
+                            "name" to result,
+                            "date" to "2022년 10월 10일",
+                            "added" to today(),
+                            "imageClass" to "null jpg"
+                        )
+                        //firestore에 재료추가
+                        db.collection("users").document(MyApplication.prefs.getString("email","null"))
+                            .update("ingredients", FieldValue.arrayUnion(data))
+
+                    } catch (e: IOException) {
+                        // File not found?
+                    }
+                }
+
 
             finish()
         }
@@ -121,4 +207,5 @@ class CameraActivity : AppCompatActivity() {
 
         return dataFormat.format(currentTime).toString()
     }
+
 }
