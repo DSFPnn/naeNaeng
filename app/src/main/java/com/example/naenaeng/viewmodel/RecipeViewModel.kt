@@ -19,9 +19,26 @@ class RecipeViewModel:ViewModel() {
             _recipeLiveData.value = it.menu
         }
     }
-    fun getFilterRecipe(){
-        repo.getFilterData().observeForever{
-            _recipeLiveData.value = it.menu
+
+    private val _filters:MutableLiveData<ArrayList<ArrayList<String>>>
+            = MutableLiveData<ArrayList<ArrayList<String>>>()
+    val filters: LiveData<ArrayList<ArrayList<String>>>
+        get() = _filters
+
+    init {
+        _filters.value = ArrayList()
+        for(i in 0..3)
+            _filters.value!!.add(ArrayList())
+    }
+
+    fun getFilter():ArrayList<ArrayList<String>>?{
+        return filters.value
+    }
+    fun setFilter(f:ArrayList<ArrayList<String>>){
+        for(i in 0 until f.size){
+            _filters.value!![i] = f[i]
         }
+        Log.d("filterArrayy _filter", _filters.value.toString())
+        Log.d("filterArrayy filter", _filters.value.toString())
     }
 }

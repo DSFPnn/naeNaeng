@@ -42,5 +42,9 @@ class IngredientDateDialog : BaseDialogFragment<DialogIngredientDateBinding>(R.l
             }
             dismiss()
         }
+
+        binding.btnCloseDate.setOnClickListener{
+            dismiss()
+        }
     }
 }

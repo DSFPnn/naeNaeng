@@ -1,6 +1,7 @@
 package com.example.naenaeng.ui.recipe
 
 import android.util.Log
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -11,6 +12,7 @@ import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseBottomDialogFragment
 import com.example.naenaeng.databinding.DialogReceipeFilterBinding
 import com.example.naenaeng.viewmodel.PreferenceViewModel
+import com.example.naenaeng.viewmodel.RecipeViewModel
 
 class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>(R.layout.dialog_receipe_filter) {
 
@@ -18,21 +20,31 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
     private lateinit var filterTasteAdapter: RecipeFilterAdapter
     private lateinit var filterCookAdapter: RecipeFilterAdapter
     private lateinit var filterAllergyAdapter: RecipeFilterAdapter
-
-    var filterArray:ArrayList<ArrayList<String>> = ArrayList(ArrayList())
+    private lateinit var filterArrayArray:ArrayList<ArrayList<String>> // 사용자가 선택한 필터
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(PreferenceViewModel::class.java)
+    }
+    private val viewModelFilter by lazy{
+        ViewModelProvider(requireParentFragment()).get(RecipeViewModel::class.java)
     }
 
     override fun initDataBinding() {
         super.initDataBinding()
 
-        Log.d("refreshh","initdata")
+        filterArrayArray = viewModelFilter.getFilter()!!
+
+        // 0 나라, 1 맛, 2 조리방법, 3 알러지
         filterCountryAdapter = RecipeFilterAdapter(ArrayList())
         filterTasteAdapter = RecipeFilterAdapter(ArrayList())
         filterCookAdapter = RecipeFilterAdapter(ArrayList())
         filterAllergyAdapter = RecipeFilterAdapter(ArrayList())
+
+        Log.d("filterArray 생긴거",filterArrayArray.toString())
+        filterCountryAdapter.filterDatas = filterArrayArray[0]
+        filterTasteAdapter.filterDatas = filterArrayArray[1]
+        filterCookAdapter.filterDatas = filterArrayArray[2]
+        filterAllergyAdapter.filterDatas = filterArrayArray[3]
 
         binding.filterCountryRecyclerView.adapter = filterCountryAdapter
         binding.filterTasteRecyclerView.adapter = filterTasteAdapter
@@ -46,7 +58,6 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
             filterTasteAdapter.itemList = itemList.taste
             filterCookAdapter.itemList = itemList.cook
             filterAllergyAdapter.itemList = itemList.allergy
-            Log.d("refreshh","1")
         }
     }
 
@@ -64,17 +75,19 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
             binding.filterCookRecyclerView.adapter = filterCookAdapter
             binding.filterAllergyRecyclerView.adapter = filterAllergyAdapter
 
+            viewModelFilter.setFilter(ArrayList())
             viewModel.getPreference()
-
-            Log.d("refreshh", filterAllergyAdapter.filterDatas.toString())
         }
+
         binding.btnSetPreference.setOnClickListener {
-            filterArray.add(filterCountryAdapter.filterDatas)
-            filterArray.add(filterTasteAdapter.filterDatas)
-            filterArray.add(filterCookAdapter.filterDatas)
-            filterArray.add(filterAllergyAdapter.filterDatas)
-            Log.d("filterrD",filterArray.toString())
-            setFragmentResult("requestFilter", bundleOf("filterArray" to filterArray))
+            filterArrayArray[0] = filterCountryAdapter.filterDatas
+            filterArrayArray[1] = filterTasteAdapter.filterDatas
+            filterArrayArray[2] = filterCookAdapter.filterDatas
+            filterArrayArray[3] = filterAllergyAdapter.filterDatas
+            setFragmentResult("requestFilter", bundleOf("filterArray" to filterArrayArray))
+
+            viewModelFilter.setFilter(filterArrayArray)
+
             dismiss()
         }
     }

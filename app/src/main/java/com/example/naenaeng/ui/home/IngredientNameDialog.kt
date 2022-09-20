@@ -25,6 +25,9 @@ class IngredientNameDialog :BaseDialogFragment<DialogIngredientNameBinding>(R.la
                 dismiss()
             }
         }
+        binding.btnCloseName.setOnClickListener{
+            dismiss()
+        }
     }
 
 

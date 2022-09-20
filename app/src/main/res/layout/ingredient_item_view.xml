@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquare_aceb"
                 android:text="첫"
-                android:textColor="@color/white"
+                android:textColor="#B9FFFFFF"
                 android:textSize="32sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/img_ingredient"

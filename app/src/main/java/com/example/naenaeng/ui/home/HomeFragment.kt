@@ -187,7 +187,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             binding.btnEditIngredient.visibility = INVISIBLE
             binding.btnCheck.visibility = VISIBLE
         }else{ // 일반 모드
-           homeIngredientAdapter = HomeIngredientAdapter(ArrayList(), em, parentFragmentManager)
+            homeIngredientAdapter = HomeIngredientAdapter(ArrayList(), em, parentFragmentManager)
             binding.ingredientRecyclerView.adapter=homeIngredientAdapter
             viewModel.getUserIngredient()
 

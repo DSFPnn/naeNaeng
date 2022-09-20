@@ -55,7 +55,7 @@
             android:id="@+id/btn_next"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:background="@color/primary_green"
+            android:background="@color/primary_light_blue"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="다음"
             android:textColor="#5f5144"
