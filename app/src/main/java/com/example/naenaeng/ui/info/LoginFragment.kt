@@ -18,6 +18,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
     private lateinit var auth: FirebaseAuth
+    private var waitTime = 0L
+
 
     override fun initStartView() {
         super.initStartView()
@@ -102,4 +104,5 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                 Log.d("error LoginFragment", "null")
             }
     }
+
 }

@@ -74,6 +74,10 @@ class MainActivity: AppCompatActivity() {
                 binding.toolbar.visibility = View.GONE
                 binding.bottomNav.visibility = View.GONE
             }
+            "none3" -> {
+                binding.toolbar.visibility = View.VISIBLE
+                binding.bottomNav.visibility = View.GONE
+            }
             else -> {
                 binding.toolbar.visibility=View.VISIBLE
                 binding.bottomNav.visibility = View.VISIBLE

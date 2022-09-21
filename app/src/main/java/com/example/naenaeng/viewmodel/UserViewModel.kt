@@ -15,9 +15,9 @@ class UserViewModel : ViewModel(){
         get() = _userAllergyLiveData
     private val repo = UserRepository()
 
-    private val _userIngredientLiveData: MutableLiveData<ArrayList<Ingredient>>
+    private val _userIngredientLiveData: MutableLiveData<List<Ingredient>>
             = MutableLiveData()
-    val userIngredientLiveData: LiveData<ArrayList<Ingredient>>
+    val userIngredientLiveData: LiveData<List<Ingredient>>
         get() = _userIngredientLiveData
 
     private val _userPreferenceLiveData: MutableLiveData<Preference>

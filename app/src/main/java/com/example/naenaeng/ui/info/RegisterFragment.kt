@@ -18,7 +18,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbarTitle("회원가입")
+        (activity as MainActivity).setToolbarTitle("none3")
         auth = Firebase.auth
 
     }
