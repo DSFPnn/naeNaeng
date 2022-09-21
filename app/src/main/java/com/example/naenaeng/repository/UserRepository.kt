@@ -21,16 +21,6 @@ class UserRepository {
         var sortNum: String = "0"
         var comparator : Comparator<Ingredient> = compareBy { it.added }
 
-//        db.collection("users/$user").orderBy("added").get()
-//            .addOnSuccessListener { documentSnapshot ->
-//                val data = documentSnapshot.toObject<User>()
-//                mutableData.value=data!!
-//                Log.d("ingred repo",data.toString())
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.d(ContentValues.TAG, "get failed with ", exception)
-//            }
-
         db.collection("users").document(prefs.getString("email","null")).get()
             .addOnSuccessListener { documentSnapshot ->
                 val data = documentSnapshot.toObject<User>()
@@ -48,7 +38,6 @@ class UserRepository {
 
                 }
                 mutableData.value=data!!
-                Log.d("ingred repo",data.toString())
             }
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
