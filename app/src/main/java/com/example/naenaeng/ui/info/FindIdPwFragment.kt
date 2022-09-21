@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class FindIdPwFragment  : BaseFragment<FragmentFindIdpwBinding>(R.layout.fragment_find_idpw) {
     override fun initStartView() {
         super.initStartView()
-        (activity as MainActivity).setToolbarTitle("ID/PW찾기")
+        (activity as MainActivity).setToolbarTitle("none3")
 
 
     }

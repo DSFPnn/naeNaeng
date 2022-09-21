@@ -17,7 +17,7 @@ class FindIdFragment : BaseFragment<FragmentFindIdBinding>(R.layout.fragment_fin
 
     override fun initStartView() {
             super.initStartView()
-            (activity as MainActivity).setToolbarTitle("ID/PW찾기")
+            (activity as MainActivity).setToolbarTitle("none3")
 
         }
 

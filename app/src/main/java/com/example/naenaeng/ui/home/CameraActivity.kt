@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -35,6 +36,9 @@ import java.net.URL
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.EnumSet.range
 
 
@@ -47,6 +51,7 @@ class CameraActivity : AppCompatActivity() {
     private val ingredRef = db.collection("public")
     private var imageClass: String = "null jpg"
     private var result : String =""
+    private var plusDay : Int = 0
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
                 RESULT_OK -> {
@@ -59,6 +64,7 @@ class CameraActivity : AppCompatActivity() {
             }
         }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
@@ -153,27 +159,42 @@ class CameraActivity : AppCompatActivity() {
                                 ingredRef.document("ingredient").get().addOnSuccessListener {
                                     val ingred = it.data
                                     val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
+                                    val ingredDate = ingred?.get("date") as HashMap<String, ArrayList<String>>
                                     val typeList = ingred?.get("typeName") as ArrayList<String>
+                                    val dateList = ingred?.get("dateList") as ArrayList<String>
                                     for (type in typeList) {
                                         val typeArray = ingredType?.get(type)
                                         if (typeArray != null) {
                                             if (result in typeArray) {
                                                 imageClass = type
-
-                                                val data = hashMapOf(
-                                                    "name" to result,
-                                                    "date" to "2022년 09월 21일",
-                                                    "added" to today(),
-                                                    "imageClass" to imageClass
-                                                )
-                                                //firestore에 재료추가
-                                                db.collection("users").document(MyApplication.prefs.getString("email", "null"))
-                                                    .update("ingredients", FieldValue.arrayUnion(data))
-
-                                                finish()
                                             }
                                         }
                                     }
+
+                                    for (n in dateList) {
+                                        val dateArray = ingredDate?.get(n)
+                                        if (dateArray != null) {
+                                            if (result in dateArray) {
+                                                 plusDay = n.toInt()
+                                            }
+                                        }
+                                    }
+
+                                    var now = LocalDate.now()
+                                    var date = now.plusDays(plusDay.toLong())
+                                    var ingredientDate = date.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일"))
+
+                                    val data = hashMapOf(
+                                        "name" to result,
+                                        "date" to ingredientDate,
+                                        "added" to today(),
+                                        "imageClass" to imageClass
+                                    )
+                                    //firestore에 재료추가
+                                    db.collection("users").document(MyApplication.prefs.getString("email", "null"))
+                                        .update("ingredients", FieldValue.arrayUnion(data))
+
+                                    finish()
                                 }
                             })
                         .setNegativeButton("취소",
