@@ -15,10 +15,10 @@ class PreferenceViewModel : ViewModel(){
     private val repo = PreferenceRepository()
 
     fun getPreference() {
-        Log.d("prefer vm",_preferenceLiveData.value.toString())
+        Log.d("prefer_vm",_preferenceLiveData.value.toString())
         repo.getData().observeForever{
             _preferenceLiveData.postValue(it)
-            Log.d("prefer vm",_preferenceLiveData.value.toString())
+            Log.d("prefer_vm",_preferenceLiveData.value.toString())
         }
     }
 }

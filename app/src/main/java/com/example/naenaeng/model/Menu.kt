@@ -12,5 +12,6 @@ data class Menu (
         var essentialIngredients:String = "",
         val imageName:String = "",
         val step:String = "",
-        val filter:ArrayList<String> = ArrayList()
+        val filter:ArrayList<String> = ArrayList(),
+        var imageInt:Int = 0
 )

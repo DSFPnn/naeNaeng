@@ -27,7 +27,7 @@ class RecipeViewModel:ViewModel() {
 
     init {
         _filters.value = ArrayList()
-        for(i in 0..3)
+        for(i in 0..4)
             _filters.value!!.add(ArrayList())
     }
 
@@ -38,7 +38,5 @@ class RecipeViewModel:ViewModel() {
         for(i in 0 until f.size){
             _filters.value!![i] = f[i]
         }
-        Log.d("filterArrayy _filter", _filters.value.toString())
-        Log.d("filterArrayy filter", _filters.value.toString())
     }
 }

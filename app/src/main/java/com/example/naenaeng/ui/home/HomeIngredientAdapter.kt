@@ -74,14 +74,10 @@ class HomeIngredientAdapter(itemList: ArrayList<Ingredient>, editMode: Boolean, 
 
     override fun onBindViewHolder(holder: HomeIngredientAdapter.ViewHolder, position: Int) {
         holder.firstLetter.text = itemList[position].name.substring(0,1)
-        storageRef.child("ingredients/"+itemList[position].imageClass+".jpg").downloadUrl.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Glide.with(context)
-                    .load(task.result)
-                    .fitCenter()
-                    .into(holder.ingredientImg)
-            }
-        }
+        if(itemList[position].imageInt != -1)
+            holder.ingredientImg.setImageResource(itemList[position].imageInt)
+        else
+            holder.ingredientImg.setImageResource(R.drawable.gray_solid_radius8)
         holder.ingredientImg.clipToOutline = true
 
         holder.name.text = itemList[position].name

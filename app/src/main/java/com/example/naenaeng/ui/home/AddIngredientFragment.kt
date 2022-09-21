@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import com.example.naenaeng.MainActivity
+import com.example.naenaeng.MyApplication
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
@@ -13,10 +14,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 
-class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) {//음식 추가 화면
-    private val db = Firebase.firestore
+class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) { //음식 추가 화면
+    val db = Firebase.firestore
     private val ingredRef = db.collection("public")
-    private var imageClass: String = "null jpg"
 
     override fun initStartView() {
         super.initStartView()
@@ -44,54 +44,58 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
         super.initAfterBinding()
 
         binding.btnIngredientName.setOnClickListener {
-            IngredientNameDialog().show(parentFragmentManager, "preference")
+            IngredientNameDialog().show(parentFragmentManager, "ingred_name")
         }
         binding.btnIngredientDate.setOnClickListener {
-            IngredientDateDialog().show(parentFragmentManager, "preference")
+            IngredientDateDialog().show(parentFragmentManager, "ingred_date")
         }
         binding.btnSetIngredient.setOnClickListener {
             if(binding.btnIngredientName.text=="" || binding.btnIngredientDate.text==""){
                 Toast.makeText(context, "재료를 입력해주세요!", Toast.LENGTH_SHORT).show()
             }
             else{
-                //재료 분류 검색
+                var imageClass:String = "nullJpg"
+                // 이미지 추가
                 ingredRef.document("ingredient").get().addOnSuccessListener {
                     val ingred = it.data
-                    val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>>
-                    val typeList = ingred?.get("typeName") as ArrayList<String>
-                    for (type in typeList) {
-                        val typeArray = ingredType?.get(type)
+                    val ingredType = ingred?.get("ingredType") as HashMap<String, ArrayList<String>> // {mushrooms=[느타리버섯, 능이버섯,...], seafoods=[...],...}
+                    val typeList = ingred?.get("typeName") as ArrayList<String> // [fruit, bean, egg, grain, milk ...]
+                    var itzy:Boolean = false
+                    lateinit var data:HashMap<String,CharSequence>
+
+                    for (type in typeList) { // 재료 이름이 이 안에 있는 지 검사
+                        Log.d("meattType",type.toString())
+                        val typeArray = ingredType?.get(type) // [대추, 단감, ...] [콩, 팥] ...
                         if (typeArray != null) {
                             if (binding.btnIngredientName.text in typeArray) {
                                 imageClass = type
-
-                                val data = hashMapOf(
+                                data = hashMapOf(
                                     "name" to binding.btnIngredientName.text,
                                     "date" to binding.btnIngredientDate.text,
                                     "added" to today(),
                                     "imageClass" to imageClass
                                 )
-
-                                //firestore에 재료추가
-                                db.collection("users").document(prefs.getString("email", "null"))
-                                    .update("ingredients", FieldValue.arrayUnion(data))
-                            }
-                            else {
-                                val data = hashMapOf(
-                                    "name" to binding.btnIngredientName.text,
-                                    "date" to binding.btnIngredientDate.text,
-                                    "added" to today(),
-                                    "imageClass" to imageClass
-                                )
-
-                                //firestore에 재료추가
-                                db.collection("users").document(prefs.getString("email", "null"))
-                                    .update("ingredients", FieldValue.arrayUnion(data))
+                                Log.d("meattArray",typeArray.toString())
+                                Log.d("meatt",data.toString())
+                                itzy = true
+                                break
                             }
                         }
                     }
+                    if(!itzy){
+                        data = hashMapOf(
+                            "name" to binding.btnIngredientName.text,
+                            "date" to binding.btnIngredientDate.text,
+                            "added" to today(),
+                            "imageClass" to imageClass
+                        )
+                    }
+                    //firestore에 재료추가
+                    db.collection("users").document(prefs.getString("email", "null"))
+                        .update("ingredients", FieldValue.arrayUnion(data)).addOnSuccessListener {
+                            navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
+                        }
                 }
-                navController.navigate(R.id.action_addIngredientFragment_to_homeFragment)
             }
          }
     }

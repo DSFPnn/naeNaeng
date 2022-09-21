@@ -33,6 +33,7 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
         super.initDataBinding()
 
         filterArrayArray = viewModelFilter.getFilter()!!
+        Log.d("vieww",filterArrayArray.toString())
 
         // 0 나라, 1 맛, 2 조리방법, 3 알러지
         filterCountryAdapter = RecipeFilterAdapter(ArrayList())
@@ -58,6 +59,7 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
             filterTasteAdapter.itemList = itemList.taste
             filterCookAdapter.itemList = itemList.cook
             filterAllergyAdapter.itemList = itemList.allergy
+            filterArrayArray[4] = itemList.allergy
         }
     }
 
@@ -84,9 +86,10 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
             filterArrayArray[1] = filterTasteAdapter.filterDatas
             filterArrayArray[2] = filterCookAdapter.filterDatas
             filterArrayArray[3] = filterAllergyAdapter.filterDatas
-            setFragmentResult("requestFilter", bundleOf("filterArray" to filterArrayArray))
+            filterArrayArray[4] = filterAllergyAdapter.itemList
 
-            viewModelFilter.setFilter(filterArrayArray)
+            viewModelFilter.setFilter(filterArrayArray) // 사용자가 고른거
+            setFragmentResult("requestFilter", bundleOf("filterArray" to filterArrayArray))
 
             dismiss()
         }

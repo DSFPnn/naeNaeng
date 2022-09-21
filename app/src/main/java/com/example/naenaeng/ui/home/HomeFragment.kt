@@ -46,9 +46,17 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         homeIngredientAdapter = HomeIngredientAdapter(ArrayList(), editMode, parentFragmentManager)
         binding.ingredientRecyclerView.adapter=homeIngredientAdapter
-        viewModel.getUserIngredient()
         viewModel.userIngredientLiveData.observe(viewLifecycleOwner) { itemList ->
             homeIngredientAdapter.itemList = itemList
+            for(i in 0 until itemList.size){
+                val id = try{
+                    MyApplication.ingredientIamgeHash.get(itemList[i].imageClass)?:-1
+                }catch (e:NullPointerException){
+                    -1
+                }
+                Log.d("hashhh", id.toString() + " ~ " +itemList[i].imageClass)
+                homeIngredientAdapter.itemList[i].imageInt = id
+            }
             Log.d("ingredd", "1"+itemList.toString())
         }
 
@@ -111,7 +119,6 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onResume() {
         super.onResume()
-
         viewModel.getUserIngredient()
     }
 
@@ -197,7 +204,5 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             binding.btnCheck.visibility = INVISIBLE
         }
     }
-
-
 }
 
