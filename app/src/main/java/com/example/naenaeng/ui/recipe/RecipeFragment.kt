@@ -54,7 +54,6 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(R.layout.fragment_rec
         setFragmentResultListener("requestFilter") { _, bundle ->
             result = bundle.get("filterArray") as ArrayList<ArrayList<String>>
             viewModel.setFilter(result) // 사용자가 고른거
-            Log.d("viewwWhywhywhy",viewModel.getFilter().toString())
             setFilterButton(result)
         }
     }

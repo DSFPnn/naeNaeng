@@ -94,7 +94,7 @@ class CameraActivity : AppCompatActivity() {
                 .build()
 
             FirebaseModelDownloader.getInstance()
-                .getModel("TestModel", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
+                .getModel("ingredient_classification_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions)
                 .addOnSuccessListener { model: CustomModel? ->
                     // Download complete. Depending on your app, you could enable the ML

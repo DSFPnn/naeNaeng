@@ -6,6 +6,7 @@ data class Menu (
         val name:String = "",
         val title:String = "",
         val index:String = "",
+        val ingredients:ArrayList<String> = ArrayList(),
         @get:PropertyName("additional ingredients") @set:PropertyName("additional ingredients")
         var additionalIngredients:String = "",
         @get:PropertyName("essential ingredients") @set:PropertyName("essential ingredients")

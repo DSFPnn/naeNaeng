@@ -40,14 +40,11 @@ class RecipeFilterAdapter (itemList: ArrayList<String>)
     override fun onBindViewHolder(holder: RecipeFilterAdapter.ViewHolder, position: Int) {
         holder.filterCheck.text = itemList[position]
 
-        Log.d("filterArray adap",filterDatas.toString())
         if(filterDatas.contains(itemList[position])){
             holder.filterCheck.isSelected = true
-            Log.d("filterArray check true","")
         }
         else{
             holder.filterCheck.isSelected = false
-            Log.d("filterArray check false","")
         }
         // 사용자별 선호도 배열에 저장
         holder.filterCheck.setOnClickListener {

@@ -15,10 +15,10 @@
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="88dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bottom_line"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,15 +65,8 @@
                 android:text="재료1"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/view8"
                 app:layout_constraintStart_toEndOf="@+id/img_ingredient"
                 app:layout_constraintTop_toTopOf="@+id/img_ingredient" />
-
-            <View
-                android:id="@+id/view8"
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/tv_warning" />
 
             <TextView
                 android:id="@+id/tv_ingredient_date"

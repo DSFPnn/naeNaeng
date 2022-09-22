@@ -35,7 +35,6 @@ class UserRepository {
                     }
                     val sortedIngredient = data.ingredients.sortedWith(comparator)
                     data.ingredients = sortedIngredient
-
                 }
                 mutableData.value=data!!
             }

@@ -47,9 +47,9 @@ class PreferenceDialog : BaseBottomDialogFragment<DialogPreferenceBinding>(R.lay
 
         binding.btnSetPreference.setOnClickListener {
             // 사용자별 선호도 DB에 저장
-            dbUser.update("preference.index", preferenceCountryAdapter.preferenceDatas)
+            dbUser.update("preference.country", preferenceCountryAdapter.preferenceDatas)
             dbUser.update("preference.taste", preferenceTasteAdapter.preferenceDatas)
-            dbUser.update("preference.spicy", preferenceCookAdapter.preferenceDatas)
+            dbUser.update("preference.cook", preferenceCookAdapter.preferenceDatas)
 
             UserRepository().getData()
             dismiss()

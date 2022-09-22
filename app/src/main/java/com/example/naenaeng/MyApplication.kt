@@ -22,11 +22,11 @@ class MyApplication : Application() {
         ingredientIamgeHash["fruit"] = R.drawable.fruit
         ingredientIamgeHash["meat"] = R.drawable.meat
         ingredientIamgeHash["milk"] = R.drawable.milk
-        ingredientIamgeHash["mushroom"] = R.drawable.mushroom
+        ingredientIamgeHash["mushrooms"] = R.drawable.mushrooms
         ingredientIamgeHash["nut"] = R.drawable.nut
         ingredientIamgeHash["sauce"] = R.drawable.sauce
-        ingredientIamgeHash["seafood"] = R.drawable.seafood
-        ingredientIamgeHash["tofu"] = R.drawable.tofu
+        ingredientIamgeHash["seafoods"] = R.drawable.seafoods
+        ingredientIamgeHash["tofus"] = R.drawable.tofus
         ingredientIamgeHash["vegetables"] = R.drawable.vegetables
 
         // 레시피 사진 배열
