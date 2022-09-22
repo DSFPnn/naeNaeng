@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import com.example.naenaeng.MainActivity
 import com.example.naenaeng.MyApplication
+import com.example.naenaeng.MyApplication.Companion.ingredientIamgeHash
 import com.example.naenaeng.MyApplication.Companion.prefs
 import com.example.naenaeng.R
 import com.example.naenaeng.base.BaseFragment
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat
 class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout.fragment_add_ingredient) { //음식 추가 화면
     val db = Firebase.firestore
     private val ingredRef = db.collection("public")
+    private var imageInt = "-1"
 
     override fun initStartView() {
         super.initStartView()
@@ -25,7 +27,6 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
     override fun initDataBinding() {
         super.initDataBinding()
-        binding.imgAddIngredient.clipToOutline = true
 
         //재료이름 받아오기
         setFragmentResultListener("requestIngredient") { _, bundle ->
@@ -69,11 +70,13 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                         if (typeArray != null) {
                             if (binding.btnIngredientName.text in typeArray) {
                                 imageClass = type
+                                imageInt = ingredientIamgeHash[type].toString()
                                 data = hashMapOf(
                                     "name" to binding.btnIngredientName.text,
                                     "date" to binding.btnIngredientDate.text,
                                     "added" to today(),
-                                    "imageClass" to imageClass
+                                    "imageClass" to imageClass,
+                                    "imageInt" to imageInt
                                 )
                                 Log.d("meattArray",typeArray.toString())
                                 Log.d("meatt",data.toString())
@@ -87,7 +90,8 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
                             "name" to binding.btnIngredientName.text,
                             "date" to binding.btnIngredientDate.text,
                             "added" to today(),
-                            "imageClass" to imageClass
+                            "imageClass" to imageClass,
+                            "imageInt" to imageInt
                         )
                     }
                     //firestore에 재료추가
@@ -102,8 +106,8 @@ class AddIngredientFragment: BaseFragment<FragmentAddIngredientBinding>(R.layout
 
     private fun today(): String {
         val currentTime = System.currentTimeMillis()
-        val dataFormat = SimpleDateFormat("yyyyMMdd")
 
-        return dataFormat.format(currentTime).toString()
+        return currentTime.toString()
     }
+
 }

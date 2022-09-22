@@ -74,8 +74,8 @@ class HomeIngredientAdapter(itemList: List<Ingredient>, editMode: Boolean, fragm
 
     override fun onBindViewHolder(holder: HomeIngredientAdapter.ViewHolder, position: Int) {
         holder.firstLetter.text = itemList[position].name.substring(0,1)
-        if(itemList[position].imageInt != -1)
-            holder.ingredientImg.setImageResource(itemList[position].imageInt)
+        if(itemList[position].imageInt != "-1")
+            holder.ingredientImg.setImageResource(itemList[position].imageInt.toInt())
         else
             holder.ingredientImg.setImageResource(R.drawable.gray_solid_radius8)
         holder.ingredientImg.clipToOutline = true

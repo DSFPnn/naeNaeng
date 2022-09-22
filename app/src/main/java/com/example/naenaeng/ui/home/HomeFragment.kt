@@ -28,6 +28,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private var editMode = false // ture:수정모드 false:일반모드
     val db = Firebase.firestore
     private lateinit var result:String
+    private var imageInt = "-1"
 
     override fun initStartView() {
         super.initStartView()
@@ -51,7 +52,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                     -1
                 }
                 Log.d("hashhh", id.toString() + " ~ " +itemList[i].imageClass)
-                homeIngredientAdapter.itemList[i].imageInt = id
+                homeIngredientAdapter.itemList[i].imageInt = id.toString()
             }
             Log.d("ingredd", "1"+itemList.toString())
         }
@@ -187,11 +188,13 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 val result = bundle.getString("date")
                 Log.d("resultt", result.toString())
 
+                imageInt = MyApplication.ingredientIamgeHash[editItJpg].toString()
                 val data =  hashMapOf(
                     "name" to editItName,
                     "date" to result,
                     "added" to editItAdded,
-                    "imageClass" to editItJpg
+                    "imageClass" to editItJpg,
+                    "imageInt" to imageInt
                 )
 
                 db.collection("users").document(MyApplication.prefs.getString("email","null"))

@@ -5,5 +5,5 @@ data class Ingredient (
     val name:String="null name",
     val added:String="null added",
     val imageClass:String="null jpg",
-    var imageInt:Int = -1
+    var imageInt:String = "-1"
 )

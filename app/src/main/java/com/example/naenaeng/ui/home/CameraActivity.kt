@@ -52,6 +52,8 @@ class CameraActivity : AppCompatActivity() {
     private var imageClass: String = "null jpg"
     private var result : String =""
     private var plusDay : Int = 0
+    private var trainNum :Int = 3
+    private var imageInt = "-1"
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
                 RESULT_OK -> {
@@ -129,7 +131,7 @@ class CameraActivity : AppCompatActivity() {
                         }
                     }
 
-                    val bufferSize = 3 * java.lang.Float.SIZE / java.lang.Byte.SIZE
+                    val bufferSize = trainNum * java.lang.Float.SIZE / java.lang.Byte.SIZE
                     val modelOutput = ByteBuffer.allocateDirect(bufferSize).order(ByteOrder.nativeOrder())
                     interpreter.run(input, modelOutput)
 
@@ -138,8 +140,8 @@ class CameraActivity : AppCompatActivity() {
                     var temp = 0F
 
                     val reader = BufferedReader(
-                        InputStreamReader(assets.open("labels.txt")))
-                        for (i in 0..2) {
+                        InputStreamReader(assets.open("test_labels.txt")))
+                        for (i in 0 until trainNum) {
                             val label: String = reader.readLine()
                             val probability = probabilities.get(i)
                             println("$label: $probability")
@@ -184,11 +186,14 @@ class CameraActivity : AppCompatActivity() {
                                     var date = now.plusDays(plusDay.toLong())
                                     var ingredientDate = date.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일"))
 
+
+                                    imageInt = MyApplication.ingredientIamgeHash[imageClass].toString()
                                     val data = hashMapOf(
                                         "name" to result,
                                         "date" to ingredientDate,
                                         "added" to today(),
-                                        "imageClass" to imageClass
+                                        "imageClass" to imageClass,
+                                        "imageInt" to imageInt
                                     )
                                     //firestore에 재료추가
                                     db.collection("users").document(MyApplication.prefs.getString("email", "null"))
