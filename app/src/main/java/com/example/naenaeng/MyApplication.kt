@@ -17,17 +17,18 @@ class MyApplication : Application() {
         // 재료 사진 배열
         // bean, egg, fruit, meat, milk, mushroom, nut, sauce, seafood, tofu, vegetables
         ingredientIamgeHash = HashMap()
+        ingredientIamgeHash["fruit"] = R.drawable.fruit
         ingredientIamgeHash["bean"] = R.drawable.bean
         ingredientIamgeHash["egg"] = R.drawable.egg
-        ingredientIamgeHash["fruit"] = R.drawable.fruit
-        ingredientIamgeHash["meat"] = R.drawable.meat
+        ingredientIamgeHash["grain"] = R.drawable.grain
         ingredientIamgeHash["milk"] = R.drawable.milk
-        ingredientIamgeHash["mushrooms"] = R.drawable.mushrooms
         ingredientIamgeHash["nut"] = R.drawable.nut
-        ingredientIamgeHash["sauce"] = R.drawable.sauce
+        ingredientIamgeHash["paste"] = R.drawable.paste
+        ingredientIamgeHash["vegetables"] = R.drawable.vegetables
+        ingredientIamgeHash["meat"] = R.drawable.meat
+        ingredientIamgeHash["mushrooms"] = R.drawable.mushrooms
         ingredientIamgeHash["seafoods"] = R.drawable.seafoods
         ingredientIamgeHash["tofus"] = R.drawable.tofus
-        ingredientIamgeHash["vegetables"] = R.drawable.vegetables
 
         // 레시피 사진 배열
         recipeImageHash = HashMap()

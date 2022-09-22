@@ -57,6 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="14dp"
+                android:layout_marginEnd="7dp"
                 android:ellipsize="marquee"
                 android:fontFamily="@font/nanumsquare_acb"
                 android:gravity="left|center_vertical"
@@ -65,6 +66,7 @@
                 android:text="재료1"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_warning"
                 app:layout_constraintStart_toEndOf="@+id/img_ingredient"
                 app:layout_constraintTop_toTopOf="@+id/img_ingredient" />
 

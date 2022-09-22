@@ -188,7 +188,8 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 val result = bundle.getString("date")
                 Log.d("resultt", result.toString())
 
-                imageInt = MyApplication.ingredientIamgeHash[editItJpg].toString()
+                imageInt = if(editItJpg=="nullJpg")
+                    "-1" else MyApplication.ingredientIamgeHash[editItJpg].toString()
                 val data =  hashMapOf(
                     "name" to editItName,
                     "date" to result,
