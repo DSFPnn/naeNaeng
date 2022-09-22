@@ -146,17 +146,6 @@
                     tools:listitem="@layout/preference_item_view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="24dp"
-                android:text="Switch"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/allergyFilterLayout" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout

@@ -23,7 +23,6 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
     private lateinit var filterCookAdapter: RecipeFilterAdapter
     private lateinit var filterAllergyAdapter: RecipeFilterAdapter
     private lateinit var filterArrayArray:ArrayList<ArrayList<String>> // 사용자가 선택한 필터
-    private lateinit var userPreference:Unit
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(PreferenceViewModel::class.java)
@@ -36,7 +35,6 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
         super.initDataBinding()
 
         filterArrayArray = viewModelFilter.getFilter()!!
-        userPreference = viewModel.getPreference()
 
         Log.d("vieww",filterArrayArray.toString())
 
@@ -71,25 +69,6 @@ class RecipeFilterDialog  : BaseBottomDialogFragment<DialogReceipeFilterBinding>
     override fun initAfterBinding() {
         super.initAfterBinding()
 
-        binding.switch1.setOnClickListener{
-            if(switch1.isChecked){
-                // 스위치 선택시
-            }else{
-                filterCountryAdapter = RecipeFilterAdapter(ArrayList())
-                filterTasteAdapter = RecipeFilterAdapter(ArrayList())
-                filterCookAdapter = RecipeFilterAdapter(ArrayList())
-                filterAllergyAdapter = RecipeFilterAdapter(ArrayList())
-
-                binding.filterCountryRecyclerView.adapter = filterCountryAdapter
-                binding.filterTasteRecyclerView.adapter = filterTasteAdapter
-                binding.filterCookRecyclerView.adapter = filterCookAdapter
-                binding.filterAllergyRecyclerView.adapter = filterAllergyAdapter
-
-                viewModelFilter.setFilter(ArrayList())
-                viewModel.getPreference()
-            }
-
-        }
         binding.btnInitialization.setOnClickListener {
             filterCountryAdapter = RecipeFilterAdapter(ArrayList())
             filterTasteAdapter = RecipeFilterAdapter(ArrayList())
