@@ -12,6 +12,7 @@ import com.example.naenaeng.model.Menu
 class RecipeFilterAdapter (itemList: ArrayList<String>)
     : RecyclerView.Adapter<RecipeFilterAdapter.ViewHolder>(){
 
+    var userPreference = ArrayList<String>()
     var filterDatas = ArrayList<String>()
     var itemList: ArrayList<String> = itemList
         set(value) {
@@ -57,6 +58,8 @@ class RecipeFilterAdapter (itemList: ArrayList<String>)
             }
             Log.d("adapp",filterDatas.toString())
         }
+
+
     }
 
     override fun getItemCount(): Int = itemList.size
