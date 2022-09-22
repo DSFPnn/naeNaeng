@@ -52,7 +52,7 @@ class CameraActivity : AppCompatActivity() {
     private var imageClass: String = "null jpg"
     private var result : String =""
     private var plusDay : Int = 0
-    private var trainNum :Int = 2
+    private var trainNum :Int = 3
     private var imageInt = "-1"
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
