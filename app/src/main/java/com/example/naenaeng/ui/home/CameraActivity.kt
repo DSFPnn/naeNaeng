@@ -52,7 +52,7 @@ class CameraActivity : AppCompatActivity() {
     private var imageClass: String = "null jpg"
     private var result : String =""
     private var plusDay : Int = 0
-    private var trainNum :Int = 2
+    private var trainNum :Int = 3
     private var imageInt = "-1"
     private val getResultImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             when (result.resultCode) {
@@ -94,7 +94,7 @@ class CameraActivity : AppCompatActivity() {
                 .build()
 
             FirebaseModelDownloader.getInstance()
-                .getModel("TestModel", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
+                .getModel("ingredient_classification_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions)
                 .addOnSuccessListener { model: CustomModel? ->
                     // Download complete. Depending on your app, you could enable the ML
